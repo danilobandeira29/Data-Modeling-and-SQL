@@ -309,3 +309,61 @@ Existem dois tipos de chaves:
 </p>
 <p align="center">Relacionamento ternário</p>
 
+## Efetuando o Relacionamento entre Múltiplas Tabelas
+- O relacionamento entre as tabelas é feita pelo uso de uma **Chave Estrangeira(Foreign Key)**.
+- A **Chave Estrangeira** faz referencia a uma **Chave primária** de uma outra tabela.
+
+# Chaves
+- Consiste em uma ou mais colunas, utilizas para identificar instâncias da entidade de forma única.
+## Única: Primária, Candidata, Composta, Surrogada.
+## Não-única: Estrangeira.
+
+### Chave Candidata
+- **Uma ou mais colunas com potencial** para se tornarem **chave primária**.
+- Caso não seja usada como chave primária, ganha o nome de **Chave Alternativa**.
+
+### Chave Primária/Primary Key(PK)
+- **Identifica de forma única as instâncias de entidade**.
+- **Possuí valor único**.
+- **Não pode ser null**.
+- Pode ser mais de uma coluna.
+
+### Chave Estrangeira/Foreign Key(FK)
+- Coluna que estabalece uma relação com a **Chave Primária** de outra tabela.
+- **É a partir da FK que sabemos com qual registro de uma outra tabela um registro está relacionado**.
+
+### Chave Composta
+- Composta de dois ou mais colunas.
+- **Utilizada quando não é possível** termos apenas uma coluna servindo de **PK**.
+
+### Chave Surrogada ou Substituta/Surrogate Key
+- Valo númerico, **único**.
+- Adicionado para servir de **PK** para quando não quisermos utilizar uma **Chave Primária Composta**.
+- Não possuí significado para o usuário final, e geralmente é escondida na aplicação.
+
+## Instruções para a Criação de Chaves Primárias e Estrangeiras
+- **Não é possível haver valores repetidos em uma chave primária**.
+- No geral, não é possível alterar o valor de uma chave primária. E também deve ser evitado, para não gerar conflito com outra chave primária existente.
+- Chaves Estrangeiras são baseadas em valores de dados, classificados como **Ponteiros Lógicos**.
+- **Uma Chave Estrangeira** deve fazer referencia a um valor de **Chave Primária existente** em outra tabela. **Caso contrário, deverá ter seu valor nulo**.
+<p align="center">
+  <img src="https://ik.imagekit.io/xfddek6eqk/Relacionamento_entre_tabelas_XFHGNSLB8.png" 
+  alt="Relacionamento entre tabelas"
+  />
+</p>
+<p align="center">Relacionamento entre tabelas</p>
+
+
+## Conceito de Domínio
+Define que tipo de valor é aceito em um atributo.
+
+## Cardinalidade
+Grau de relação entre duas entidades ou tabelas.
+
+### Cardinalidade Mínima
+**Número de instâncias de entidade que obrigatoriamente devem participar do relacionamento.** **Zero é participação opcional e Um é obrigatório**.
+
+### Cardinalidade Máxima
+**Número máximo de instâncias de entidade que podem participar em um relacionamento**.
+
+## Simbologia para Cardinalidade
