@@ -136,7 +136,7 @@ Usuário -> Utiliza uma interface(frontend) para -> Se comunicar com o backend/S
     <img src="https://ik.imagekit.io/xfddek6eqk/DER_XjUjKj2EU.png" alt="Representação de uma Entidade, Atributos e uma instância de Entidade"/>
     
   </p>
-  <p align="center">Imagem 1</p>
+  <p align="center">Representação de uma Entidade, Atributos e uma instância de Entidade</p>
 
 
 **Relacionamentos**
@@ -162,7 +162,7 @@ Usuário -> Utiliza uma interface(frontend) para -> Se comunicar com o backend/S
   alt="Diagrama Entidade Relacionamento"
   />
 </p>
-<p align="center">Imagem 2</p>
+<p align="center">Diagrama Entidade Relacionamento</p>
 
 ## Níveis de Modelagem de Dados
 - Modelo Conceitual.
@@ -248,3 +248,64 @@ Existem dois tipos de chaves:
   - Única: Chave primária
   - Não-Única: Chave estrangeira
 - As chaves podem ser compostas, consistindo em dois ou mais atributos para identificar a instância da entidade.
+
+
+## Entidade/Relação
+- **Entidade** é um conceito do mundo real, como Cliente ou Produto, que eu devo guardar informações sobre.
+- **Relação** é um conjunto de registros(tuplas) que representam um modelo de uma entidade.
+- Um registro da entidade é chamado de **instância da entidade**, e o conjunto de todas as instâncias é chamado de **Relação**.
+- **A entidade da ênfase em como eu quero armazenar, ou quais dados eu quero armazenar de um determinado conceito do mundo real.**
+- **Já a relação, da ênfase nas instâncias da entidade**.
+
+## Relação
+- Tabela **bidimensional** que contém linhas e colunas, criada a partir de uma **Entidade**.
+### Características de uma Relação
+- **Linha**: contém uma instância da entidade.
+- **Coluna**: contém um atributo.
+- Todos os valores em uma **Coluna** são do mesmo tipo.
+- Cada **Coluna** possuí nome **único**.
+- **Não há duas linhas idênticas**.
+- As relações geralmente geram tabelas no Banco.
+> Exemplo:
+
+| ID_Produto       | Nome_Produto     | Preço_Produto     |
+| :------------- | :----------: | -----------: |
+|  1000 | Mouse   | 15,00    |
+| 1001   | Teclado | 10,00 | 
+| 1002   | Cadeira | 150,00 | 
+
+## Relacionamento
+- As **entidades** se conectam entre si por meio de um **Relacionamento**.
+- É a associação entre duas ou mais entidades.
+- Existem casos que a **entidade** se relaciona com ela mesmo.
+### Por que precisamos de um Relacionamento?
+- Os dados de diferentes **entidades** são guardados em tabelas distintas, **geralmente precisamos combinar duas ou mais tabelas para satisfazer as consultas do usuário no Banco de Dados**.
+
+## Grau de Relacionamento
+- Define o número de entidades que participam de um mesmo relacionamento.
+> Exemplo:
+> - Unário
+> - Binário
+> - Ternário, etc.
+
+<p align="center">
+  <img src="https://ik.imagekit.io/xfddek6eqk/Relacionamento_Un_rio_0YDhvTGycz.png" 
+  alt="Relacionamento unário"
+  />
+</p>
+<p align="center">Relacionamento unário</p>
+
+<p align="center">
+  <img src="https://ik.imagekit.io/xfddek6eqk/Relacionamento_Bin_rio_Ul1VR9yhW.png" 
+  alt="Relacionamento binário"
+  />
+</p>
+
+<p align="center">Relacionamento binário</p>
+<p align="center">
+  <img src="https://ik.imagekit.io/xfddek6eqk/Relacionamento_Tern_rio_tbBuyBmt2s.png" 
+  alt="Relacionamento ternário"
+  />
+</p>
+<p align="center">Relacionamento ternário</p>
+
