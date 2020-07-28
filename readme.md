@@ -368,7 +368,7 @@ Grau de relação entre duas entidades ou tabelas.
 
 ## Simbologia para Cardinalidade
 Duas das simbologias mais utilizadas para expressar a cardinalidade dos Relacionamentos são:
-  - Notação de Peter Chen: Onde o **primeiro número representa a cardinalidade mínima**, e o **segundo representa a cardinalidade máxima**.
+  - **Notação de Peter Chen**: Onde o **primeiro número representa a cardinalidade mínima**, e o **segundo representa a cardinalidade máxima**.
     - Forma de ler: Funcionário trabalha em **um e apenas um** Departamento. Em Departamento trabalha no **mínimo um** funcionário, no **máximo N** funcionários.
 
 
@@ -380,14 +380,16 @@ Duas das simbologias mais utilizadas para expressar a cardinalidade dos Relacion
 <p align="center">Notação de Peter Chen</p>
 
 
-  - Notação Pé de Galinha(*crows foot*)
+  - **Notação Pé de Galinha(*crows foot*)**
 
   <p align="center">
   <img src="https://ik.imagekit.io/xfddek6eqk/crowsfoot_notation_6Ok5BWFOd.gif" 
   alt="Notação Pé de Galinha(*crows foot*)"
   />
 </p>
-<p align="center">Notação Pé de Galinha(crows foot)</p>
+<p align="center">Notação Pé de Galinha(crows foot).</p>
+
+##### Fonte: https://davidneely.files.wordpress.com/2015/04/crowsfoot_notation.gif
 
  Onde a imagem acima está representando os relacionamentos de: 
   - um e apenas um => equivale a (1, 1) na notação de Peter Chen
