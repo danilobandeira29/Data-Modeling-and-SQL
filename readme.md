@@ -448,4 +448,57 @@ Duas das simbologias mais utilizadas para expressar a cardinalidade dos Relacion
 | tbl_Autor | tbl_Autor      | Escreve                 | Tabela para cadastro dos Autores de Livros         |
 
 > Fazer também uma tabela para cada entidade, onde terá as colunas: **atributo**, **tipo de dado**, **comprimento**, **restrição**, **valor** e **descrição**. Colocar também o **valor máximo que cada registro poderá atingir**, fazendo um **somatório do comprimento**.
-> Fazer também uma tabela para cada relacionamento.
+> Fazer também uma tabela para cada relacionamento, onde poderá ter as colunas: **tabela1-FK**, **tabela2-PK**... por exemplo.
+
+## Dependência Funcional
+- Seja **E** uma tabela, e **X** e **Y** os atributos dessa tabela. Dizemos que **Y** é funcionalmente dependente de **X** se e somense se cada valor de **X** tiver associado a ele exatamente um valor de **Y**.
+- Simbolicamente:
+X -> Y
+  - Onde X determina funcionamente Y.
+  - E Y depende funcionalmente de X.
+
+> Exemplo: ID_Pedido -> Prazo_Entrega
+
+> Prazo de entrega depende do ID_Pedido, pois o prazo varia de acordo com o pedido.
+
+> Observação: Uma PK determina funcionalmente todos os outros atributos.
+
+### Dependência Funcional Total
+- Em uma relação onde existe uma **PK Composta**, **um atributo não-chave que depende de toda a chave composta**, não somente parte dela.
+
+<p align="center">
+  <img src="https://ik.imagekit.io/xfddek6eqk/Depend_ncia_funcional_Total_aiNBGwDLq.png" 
+  alt="Dependência Funcional Total"
+  />
+</p>
+<p align="center">Dependência Funcional Total</p>
+
+> Nessa tabela é possível observar que Quantidade_Produto depende tanto de ID_Produto como de ID_Pedido(quantidade de produto de qual pedido?).
+
+### Dependência Funcional Parcial
+- Em uma relação onde existe uma **PK Composta**, **um atributo não-chave que depende apenas de parte da PK**, não totalmente dela.
+
+
+<p align="center">
+  <img src="https://ik.imagekit.io/xfddek6eqk/Depend_ncia_funcional_Parcial_kROKOI-m5.png" 
+  alt="Dependência Funcional Parcial"
+  />
+</p>
+<p align="center">Dependência Funcional Parcial</p>
+
+> Nessa tabela, Nome_Disciplina **depende apenas** de ID_Disciplina.
+
+### Dependência Funcional Transitiva
+- Ocorre quando um atributo não-chave depende diretamente de outro atributo não-chave.
+
+<p align="center">
+  <img src="https://ik.imagekit.io/xfddek6eqk/Depend_ncia_funcional_Transitiva_f-C2UENqT.png" 
+  alt="Dependência Funcional Transitiva"
+  />
+</p>
+<p align="center">Dependência Funcional Transitiva</p>
+
+> Nessa tabela, Nome_Vendedor(atributo não-chave) **depende apenas** de ID_Vendedor(atributo não-chave).
+
+### Dependência Funcional Multivalorada
+
