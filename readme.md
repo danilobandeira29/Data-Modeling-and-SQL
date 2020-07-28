@@ -443,14 +443,14 @@ Duas das simbologias mais utilizadas para expressar a cardinalidade dos Relacion
 - Também chamado de **Repositório de Metadados**.
 
 | Tabela    | Relacionamento | Nome do Relacionamento  | Descrição                                          |
-| :-------- | :------------: | ----------------------: | --------------------------------------------------:|
+| :-------: | :------------: | :---------------------: | :-------------------------------------------------:|
 | tbl_Livro | tbl_Autor      | Escreve                 | Tabela para cadastro de livros                     |
 | tbl_Autor | tbl_Autor      | Escreve                 | Tabela para cadastro dos Autores de Livros         |
 
 > Fazer também uma tabela para cada entidade, onde terá as colunas: **atributo**, **tipo de dado**, **comprimento**, **restrição**, **valor** e **descrição**. Colocar também o **valor máximo que cada registro poderá atingir**, fazendo um **somatório do comprimento**.
 > Fazer também uma tabela para cada relacionamento, onde poderá ter as colunas: **tabela1-FK**, **tabela2-PK**... por exemplo.
 
-## Dependência Funcional
+## **Dependência Funcional**
 - Seja **E** uma tabela, e **X** e **Y** os atributos dessa tabela. Dizemos que **Y** é funcionalmente dependente de **X** se e somense se cada valor de **X** tiver associado a ele exatamente um valor de **Y**.
 - Simbolicamente:
 X -> Y
@@ -501,4 +501,18 @@ X -> Y
 > Nessa tabela, Nome_Vendedor(atributo não-chave) **depende apenas** de ID_Vendedor(atributo não-chave).
 
 ### Dependência Funcional Multivalorada
+- Ocorre quando para cada valor de um atributo não-chave **A** existe um conjunto de valores para outros atributos não-chave **B** e **C** que estão associados a **A**, mas não dependem entre si.
+- Representação de uma dependência multivalorada:
+A ->> B
+
+| Modelo| Ano    | Cor     |
+| :----:| :-----:| :------:|
+| Gol   | 2018   | Vermelho|
+| Uno   | 2020   |  Azul   |
+
+
+> Ano e Cor **são independentes entre si** mas ambos dependem de Modelo.
+> A partir do Ano, não consigo determinar a Cor.
+> A partir da Cor, não consigo determinar o Ano.
+> A partir do Modelo, consigo determinar Cor e Ano.
 
