@@ -367,3 +367,69 @@ Grau de relação entre duas entidades ou tabelas.
 **Número máximo de instâncias de entidade que podem participar em um relacionamento**.
 
 ## Simbologia para Cardinalidade
+Duas das simbologias mais utilizadas para expressar a cardinalidade dos Relacionamentos são:
+  - Notação de Peter Chen: Onde o **primeiro número representa a cardinalidade mínima**, e o **segundo representa a cardinalidade máxima**.
+    - Forma de ler: Funcionário trabalha em **um e apenas um** Departamento. Em Departamento trabalha no **mínimo um** funcionário, no **máximo N** funcionários.
+
+
+  <p align="center">
+  <img src="https://ik.imagekit.io/xfddek6eqk/Cardinalidade_Peter_Chen_zizAc5Bqb.png" 
+  alt="Notação de Peter Chen(*crows foot*)"
+  />
+</p>
+<p align="center">Notação de Peter Chen</p>
+
+
+  - Notação Pé de Galinha(*crows foot*)
+
+  <p align="center">
+  <img src="https://ik.imagekit.io/xfddek6eqk/crowsfoot_notation_6Ok5BWFOd.gif" 
+  alt="Notação Pé de Galinha(*crows foot*)"
+  />
+</p>
+<p align="center">Notação Pé de Galinha(crows foot)</p>
+
+ Onde a imagem acima está representando os relacionamentos de: 
+  - um e apenas um => equivale a (1, 1) na notação de Peter Chen
+  - um ou muitos => equivale a (1, N) na notação de Peter Chen
+  - zero, um ou muitos => equivale a (0, N) na notação de Peter Chen
+  - zero ou um => equivale a (0, 1) na notação de Peter Chen
+
+## Integridade de Dados
+- **Manutenção e garantia da consistência e  precisão dos dados**, sendo atingida por meio das **Restrições de Integridade**.
+### 5 Principais tipos de Restrições de Integridade
+- Referencial
+- de Vazio
+- de Chave
+- Definida pelo usuário
+
+#### Integridade de Domínio
+  - Os valores inseridos em uma coluna devem ser do mesmo tipo dos valores aceitos por essa coluna.
+  - Fatores:
+    - tipo de dados do campo
+    - representação interna do tipo de dado
+      > Exemplo> se o valor é inteiro, númerico, data ou string.
+    - presença ou não do dado
+      > se o dado pode ser vazio
+    - intervalo de valores do domínio
+      > Exemplo: em um tabela de preço, só posso ter valores maiores que 0, pois não posso ter preço negativo.
+    - conjunto de valores discretos
+      > não necessariamente um intervalo, mas um exemplo de um dado que será guardado, por exemplo um preço: 55,34
+#### Integridade Referencial
+- Assegura que valores de uma coluna em uma tabela são valores válidos baseados nos valores em outra tabela relacionada.
+> Exemplo: Na tabela de venda, foi registrado uma venda onde o id_produto vendido foi 540. Na tabela de produto, por sua vez, existe um id_produto 540.
+##### Exclusão e Atualização(propagação em cascata)
+- Se um registro A é excluido, todos os outros registros N que fazem referencia a A talvez sejam excluidos ou apenas setado null, irá depender da regra de negócio. 
+
+#### Integridade de Vazio
+- Informa se uma coluna é obrigatória ou não, podendo assumir valor null quando não for obrigatória.
+
+#### Integridade de Chave
+- Os valores inseridos em uma chave primária devem ser sempre únicos.
+- Dessa forma, cada tupla/linha/registro será única.
+- Chaves primária não pode ser nula.
+
+#### Integridade Definada pelo Usuário
+- Diz respeito a regra de negócio.
+> Exemplo: Uma coluna que aceita apenas valores entre 1 e 10.
+
