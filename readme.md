@@ -146,9 +146,10 @@ Usuário -> Utiliza uma interface(frontend) para -> Se comunicar com o backend/S
   > De acordo com a regra de negócio, um cliente pode comprar **apenas um** Produto.
   > O relacionamento entre Cliente e Produto é nomeado de **Compra**
 
-# Diagrama Entidade Relacionamento
+# Diagrama Entidade Relacionamento(DER)
 - Representação gráfica do **MER**.
-- É composto por:
+- Existem várias notações para representar um **DER**, como: **Peter Chen**, **Pé de galinha(crows foot)**, **Min-Max**, **UML**, entre outros. Iremos adotar a notação de **Peter Chen**.
+- A notação de **Peter Chen** é composto por:
   - Retângulos, que representam as **Entidades**.
   - Elipses, que representam os **Atributos**.
   - Losangos, que representa os **Relacionamentos**.
@@ -435,3 +436,16 @@ Duas das simbologias mais utilizadas para expressar a cardinalidade dos Relacion
 - Diz respeito a regra de negócio.
 > Exemplo: Uma coluna que aceita apenas valores entre 1 e 10.
 
+## **Dicionário de Dados**
+- É um documento usado para armazenar informações sobre o **conteúdo**, **formato** e a **estrutura do banco**, assim como o **relacionamento entre os elementos**.
+- Armazena informações sobre: **Entidade**, **Atributos** e **Relacionamentos**.
+- Ajuda a limitar os erros ao criar a estrutura física do Banco.
+- Também chamado de **Repositório de Metadados**.
+
+| Tabela    | Relacionamento | Nome do Relacionamento  | Descrição                                          |
+| :-------- | :------------: | ----------------------: | --------------------------------------------------:|
+| tbl_Livro | tbl_Autor      | Escreve                 | Tabela para cadastro de livros                     |
+| tbl_Autor | tbl_Autor      | Escreve                 | Tabela para cadastro dos Autores de Livros         |
+
+> Fazer também uma tabela para cada entidade, onde terá as colunas: **atributo**, **tipo de dado**, **comprimento**, **restrição**, **valor** e **descrição**. Colocar também o **valor máximo que cada registro poderá atingir**, fazendo um **somatório do comprimento**.
+> Fazer também uma tabela para cada relacionamento.
