@@ -516,3 +516,27 @@ A ->> B
 > A partir da Cor, não consigo determinar o Ano.
 > A partir do Modelo, consigo determinar Cor e Ano.
 
+## Anomalias de Atualização
+- Anomalias são problemas que ocorrem em **Banco de Dados mal planejados** e **não normalizados**.
+- **Geralmente ocorre quando a excesso de dados em uma mesma tabela**.
+- São causadas pelas **Dependências Parciais** e **Transitivas**.
+- São classificadas em:
+  - Inserção
+  - Exclusão
+  - Modificação
+### Anomalia de Inserção
+- Não deve ser possível inserir um dado, a não ser que outro dado esteja disponível.
+> Exemplo: Não deve ser possível adicionar um novo livro sem que o autor desse livro já esteja cadastrado no banco de dados.
+
+### Anomalia de Exclusão
+- Ao excluir um registro, dados em uma outra tabela que fazem referência a esse registro também deve ser excluído.
+> Exemplo: Se excluirmos um autor, todos os livros desse autor devem ser excluídos do banco.
+
+### Anomalia de Modificação
+- Ao atualizarmos um registro, todos os outros registros que fazem referência a ele devem ser atualizados.
+> Exemplo: Caso o ID_Autor da tabela autor tenha sido atualizado, todas as tabelas que fazem referência a esse ID_Autor devem ser atualizados também. Dessa forma, os relacionamentos serão mantidos.
+
+### Como eliminar as Anomalias de Atualização?
+- Aplicando a técnica de Normalização.
+
+## **Normalização**
