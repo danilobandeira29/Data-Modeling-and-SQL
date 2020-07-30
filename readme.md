@@ -547,3 +547,11 @@ A ->> B
 - Originalmente, possuí três formas normais: primeira, segunda e terceira forma normal.
 - Posteriormente a terceira forma normal foi revisada e deu origem a **Forma Normal de Boyce-Codd(FNBC)**.
 - Existe a quarta e quinta forma normal, mas são raramente utilizadas.
+
+## Objetivos da Normalização
+- Analisar tabelas com suas **dependências funcionais e chaves primária** para:
+  1. Minimizar redundâncias
+  2. Minimizar anomalias de inserção, exclusão e modificação.
+- **As relações serão decompostas em relações menores que atendem os testes de forma normal.**
+- O ideal é que o **projeto do Banco de Dados alcance a terceira forma normal** ou a **forma normal de boyce-codd**.
+- **NÃO** é ideal normalizar apenas até a primeira ou segunda forma normal.
