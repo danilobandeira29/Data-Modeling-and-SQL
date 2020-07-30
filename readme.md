@@ -540,3 +540,10 @@ A ->> B
 - Aplicando a técnica de Normalização.
 
 ## **Normalização**
+- Consiste em analisar uma tabela, para verificar se a mesma está bem formada.
+- **Decompor** tabelas que possuem anomalias para produzir **relações menores** e **bem-estruturadas**.
+- **Ou seja, ao normalizar uma tabela, podemos inserir, excluir e modificar registros sem gerar anomalias.**
+- Aplicamos uma **série de testes para verificar que a tabela satisfaça uma forma normal(FN)**.
+- Originalmente, possuí três formas normais: primeira, segunda e terceira forma normal.
+- Posteriormente a terceira forma normal foi revisada e deu origem a **Forma Normal de Boyce-Codd(FNBC)**.
+- Existe a quarta e quinta forma normal, mas são raramente utilizadas.
