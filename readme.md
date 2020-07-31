@@ -555,3 +555,35 @@ A ->> B
 - **As relações serão decompostas em relações menores que atendem os testes de forma normal.**
 - O ideal é que o **projeto do Banco de Dados alcance a terceira forma normal** ou a **forma normal de boyce-codd**.
 - **NÃO** é ideal normalizar apenas até a primeira ou segunda forma normal.
+
+## **Primeira Forma Normal(1FN)**
+- **Em cada tabela**, eu devo analisar para que **NÃO** tenham atributos **multivalorados**, **compostos** e **suas combinações**.
+- Ou seja, A primeira forma normal serve para reprovar tais atributos citados acima.
+- Está na Primeira Forma Normal quando:
+  - **Possuí apenas atributos atômicos**.
+  - Não há grupos de atributos repetidos(há apenas um dado por coluna nas linhas).
+  - Existe uma Chave Primária.
+  - Relação **NÃO** possuí atributos multivalorados.
+> Exemplo: Atributo Endereço é multivalorado, pois pode ser dívido em rua, cep, número, casa...
+
+## **Normalização uma tabela até a 1FN**
+
+- Podemos observar que a tabela cliente possuí o atributo multivalorado 'telefone'.
+- Para normalizar, podemos criar uma nova tabela que servirá para armazenar os telefones dos clientes, onde terá como Chave Primária o **Cod** e o **telefone**.
+### **Tabela Cliente(não normalizada)**
+| Cod      | Nome_Cliente     | Telefone     |
+| :------------- | :----------: | -----------: |
+|  2532 | Danilo   | (86) 9 9999-9999/ (86)9 8888-8888   |
+
+### **Tabela Cliente(normalizada)**
+
+| Cod      | Nome_Cliente     |
+| :------------- | :----------: |
+|  2532 | Danilo   |
+
+### **Tabela Telefone_Cliente**
+
+| Cod      | Telefone     |
+| :------------- | :----------: |
+|  2532 | (86) 9 9999-9999   |
+|  2532 | (86) 9 8888-8888  |
