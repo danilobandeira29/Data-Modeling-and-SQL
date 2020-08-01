@@ -571,19 +571,19 @@ A ->> B
 - Podemos observar que a tabela cliente possuí o atributo multivalorado 'telefone'.
 - Para normalizar, podemos criar uma nova tabela que servirá para armazenar os telefones dos clientes, onde terá como Chave Primária o **Cod** e o **telefone**.
 ### **Tabela Cliente(não normalizada)**
-| Cod      | Nome_Cliente     | Telefone     |
+| Cod(PK)      | Nome_Cliente     | Telefone     |
 | :------------- | :----------: | -----------: |
 |  2532 | Danilo   | (86) 9 9999-9999/ (86)9 8888-8888   |
 
 ### **Tabela Cliente(normalizada)**
 
-| Cod      | Nome_Cliente     |
+| Cod(PK)     | Nome_Cliente     |
 | :------------- | :----------: |
 |  2532 | Danilo   |
 
 ### **Tabela Telefone_Cliente**
 
-| Cod      | Telefone     |
+| Cod(PK)      | Telefone     |
 | :------------- | :----------: |
 |  2532 | (86) 9 9999-9999   |
 |  2532 | (86) 9 8888-8888  |
@@ -602,7 +602,7 @@ A ->> B
 - **A parte da PK composta que determina funcionalmente esses atributos não-chave, será também a PK da nova tabela criada.**
 
 ### **Tabela Peça(não 2FN)**
-| Cod_Peça    | Cod_Fornecedor     | Local_Fornecedor    | Qtde_Estoque | Tel_Fornecedor
+| Cod_Peça(PK)    | Cod_Fornecedor(PK)    | Local_Fornecedor    | Qtde_Estoque | Tel_Fornecedor
 | :------------- | :----------: | :-----------: |:-----------: | -----------: |
 |  2532 | 02   | Piauí   | 25   | (86) 9 9999-9999  |
 |  2532 | 03   | São Paulo   | 20   | (11) 9 8888-8888  |
@@ -610,7 +610,7 @@ A ->> B
 |  2533 | 02   | Piauí   | 4   | (86) 9 9999-9999  |
 
 ### **Tabela Peça(na 2FN)**
-| Cod_Peça    | Cod_Fornecedor    | Qtde_Estoque | 
+| Cod_Peça(PK)    | Cod_Fornecedor(PK, FK)    | Qtde_Estoque | 
 | :------------- | :----------: | -----------: |
 |  2532 | 02   | 25   |
 |  2532 | 03   | 20   | 
@@ -618,7 +618,7 @@ A ->> B
 |  2533 | 02   | 4   |
 
 ### **Tabela Fornecedor(na 2FN)**
-| Cod_Fornecedor   | Local_Fornecedor    | Tel_Fornecedor
+| Cod_Fornecedor(PK)   | Local_Fornecedor    | Tel_Fornecedor
 | :------------- | :----------: | -----------: |
 |  02 | Piauí | (86) 9 9999-9999  |
 |  03 | São Paulo| (11) 9 8888-8888  |
