@@ -587,3 +587,38 @@ A ->> B
 | :------------- | :----------: |
 |  2532 | (86) 9 9999-9999   |
 |  2532 | (86) 9 8888-8888  |
+
+## **Segunda Forma Normal(2FN)**
+- Baseada no conceito de **Dependência Funcional Total**.
+- Uma tabela está na 2FN **se cada atributo não-chave for dependênte funcionalmente total da chave primária composta**.
+- **Caso a PK não seja composta, esse teste não será aplicado.**
+- Está na 2FN se:
+  - Está na 1FN.
+  - Todos os atributos não-chave possuem dependêncial funcional total da PK composta.
+  - Não existem dependências funcionais parciais
+  - Caso contrário, deve-se gerar uma tabela nova com dados.
+## **Normalizando uma tabela até a 2FN**
+- Deve-se criar uma **nova tabela com os atributos não-chave que dependem de parte da PK composta**.
+- **A parte da PK composta que determina funcionalmente esses atributos não-chave, será também a PK da nova tabela criada.**
+
+### **Tabela Peça(não 2FN)**
+| Cod_Peça    | Cod_Fornecedor     | Local_Fornecedor    | Qtde_Estoque | Tel_Fornecedor
+| :------------- | :----------: | :-----------: |:-----------: | -----------: |
+|  2532 | 02   | Piauí   | 25   | (86) 9 9999-9999  |
+|  2532 | 03   | São Paulo   | 20   | (11) 9 8888-8888  |
+|  2533 | 03   | São Paulo   | 10   | (11) 9 8888-8888  |
+|  2533 | 02   | Piauí   | 4   | (86) 9 9999-9999  |
+
+### **Tabela Peça(na 2FN)**
+| Cod_Peça    | Cod_Fornecedor    | Qtde_Estoque | 
+| :------------- | :----------: | -----------: |
+|  2532 | 02   | 25   |
+|  2532 | 03   | 20   | 
+|  2533 | 03   | 10   | 
+|  2533 | 02   | 4   |
+
+### **Tabela Fornecedor(na 2FN)**
+| Cod_Fornecedor   | Local_Fornecedor    | Tel_Fornecedor
+| :------------- | :----------: | -----------: |
+|  02 | Piauí | (86) 9 9999-9999  |
+|  03 | São Paulo| (11) 9 8888-8888  |
