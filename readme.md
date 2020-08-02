@@ -622,3 +622,40 @@ A ->> B
 | :------------- | :----------: | -----------: |
 |  02 | Piauí | (86) 9 9999-9999  |
 |  03 | São Paulo| (11) 9 8888-8888  |
+
+## **Terceira Forma Normal(3FN)**
+- Baseada no conceito de **dependência funcional transitiva**.
+- **Não deve existir atributos não-chave que determinam funcionamento outro atributo não-chave(ou conjunto deles).**
+
+Está na 3FN se:
+- Está na 2FN.
+- Não existir dependência funcional transitiva.
+
+## **Normalizando uma tabela até a 3FN**
+- Para cada atributo(ou conjunto) não-chave que determina funcionalmente outro atributo não-chave, crie uma nova relação. Esse atributo determinante será a PK na nova tabela.
+- Mova todos os atributos que dependem funcionalmente desse atributo para a nova tabela.
+- O atributo PK da nova tabela será agora FK na tabela antiga, para associar as duas tabelas.
+
+### **Tabela Venda(não 3FN)**
+| Nota_fiscal(PK)     | Cod_Vendedor (FK)  | Nome_Vendedor | Cod_Produto | Qtde_vendida |
+| :------------- | :----------: | :----------: | :----------: | ----------: |
+|  0001 | 04  | Danilo  | 002  | 01  |
+> Nome_Vendedor(atributo não-chave) depende funcionalmente de Cod_Vendedor(atributo não-chave).
+
+### **Tabela Venda(na 3FN)**
+| Nota_fiscal(PK)     | Cod_Vendedor (FK)  | Cod_Produto | Qtde_vendida |
+| :------------- | :----------: | :----------: | :----------: | ----------: |
+|  0001 | 04 | 002  | 01  |
+### **Tabela Vendedor(na 3FN)**
+| Cod_Vendedor(PK)    | Nome_Vendedor  |
+| :------------- | ----------: |
+|  04 | Danilo |
+
+### **Passos da Normalização**
+1. Tabela não-normalizada
+2. Remover atributos multivalorados e compostos
+3. 1FN
+4. Remover as dependências funcionais parciais
+5. 2FN
+6. Remover as dependências funcionais transitivas
+7. 3FN
