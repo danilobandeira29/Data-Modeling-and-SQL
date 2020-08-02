@@ -644,7 +644,7 @@ Está na 3FN se:
 
 ### **Tabela Venda(na 3FN)**
 | Nota_fiscal(PK)     | Cod_Vendedor (FK)  | Cod_Produto | Qtde_vendida |
-| :------------- | :----------: | :----------: | :----------: | ----------: |
+| :------------- | :----------: | :----------: | ----------: 
 |  0001 | 04 | 002  | 01  |
 
 ### **Tabela Vendedor(na 3FN)**
