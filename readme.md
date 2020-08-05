@@ -660,3 +660,78 @@ Está na 3FN se:
 5. 2FN
 6. Remover as dependências funcionais transitivas
 7. 3FN
+
+## **Forma Normal de Boyce-Codd(FNBC)**
+- **Quando uma Relação possuí mais do que uma chave candidata, podem ocorrer anomalias.**
+- A 3FN não lida com:
+  - Duas ou mais chaves candidatas compostas em uma relação.
+  - Essas chaves candidatas tivessem atributo em comum(superposição).
+- Caso a combinação dessas condições não ocorra, basta normalizar a tabela até a 3FN.
+- **Uma relação só está na FNBC SE E SOMENTE SE os únicos determinantes forem a chave canditada composta.**
+- Na FNBC as chaves candidatas não possuem dependências parciais por outros atributos.
+- Uma relação R está na FNBC sempre que uma dependência funcional não-trivial X -> a se mantiver em R, assim X é uma superchave de R.
+
+### **Dependência Funcional Trivial**
+- Dependência que não pode deixar de ser satisfeita
+- **Dependência funcional é trivial se o lado direito da expressão é subconjunto do lado esquerdo.**
+> Exemplo: A -> B é um dependência funcional trivial se B for um subconjunto de A.
+> Exemplo: { ID_Func, Nome_Func }(chave primária composta) -> ID_Func
+
+### **Tabela Fornecedor
+
+| ID_Forn  | Nome          | ID_Prod | Quantidade  | 
+| :------- | :-----------: | :-----: | ----------: |
+|  01 | Fátima Salgados  | 10      | 30          |
+|  01 | Fátima Salgados  | 12      | 55          |
+|  02 | Danilo Salgados  | 10      | 30          |
+
+- ID_Forn não pode ser chave primária, pois se repete.
+- ID_Prod não pode ser chave primária, pois se repete.
+
+**Chaves Candidatas Composta:**
+
+{ ID_Forn, **ID_Prod** }
+
+{ Nome, **ID_Prod** }
+
+**ID_Prod acaba sendo o atributo em comum nas duas chaves candidatas composta, ou seja, superposição.**
+
+## **Normalizando até a FNBC**
+- Devemos decompor a tabela com os seguintes passos:
+  1. Encontrar uma dependência funcional não-trivial X -> Y que viole a condição da FNBC. X não deve ser superchave.
+
+  2. Dividir a tabela em duas: Uma com os atributos XY, ou seja, todos os atributos da dependência.
+
+### **Tabela Fornecedor**
+| ID_Forn(PK) | Nome          | 
+| :------- | -----------: |
+|  01 | Fátima Salgados  |
+|  01 | Fátima Salgados  | 
+|  02 | Danilo Salgados  |
+
+**posso ter a tabela com ID_Forn e ID_Prod como sendo a chave primária composta.**
+### **Tabela Forn_Produto**
+| ID_Forn(PK)(FK)  | ID_Prod(PK) | Quantidade  | 
+| :------- | :-----------: | -----: |
+|  01 |  10      | 30          |
+|  01 |  12      | 55          |
+|  02 |  10      | 30          |
+
+**OU posso ter a tabela com Nome e ID_Produto como sendo a chave primária composta.**
+
+### **Tabela Forn_Produto**
+| Nome_Forn(PK)(FK)  | ID_Prod(PK) | Quantidade  | 
+| :------- | :-----------: | -----: |
+|  Fátima Salgados |  10      | 30          |
+|  Fátima Salgados |  12      | 55          |
+|  Danilo Salgados|  10      | 30          |
+
+**Sempre há mais que uma decomposição válida na FNBC.**
+
+#### Resumo
+- Pegar uma tabela na 3FN e analisar se existem duas ou mais chaves candidatas composta.
+- Caso haja, verificar se existem um atributo em comum entre essas chave candidatas composta.
+- Caso possua, decompor a tabela, tal que:
+    1. Remover o atributo(X) em comum para outra tabela juntamente com os atributos dependentes funcionais de X.
+    2. Utilizar um dos atributos Y ou Z que seriam par do atributo X na tabela da qual ele foi removido.
+    3. Na nova tabela, os atributos que eram chave candidata composta na tabela antiga, serão chave primária, por exemplo X e Y.
