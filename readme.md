@@ -735,3 +735,42 @@ Está na 3FN se:
     1. Remover o atributo(X) em comum para outra tabela juntamente com os atributos dependentes funcionais de X.
     2. Utilizar um dos atributos Y ou Z que seriam par do atributo X na tabela da qual ele foi removido.
     3. Na nova tabela, os atributos que eram chave candidata composta na tabela antiga, serão chave primária, por exemplo X e Y.
+
+# Projeto Prático
+- Banco de dados para o gerenciamento de uma faculdade.
+
+**Objetivos do Banco de dados**
+- Realizar controle centralizado de Alunos, Professores, Cursos, Disciplina, Histórico escolar e Turmas.
+
+## Fases do Projeto
+- Levantamento de Requisitos
+- Identificação de Entidades e Relacionamentos
+- MER
+- DER
+- Dicionário de Dados
+- Normalização
+- Implementação
+- Testes básicos
+
+## Regras de Negócio
+- Um **Aluno** só pode estar matriculado em um curso por vez.
+- Alunos possum um **código identificador(RA)**.
+- **Cursos** são *compostos* por **Disciplina**.
+- Cada disciplina terá no máximo 30 alunos por **Turma**.
+- As disciplinas devem ser obrigatórias ou optativas, depende do curso.
+- As disciplinas pertencem a departamentos específicos.
+- Cada disciplina possuí um código de identificação.
+- Alunos podem trancar matrícula, não estando então matriculados em nenhuma disciplina no semestre.
+- Em cada semestre, cada aluno poderá se matricular em no máximo 9 disciplinas.
+- O aluno poderá ser reprovado no máximo 3 vezes na mesma disciplina.
+- A faculdade terá no máximo 3000 alunos matriculados simultaneamente, em 10 cursos distintos.
+- Entram 300 alunos novos por ano.
+- Existem 30 disciplinas no total disponíveis.
+- O **Histórico escolar** traz todas as disciplinas cursadas por um aluno, incluindo nota final, frequência e período do curso realizado.
+- **Professores** podem ser cadastrados sem mesmo lecionar.
+- Existem 40 professores trabalhando na faculdade.
+- Cada professor irá lacionar no máximo 4 disciplinas diferentes.
+- Cada professor é vinculado a um departamento.
+- Professores são identificados por código do professor.
+
+> **Podem ter mais regras!!** Temos o processo de Análise para descobrir ou criar novas regras.
