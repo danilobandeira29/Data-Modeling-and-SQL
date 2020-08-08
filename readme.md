@@ -744,7 +744,7 @@ Está na 3FN se:
 
 ## Fases do Projeto
 - Levantamento de Requisitos
-- Identificação de Entidades e Relacionamentos
+- Identificação de Entidades, Relacionamentos e Atributos
 - MER
 - DER
 - Dicionário de Dados
@@ -752,7 +752,7 @@ Está na 3FN se:
 - Implementação
 - Testes básicos
 
-## Regras de Negócio
+## Regras de Negócio // Levantamento de Requisitos
 - Um **Aluno** só pode estar matriculado em um curso por vez.
 - Alunos possum um **código identificador(RA)**.
 - **Cursos** são *compostos* por **Disciplina**.
@@ -774,3 +774,60 @@ Está na 3FN se:
 - Professores são identificados por código do professor.
 
 > **Podem ter mais regras!!** Temos o processo de Análise para descobrir ou criar novas regras.
+
+## Identificação de Entidades, Relacionamentos e Atributos
+
+- Tentar reprensetar um elemento como Entidade, para que seja possível observar se pode ou não ocorrer instância daquele elemento.
+
+### Entidades
+- Aluno
+- Professor
+- Disciplina
+- Curso
+- Departamento
+- Histórico Escolar
+- Turma
+
+ > Consegui identificar essas Entidades. Talvez existam mais, pois modelagem é um processo que pode mudar ao longo do tempo, mas ficará mais definada também com o tempo.
+
+### Relacionamentos
+- Aluno está matriculado em curso
+- Aluno cursa disciplina
+- Aluno realizou disciplina
+- Disciplina pertence a curso
+- Professor ministra disciplina
+- Professor pertence a departamento
+- Departamento é responsável por disciplina
+- Departamento controla curso
+- Disciplina depende de disciplina(pois existem disciplinas que possuem pré-requisitos)
+
+### Atributos - Aluno
+- RA
+- Nome
+- Sobrenome
+- Endereço (rua, número, bairro, cep, cidade, estado)
+- Código do curso
+
+### Atributos - Professor
+- Código do professor
+- Nome
+- Sobrenome
+- Departamento
+
+### Atributos - Professor
+- Código da disciplina
+- Nome disciplina
+- Descrição curricular
+- Código do departamento
+- Número de alunos
+
+### Atributos - Curso
+- Código do curso
+- Nome do curso
+- Código do departamento
+
+### Atributos - Departamento
+- Código do departamento
+- Nome departamento
+
+> São todos os atributos? Talvez, pois o cliente às vezes não identifica exatamente tudo o que ele quer guardar.
