@@ -136,7 +136,7 @@ Usuário -> Utiliza uma interface(frontend) para -> Se comunicar com o backend/S
     <img src="https://ik.imagekit.io/xfddek6eqk/DER_XjUjKj2EU.png" alt="Representação de uma Entidade, Atributos e uma instância de Entidade"/>
     
   </p>
-  <p align="center">Representação de uma Entidade, Atributos e uma instância de Entidade</p>
+  <p align="center"><i>Representação de uma Entidade, Atributos e uma instância de Entidade</i></p>
 
 
 **Relacionamentos**
@@ -163,7 +163,7 @@ Usuário -> Utiliza uma interface(frontend) para -> Se comunicar com o backend/S
   alt="Diagrama Entidade Relacionamento"
   />
 </p>
-<p align="center">Diagrama Entidade Relacionamento</p>
+<p align="center"><i>Diagrama Entidade Relacionamento</i></p>
 
 ## Níveis de Modelagem de Dados
 - Modelo Conceitual.
@@ -294,7 +294,7 @@ Existem dois tipos de chaves:
   alt="Relacionamento unário"
   />
 </p>
-<p align="center">Relacionamento unário</p>
+<p align="center"><i>Relacionamento unário</i></p>
 
 <p align="center">
   <img src="https://ik.imagekit.io/xfddek6eqk/Relacionamento_Bin_rio_Ul1VR9yhW.png" 
@@ -302,13 +302,14 @@ Existem dois tipos de chaves:
   />
 </p>
 
-<p align="center">Relacionamento binário</p>
+<p align="center"><i>Relacionamento binário</i></p>
+
 <p align="center">
   <img src="https://ik.imagekit.io/xfddek6eqk/Relacionamento_Tern_rio_tbBuyBmt2s.png" 
   alt="Relacionamento ternário"
   />
 </p>
-<p align="center">Relacionamento ternário</p>
+<p align="center"><i>Relacionamento ternário</i></p>
 
 ## Efetuando o Relacionamento entre Múltiplas Tabelas
 - O relacionamento entre as tabelas é feita pelo uso de uma **Chave Estrangeira(Foreign Key)**.
@@ -352,7 +353,7 @@ Existem dois tipos de chaves:
   alt="Relacionamento entre tabelas"
   />
 </p>
-<p align="center">Relacionamento entre tabelas</p>
+<p align="center"><i>Relacionamento entre tabelas</i></p>
 
 
 ## Conceito de Domínio
@@ -378,7 +379,7 @@ Duas das simbologias mais utilizadas para expressar a cardinalidade dos Relacion
   alt="Notação de Peter Chen(*crows foot*)"
   />
 </p>
-<p align="center">Notação de Peter Chen</p>
+<p align="center"><i>Notação de Peter Chen</i></p>
 
 
   - **Notação Pé de Galinha(*crows foot*)**
@@ -388,7 +389,7 @@ Duas das simbologias mais utilizadas para expressar a cardinalidade dos Relacion
   alt="Notação Pé de Galinha(*crows foot*)"
   />
 </p>
-<p align="center">Notação Pé de Galinha(crows foot).</p>
+<p align="center"><i>Notação Pé de Galinha(crows foot)</i></p>
 
 ##### Fonte: https://davidneely.files.wordpress.com/2015/04/crowsfoot_notation.gif
 
@@ -471,7 +472,7 @@ X -> Y
   alt="Dependência Funcional Total"
   />
 </p>
-<p align="center">Dependência Funcional Total</p>
+<p align="center"><i>Dependência Funcional Total</i></p>
 
 > Nessa tabela é possível observar que Quantidade_Produto depende tanto de ID_Produto como de ID_Pedido(quantidade de produto de qual pedido?).
 
@@ -484,7 +485,7 @@ X -> Y
   alt="Dependência Funcional Parcial"
   />
 </p>
-<p align="center">Dependência Funcional Parcial</p>
+<p align="center"><i>Dependência Funcional Parcial</i></p>
 
 > Nessa tabela, Nome_Disciplina **depende apenas** de ID_Disciplina.
 
@@ -496,7 +497,7 @@ X -> Y
   alt="Dependência Funcional Transitiva"
   />
 </p>
-<p align="center">Dependência Funcional Transitiva</p>
+<p align="center"><i>Dependência Funcional Transitiva</i></p>
 
 > Nessa tabela, Nome_Vendedor(atributo não-chave) **depende apenas** de ID_Vendedor(atributo não-chave).
 
@@ -831,3 +832,47 @@ Está na 3FN se:
 - Nome departamento
 
 > São todos os atributos? Talvez, pois o cliente às vezes não identifica exatamente tudo o que ele quer guardar.
+
+## Diagrama Entidade Relacionamento
+- Os relacionamentos serão feitos separadamente por entidade, e no final irei unir todos eles.
+> Tanto a cardinalidade como os atributos não serão representados nessa etapa, pois escolhi ir avançando aos poucos, para não ficar confuso.
+
+**Relacionamentos da Entidade Professor**
+<p align="center">
+    <img src="https://ik.imagekit.io/xfddek6eqk/Relacionamentos_Professor_HIymuADeq.png" alt="Relacionamentos da Entidade Professor"/>
+    
+  </p>
+  <p align="center"><i>Relacionamentos da Entidade Professor</i></p>
+
+**Relacionamentos da Entidade Departamento**
+
+<p align="center">
+    <img src="https://ik.imagekit.io/xfddek6eqk/Relacionamentos_Departamento_Wd6okNYcQ.png" alt="Relacionamentos da Entidade Departamento"/>
+    
+  </p>
+  <p align="center"><i>Relacionamentos da Entidade Departamento</i></p>
+
+**Relacionamentos da Entidade Disciplina**
+
+<p align="center">
+    <img src="https://ik.imagekit.io/xfddek6eqk/Relacionamentos_Disciplina_Rb-F619QO.png" alt="Relacionamentos da Entidade Disciplina"/>
+    
+  </p>
+  <p align="center"><i>Relacionamentos da Entidade Disciplina</i></p>
+
+**Relacionamentos da Entidade Curso**
+
+<p align="center">
+    <img src="https://ik.imagekit.io/xfddek6eqk/Relacionamentos_Curso_QGhf7Fefy.png" alt="Relacionamentos da Entidade Curso"/>
+    
+  </p>
+  <p align="center"><i>Relacionamentos da Entidade Curso</i></p>
+
+  **Relacionamentos da Entidade Aluno**
+
+<p align="center">
+    <img src="https://ik.imagekit.io/xfddek6eqk/Relacionamentos_Aluno_D1qPwtEx9J.png" alt="Relacionamentos da Entidade Aluno"/>
+    
+  </p>
+  <p align="center"><i>Relacionamentos da Entidade Aluno</i></p>
+
