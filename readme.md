@@ -835,7 +835,8 @@ Está na 3FN se:
 
 ## Diagrama Entidade Relacionamento
 - Os relacionamentos serão feitos separadamente por entidade, e no final irei unir todos eles.
-> Tanto a cardinalidade como os atributos não serão representados nessa etapa, pois escolhi ir avançando aos poucos, para não ficar confuso.
+- Tanto a cardinalidade, atributos e relacionamentos devem ser feitos de forma individual, pois escolhi ir avançando aos poucos, para não ficar confuso.
+- Como falado no tópico anterior, os atributos podem sofrer alteração de acordo com o tempo, pois às vezes não é possível identificar todos os atributos de maneira clara e fácil.
 
 **Relacionamentos da Entidade Professor**
 <p align="center">
@@ -876,3 +877,11 @@ Está na 3FN se:
   </p>
   <p align="center"><i>Relacionamentos da Entidade Aluno</i></p>
 
+
+**Todos Relacionamentos das Entidade e seus Atributos**
+
+<p align="center">
+    <img src="https://ik.imagekit.io/xfddek6eqk/Relacionamentos_com_atributos_43f1em76Z.png" alt="Todos Relacionamentos das Entidade e seus Atributos"/>
+    
+  </p>
+  <p align="center"><i>Todos Relacionamentos das Entidade e seus Atributos</i></p>
