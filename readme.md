@@ -121,6 +121,7 @@ Usuário -> Utiliza uma interface(frontend) para -> Se comunicar com o backend/S
 - Será gerado uma lista com as **entidades**, **atributos** e **relacionamentos** a partir da **Análise de Requisitos**.
 - Traz informações sobre os **tipos de dados**, **descrições de entidades**, **restrições**, entre outros.
 - A partir do MER, será possível gerar o **Diagrama Entidade Relacionamento(DER)**, que é a representação gráfica do **MER**.
+- **Me ajuda a enxergar o que é necessário guardar no banco.**
 
 ## Componentes do MER
 - **Entidades**
