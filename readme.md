@@ -585,7 +585,7 @@ A ->> B
 
 ### **Tabela Telefone_Cliente**
 
-| Cod(PK)      | Telefone     |
+| Cod(FK)(PK)      | Telefone(PK)     |
 | :------------- | :----------: |
 |  2532 | (86) 9 9999-9999   |
 |  2532 | (86) 9 8888-8888  |
@@ -679,7 +679,7 @@ Está na 3FN se:
 > Exemplo: A -> B é um dependência funcional trivial se B for um subconjunto de A.
 > Exemplo: { ID_Func, Nome_Func }(chave primária composta) -> ID_Func
 
-### **Tabela Fornecedor
+### **Tabela Fornecedor**
 
 | ID_Forn  | Nome          | ID_Prod | Quantidade  | 
 | :------- | :-----------: | :-----: | ----------: |
@@ -708,7 +708,6 @@ Está na 3FN se:
 | ID_Forn(PK) | Nome          | 
 | :------- | -----------: |
 |  01 | Fátima Salgados  |
-|  01 | Fátima Salgados  | 
 |  02 | Danilo Salgados  |
 
 **posso ter a tabela com ID_Forn e ID_Prod como sendo a chave primária composta.**
