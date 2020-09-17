@@ -898,6 +898,11 @@ Está na 3FN se:
 
   - Um professor pertence a quantos departamentos?
   Um e apenas um departamento.
+  
+  > Uma instância de entidade se relaciona com quantas instâncias de outra entidade?
+
+  2. Ler também no sentido oposto.
+
   - A um departamento pertencem quantos professores?
   No mínimo um professor, no máximo N.
 
