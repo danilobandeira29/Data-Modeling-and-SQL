@@ -885,3 +885,33 @@ Está na 3FN se:
     
   </p>
   <p align="center"><i>Todos Relacionamentos das Entidade e seus Atributos</i></p>
+
+## Calculando cardinalidades no DER
+**Quem manda na cardinalidade é a regra de negócio!!**
+
+1. Ler a entidade e seu relacionamento da seguinte forma.
+<p align="center">
+    <img src="https://ik.imagekit.io/xfddek6eqk/cardinalidade_Ohg4Bg3UE0.png" alt="Cardinalidade da entidade departamento"/>
+    
+  </p>
+  <p align="center"><i>Cardinalidade da entidade departamento</i></p>
+
+  - Um professor pertence a quantos departamentos?
+  Um e apenas um departamento.
+  - A um departamento pertencem quantos professores?
+  No mínimo um professor, no máximo N.
+
+  **A cardinalidade da entidade fica do lado oposto do relacionamento.**
+  
+<p align="center">
+    <img src="https://ik.imagekit.io/xfddek6eqk/cardinalidade_lado_1zl7gXpd0h.png" alt="Cardinalidade de uma entidade"/>
+    
+  </p>
+  <p align="center"><i>Cardinalidade de uma entidade</i></p>
+
+### Em relacionamentos onde os dois lados são (1,N), o relacionamento se tornará uma **entidade associativa(ou tabela associativa/pivô)**, pois ao **somarmos as cardinalidades** teremos um relacionamento **muitos-para-muitos(N,M)**
+<p align="center">
+    <img src="https://ik.imagekit.io/xfddek6eqk/cardinalidade_nm_UK6BYWQuFK.png" alt="Cardinalidade muitos-para-muitos"/>
+    
+  </p>
+  <p align="center"><i>Cardinalidade muitos-para-muitos</i></p>
