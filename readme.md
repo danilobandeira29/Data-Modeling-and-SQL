@@ -925,3 +925,11 @@ Está na 3FN se:
     
   </p>
   <p align="center"><i>Cardinalidade muitos-para-muitos</i></p>
+
+### Cardinalidade completa do DER(intermediário)
+
+<p align="center">
+    <img src="https://ik.imagekit.io/xfddek6eqk/Cardinalidade_de_todas_as_entidades_4iDywXqsVH.jpg" alt="Cardinalidade de todas as entidades"/>
+    
+  </p>
+  <p align="center"><i>Cardinalidade de todas as entidades</i></p>
