@@ -890,21 +890,26 @@ Está na 3FN se:
 **Quem manda na cardinalidade é a regra de negócio!!**
 
 1. Ler a entidade e seu relacionamento da seguinte forma.
-<p align="center">
-    <img src="https://ik.imagekit.io/xfddek6eqk/cardinalidade_Ohg4Bg3UE0.png" alt="Cardinalidade da entidade departamento"/>
-    
-  </p>
-  <p align="center"><i>Cardinalidade da entidade departamento</i></p>
-
   - Um professor pertence a quantos departamentos?
   Um e apenas um departamento.
-  
+<p align="center">
+    <img src="https://ik.imagekit.io/xfddek6eqk/cardinalidade_professor_7zJvb2_3OP6.png" alt="Cardinalidade professor"/>
+    
+  </p>
+  <p align="center"><i>Cardinalidade professor</i></p>
+
   > Uma instância de entidade se relaciona com quantas instâncias de outra entidade?
 
   2. Ler também no sentido oposto.
 
   - A um departamento pertencem quantos professores?
   No mínimo um professor, no máximo N.
+
+  <p align="center">
+    <img src="https://ik.imagekit.io/xfddek6eqk/cardinalidade_de_professor_e_departamento_UHGmmRJko.png" alt="Cardinalidade professor e departamento"/>
+    
+  </p>
+  <p align="center"><i>Cardinalidade professor e departamento</i></p>
 
   **A cardinalidade da entidade fica do lado oposto do relacionamento.**
   
