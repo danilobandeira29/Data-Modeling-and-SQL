@@ -1012,3 +1012,13 @@ Entidade professor:
 |  Nome_professor |  Caractere | 40 bytes | NOT NULL | Nome do professor | 
 |  Sobrenome_professor |  Caractere | 40 bytes | NOT NULL | Nome do Sobrenome do professor | 
 |  Status |  Booleano | 1 bit | NOT  NULL | Status do professor (lecionando / não lecionando) | 
+
+</br>
+
+Entidade Disc_Hist:
+| Atributo| Tipo de dados | Comprimento | Restrição |Descrição | 
+| :-------      | :-----------: | :-----: | :-----:| :-----:|
+|  Cod_Histórico |  Inteiro | 4 bytes | PK, FK, NOT NULL | Código de identificação do histórico | 
+|  Cod_Disciplina |  Inteiro | 4 bytes | PK, FK, NOT NULL | Código de identificação do disciplina | 
+|  Nota |  Decimal | 8 bytes | NOT NULL | Nota da disciplina | 
+|  Frequência |  Inteiro | 4 byter | NOT  NULL | Número de faltas na disciplina | 
