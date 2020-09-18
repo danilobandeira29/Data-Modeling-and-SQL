@@ -933,3 +933,44 @@ Está na 3FN se:
     
   </p>
   <p align="center"><i>Cardinalidade de todas as entidades</i></p>
+
+## Eliminando relacionamentos muitos-para-muitos
+Relacionamentos desse tipo devem ser eliminados, pois irão gerar problemas na implementação do banco, como: **redundância**, **integridade de dados**.
+
+### Entidade associativa
+- Gerada para resolver relacionamentos N:M.
+- Possuí as **chaves primárias** das tabelas da relação como **chaves estrangeiras**.
+- Irá gerar relacionamento 1:N.
+
+Exemplo:
+
+<p align="center">
+    <img src="https://ik.imagekit.io/xfddek6eqk/Relacionamento_muitos_para_muitos_GaiSgQLq5.png" alt="Relacionamento muitos-para-muitos"/>
+    
+  </p>
+  <p align="center"><i>Relacionamento muitos-para-muitos</i></p>
+
+Resolvendo relacionamento muitos-para-muitos com entidade/tabela associativa
+<p align="center">
+    <img src="https://ik.imagekit.io/xfddek6eqk/Tabela_associativa_Xv-BpYQNe.png" alt="Entidade/Tabela associativa"/>
+    
+  </p>
+  <p align="center"><i>Entidade/Tabela associativa</i></p>
+
+No projeto prático, temos os seguintes relacionamentos N:M, logo, será necessário criar uma entidade associativa para cada um deles:
+- Curso pertence Disciplina
+- Disciplina compõe Histórico
+- Professor ministra Disciplina
+
+<p align="center">
+    <img src="https://ik.imagekit.io/xfddek6eqk/tabela_associativa_historico_disciplina_6PGNg4u-8E.png" alt="Entidade/Tabela associativa histórico_disciplina"/>
+    
+  </p>
+  <p align="center"><i>Entidade/Tabela associativa histórico_disciplina</i></p>
+
+### DER - Intermediário com tabelas associativas
+<p align="center">
+    <img src="https://ik.imagekit.io/xfddek6eqk/DER_intermedi_rio_Bd6hLZ6LS.jpg" alt="DER intermediário com tabelas associativas"/>
+    
+  </p>
+  <p align="center"><i>DER intermediário com tabelas associativas</i></p>
