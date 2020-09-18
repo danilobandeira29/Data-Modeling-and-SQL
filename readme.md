@@ -747,7 +747,7 @@ Está na 3FN se:
 - Levantamento de Requisitos
 - Identificação de Entidades, Relacionamentos e Atributos
 - MER
-- DER
+- DER (criar, cardinalidade, eliminar n:m)
 - Dicionário de Dados
 - Normalização
 - Implementação
@@ -974,3 +974,41 @@ No projeto prático, temos os seguintes relacionamentos N:M, logo, será necess�
     
   </p>
   <p align="center"><i>DER intermediário com tabelas associativas</i></p>
+
+## Criando dicionário de dados
+**Dicionário de dados: Entidades**
+
+| Entidade      | Relacionamento | Nome do Relacionamento | Descrição | 
+| :-------      | :-----------: | :-----: | :-----:|
+|  Departamento |  Professor / Curso / Disciplina | Pertence / Controla / Gerencia | Tabela para cadastro dos departamentos da faculdade| 
+|  Professor    |  Departamento / Prof_disciplina  | Pertence / Leciona | Tabela para cadastro dos professor da faculdade |
+|  Turma        |  Curso / Aluno    | Gerencia / Pertence  |  Tabela para registro de turmas em andamento e encerradas|
+
+</br>
+
+**Dicionário de dados: Relacionamentos**
+
+| Relacionamento      | Tabela1_ | Tabela2 | Descrição | 
+| :-------      | :-----------: | :-----: | :-----:|
+|  Pertence |  Departamento | Professor | Qual departamento cada professor pertence | 
+|  Leciona |  Prof_disciplina  | Professor | Quais disciplinas o professor leciona |
+
+</br>
+
+**Dicionário de dados: Atributos**
+
+Entidade departamento:
+| Atributo| Tipo de dados | Comprimento | Restrição |Descrição | 
+| :-------      | :-----------: | :-----: | :-----:| :-----:|
+|  Cod_Departamento |  Inteiro | 4 bytes | PK, NOT NULL | Código de identificação do departamento | 
+|  Nome_Departamento |  Caractere | 40 bytes | NOT NULL | Nome do departamento | 
+
+</br>
+
+Entidade professor:
+| Atributo| Tipo de dados | Comprimento | Restrição |Descrição | 
+| :-------      | :-----------: | :-----: | :-----:| :-----:|
+|  Cod_professor |  Inteiro | 4 bytes | PK, NOT NULL | Código de identificação do professor | 
+|  Nome_professor |  Caractere | 40 bytes | NOT NULL | Nome do professor | 
+|  Sobrenome_professor |  Caractere | 40 bytes | NOT NULL | Nome do Sobrenome do professor | 
+|  Status |  Booleano | 1 bit | NOT  NULL | Status do professor (lecionando / não lecionando) | 
