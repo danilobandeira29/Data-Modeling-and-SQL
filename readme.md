@@ -970,7 +970,7 @@ No projeto prático, temos os seguintes relacionamentos N:M, logo, será necess�
 
 ### DER - Intermediário com tabelas associativas
 <p align="center">
-    <img src="https://ik.imagekit.io/xfddek6eqk/DER_intermedi_rio_Bd6hLZ6LS.jpg" alt="DER intermediário com tabelas associativas"/>
+    <img src="https://ik.imagekit.io/xfddek6eqk/DER_faculdade_Fz13fuvqa.jpg" alt="DER intermediário com tabelas associativas"/>
     
   </p>
   <p align="center"><i>DER intermediário com tabelas associativas</i></p>
