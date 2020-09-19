@@ -1041,3 +1041,4 @@ Fazer isso para todas as tabelas do banco.
   </p>
   <p align="center"><i>Modelo lógico das entidades/tabelas à partir do DER da faculadde</i></p>
 
+> Alguns atributos foram retirados para facilitar o entendimento.
