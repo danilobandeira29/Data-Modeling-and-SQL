@@ -1021,4 +1021,17 @@ Entidade Disc_Hist:
 |  Cod_Histórico |  Inteiro | 4 bytes | PK, FK, NOT NULL | Código de identificação do histórico | 
 |  Cod_Disciplina |  Inteiro | 4 bytes | PK, FK, NOT NULL | Código de identificação do disciplina | 
 |  Nota |  Decimal | 8 bytes | NOT NULL | Nota da disciplina | 
-|  Frequência |  Inteiro | 4 byter | NOT  NULL | Número de faltas na disciplina | 
+|  Frequência |  Inteiro | 4 byter | NOT  NULL | Número de faltas na disciplina |
+
+</br> 
+
+## Modelo lógico
+Antes, a representação foi feita utilizando retangulos, losangos e afins. No modelo lógico serão tabelas que se relacionam por meio da chave estrangeira.
+<p align="center">
+    <img src="https://ik.imagekit.io/xfddek6eqk/Modelo_l_gico_0o11edW7B.png
+" alt="Modelo lógico das entidades/tabelas Turma e Curso"/>
+    
+  </p>
+  <p align="center"><i>Modelo lógico das entidades/tabelas Turma e Curso</i></p>
+
+Fazer isso para todas as tabelas do banco.
