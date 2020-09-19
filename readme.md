@@ -1029,9 +1029,17 @@ Entidade Disc_Hist:
 Antes, a representação foi feita utilizando retangulos, losangos e afins. No modelo lógico serão tabelas que se relacionam por meio da chave estrangeira.
 <p align="center">
     <img src="https://ik.imagekit.io/xfddek6eqk/Modelo_l_gico_0o11edW7B.png
-" alt="Modelo lógico das entidades/tabelas Turma e Curso"/>
+" alt="Modelo lógico das entidades/tabelas Turma e Curso à partir do DER da faculdade"/>
     
   </p>
-  <p align="center"><i>Modelo lógico das entidades/tabelas Turma e Curso</i></p>
+  <p align="center"><i>Modelo lógico das entidades/tabelas Turma e Curso à partir do DER da faculdade</i></p>
 
 Fazer isso para todas as tabelas do banco.
+
+<p align="center">
+    <img src="https://ik.imagekit.io/xfddek6eqk/Modelo_l_gico_faculdade_OvN2c-S0X.jpg
+" alt="Modelo lógico das entidades/tabelas à partir do DER da faculadde"/>
+    
+  </p>
+  <p align="center"><i>Modelo lógico das entidades/tabelas à partir do DER da faculadde</i></p>
+
