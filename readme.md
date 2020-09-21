@@ -1040,3 +1040,24 @@ Fazer isso para todas as tabelas do banco.
     
   </p>
   <p align="center"><i>Modelo lógico das entidades/tabelas à partir do DER da faculdade</i></p>
+
+## Normalização
+### Primeira Forma-Normal
+- Observar as tabelas que possuem nome e sobrenome, pois: Sobrenome pode ter vários valores ali dentro, exemplo "Bastos Bandeira". Mas a idéia de atributo multivalorado é **ter vários valores diferentes para um campo(telefone, por exemplo)**, ou seja, um sobrenome com várias palavras continua sendo **APENAS UM sobrenome(atributo simples/atômico)**.
+>Continua sendo apenas uma instância *Bastos Bandeira* para o instância *Danilo*.
+
+- Tabela de aluno possuí campos multivalorados: Filiação, Contato, Telefone.
+> Pode ser apenas um telefone ou muitos, vai depender do requisito do cliente.
+
+- Tabela Histórico possuí campo multivalorado: Período de realização. Dividir em Data início e Data fim.
+
+> Tabela Histórico_Disciplina tem o campo nota. Essa é a nota final do aluno e não suas notas.
+
+<p align="center">
+    <img src="https://ik.imagekit.io/xfddek6eqk/Modelo_l_gico_1fn_IdW2QyL_B.jpg" alt="Modelo lógico das entidades/tabelas na Primeira Forma Normal"/>
+    
+  </p>
+  <p align="center"><i>Modelo lógico das entidades/tabelas na Primeira Forma Normal</i></p>
+
+### Segunda Forma-Normal
+### Terceira Forma-Normal
