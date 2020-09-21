@@ -1036,9 +1036,7 @@ Antes, a representação foi feita utilizando retangulos, losangos e afins. No m
 Fazer isso para todas as tabelas do banco.
 
 <p align="center">
-    <img src="https://ik.imagekit.io/xfddek6eqk/Modelo_l_gico_faculdade_OvN2c-S0X.jpg" alt="Modelo lógico das entidades/tabelas à partir do DER da faculadde"/>
+    <img src="https://ik.imagekit.io/xfddek6eqk/Modelo_l_gico_Faculdade__FgX8cQhE.jpg" alt="Modelo lógico das entidades/tabelas à partir do DER da faculdade"/>
     
   </p>
-  <p align="center"><i>Modelo lógico das entidades/tabelas à partir do DER da faculadde</i></p>
-
-> Alguns atributos foram retirados para facilitar o entendimento.
+  <p align="center"><i>Modelo lógico das entidades/tabelas à partir do DER da faculdade</i></p>
