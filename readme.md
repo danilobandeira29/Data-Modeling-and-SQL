@@ -549,6 +549,7 @@ A ->> B
 - Originalmente, possuí três formas normais: primeira, segunda e terceira forma normal.
 - Posteriormente a terceira forma normal foi revisada e deu origem a **Forma Normal de Boyce-Codd(FNBC)**.
 - Existe a quarta e quinta forma normal, mas são raramente utilizadas.
+- Não sou obrigado a normalizar, mas provavelmente eu teria um problema na hora de gravar, alterar ou deletar dados em um tabela complexa.
 
 ## Objetivos da Normalização
 - Analisar tabelas com suas **dependências funcionais e chaves primária** para:
@@ -596,7 +597,7 @@ A ->> B
 - **Caso a PK não seja composta, esse teste não será aplicado.**
 - Está na 2FN se:
   - Está na 1FN.
-  - Todos os atributos não-chave possuem dependêncial funcional total da PK composta.
+  - Todos os atributos não-chave possuem dependêncial funcional total, ou seja, de TODAS as partes da PK.
   - Não existem dependências funcionais parciais
   - Caso contrário, deve-se gerar uma tabela nova com dados.
 ## **Normalizando uma tabela até a 2FN**
@@ -1060,4 +1061,18 @@ Fazer isso para todas as tabelas do banco.
   <p align="center"><i>Modelo lógico das entidades/tabelas na Primeira Forma Normal</i></p>
 
 ### Segunda Forma-Normal
+- Tabela aluno possui campos que não depende da chave primária: Nome_Rua, Num_Rua, CEP, Tel_Residencia, Tel_Cel. Ao mudar o aluno, não significa que esses atributos irão mudar, pois podem existir vários alunos que moram na mesma rua.
+Criar novas tabelas para **telefone**, **tipo do telefone**, **endereço** e **tipo de logradouro**.
+
+<p align="center">
+    <img src="https://ik.imagekit.io/xfddek6eqk/Modelo_L_gico_2fn_8TEhD0Oob.jpg" alt="Modelo lógico das entidades/tabelas na Segunda Forma Normal"/>
+    
+  </p>
+  <p align="center"><i>Modelo lógico das entidades/tabelas na Segunda Forma Normal</i></p>
+
+> Tabela Histórico_Disciplina os campos nota e frequência possuem dependência funcional total.
+
+> Não sou obrigado a normalizar, mas provavelmente eu teria um problema na hora de gravar, alterar ou deletar dados em um tabela complexa como a de aluno.
+
+
 ### Terceira Forma-Normal
