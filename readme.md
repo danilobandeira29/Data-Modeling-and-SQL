@@ -1076,3 +1076,18 @@ Criar novas tabelas para **telefone**, **tipo do telefone**, **endereço** e **t
 
 
 ### Terceira Forma-Normal
+**Devo olhar os atributos não-chaves e verificar se um afeta o outro, se ao excluir um o outro sofrerá alterações.**
+
+**Exemplo**: Se eu remover CPF de uma ocorrência de Aluno, algum outro atributo deixa de fazer sentido? NÃO!
+
+**Exemplo 2**: Na tabela Professor, se eu eliminar o nome do professor, o status do professor deixa de existir? Não, pois Status do professor não depende do Nome do Professor.
+
+**Exemplo 3**: Na tabela Turma, data_fim depende da data_inicio? Não, pois existem cursos com duração diferente, não consigo determinar a data de fim só em saber a data de início.
+
+**Exemplo 4**: Na tabela Aluno se for alterado o nome do aluno, não quer dizer que será alterado o nome do mãe/pai. Posso ter 40 alunos com nome Ana, mas o CPF ser diferente. Quando altero o Cod_Aluno, tudo será alterado. Se eu alterar nome, nenhum outro campo sofrerá alteração.
+
+**Exemplo 5**: Na tabela Endereço_Aluno se eu tirar o CEP, a rua deixa de fazer sentido? Não.
+
+**Na primeira forma normal** encontramos mais problemas. **Na segunda forma normal**, menos problemas. **Na terceira forma normal**, menos ainda.
+
+O banco já está na terceira forma normal. E como não foi encontrado nenhum problema, não é necessário ir para a Forma Normal de Boyce-Codd.
