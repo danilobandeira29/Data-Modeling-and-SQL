@@ -1091,3 +1091,30 @@ Criar novas tabelas para **telefone**, **tipo do telefone**, **endereço** e **t
 **Na primeira forma normal** encontramos mais problemas. **Na segunda forma normal**, menos problemas. **Na terceira forma normal**, menos ainda.
 
 O banco já está na terceira forma normal. E como não foi encontrado nenhum problema, não é necessário ir para a Forma Normal de Boyce-Codd.
+
+## Dicioniário de Dados
+Refatorar o dicionário de dados e simplificar. Serão descritos apenas as **entidades** e os **atributos**, pois irei utilizar o próprio modelo lógico para descrever os relacionamentos na hora da implementação do banco de dados.
+
+Entidades
+
+| Entidade | Relacionamentos | Nome do Relacionamento | Descrição |
+| :-----: | :----- | :----- | :----- |
+| Aluno | Aluno_disciplina/Curso/Turma... | Cursa/Está Matriculado/Faz parte... | Tabela que guarda informações de Aluno |
+
+</br>
+
+Atributos: Entidade Aluno
+
+| Atributo | Tipo/Domínio | Comprimento | Restrição | Descrição |
+| :-----: | :----- | :----- | :---- | :----- |
+| Cod_Aluno | Inteiro | 6 Bytes | PK, NOT NULL |  Código do aluno |
+| Nome_Aluno | Caractere | 20 Bytes | NOT NULL |  Nome do aluno |
+| Sobrenome_Aluno | Caractere | 50 Bytes | NOT NULL |  Sobrenome do aluno |
+| Email | Caractere | 60 Bytes | NOT NULL |  Email do aluno |
+| CPF | Caractere | 11 Bytes | UNIQUE, NOT NULL |  CPF do aluno |
+| Sexo | Caractere | 1 Byte | NOT NULL |  Sexo do aluno |
+| Status | Boolean | 1 Bit | NOT NULL |  Status de matrícula do aluno |
+| Nome_Mãe | Caractere | 60 Bytes | NOT NULL |  Nome da mãe do aluno |
+| Nome_Pai | Caractere | 60 Bytes | NULL |  Nome da pai do aluno |
+| Cod_Turma | Inteiro | 6 Bytes | FK, NOT NULL |  Código da turma que o aluno faz parte |
+| Cod_Curso | Inteiro | 6 Bytes | FK, NOT NULL |  Código do curso que o aluno está matriculado |
