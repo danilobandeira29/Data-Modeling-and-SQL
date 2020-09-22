@@ -976,7 +976,7 @@ No projeto prático, temos os seguintes relacionamentos N:M, logo, será necess�
   </p>
   <p align="center"><i>DER intermediário com tabelas associativas</i></p>
 
-## Criando dicionário de dados
+## Criando dicionário de dados(intermediário)
 **Dicionário de dados: Entidades**
 
 | Entidade      | Relacionamento | Nome do Relacionamento | Descrição | 
@@ -1092,7 +1092,7 @@ Criar novas tabelas para **telefone**, **tipo do telefone**, **endereço** e **t
 
 O banco já está na terceira forma normal. E como não foi encontrado nenhum problema, não é necessário ir para a Forma Normal de Boyce-Codd.
 
-## Dicioniário de Dados
+## Dicioniário de Dados(Final)
 Refatorar o dicionário de dados e simplificar. Serão descritos apenas as **entidades** e os **atributos**, pois irei utilizar o próprio modelo lógico para descrever os relacionamentos na hora da implementação do banco de dados.
 
 Entidades
@@ -1106,7 +1106,7 @@ Entidades
 Atributos: Entidade Aluno
 
 | Atributo | Tipo/Domínio | Comprimento | Restrição | Descrição |
-| :-----: | :----- | :----- | :---- | :----- |
+| :----- | :----- | :----- | :---- | :----- |
 | Cod_Aluno | Inteiro | 6 Bytes | PK, NOT NULL |  Código do aluno |
 | Nome_Aluno | Caractere | 20 Bytes | NOT NULL |  Nome do aluno |
 | Sobrenome_Aluno | Caractere | 50 Bytes | NOT NULL |  Sobrenome do aluno |
@@ -1118,3 +1118,13 @@ Atributos: Entidade Aluno
 | Nome_Pai | Caractere | 60 Bytes | NULL |  Nome da pai do aluno |
 | Cod_Turma | Inteiro | 6 Bytes | FK, NOT NULL |  Código da turma que o aluno faz parte |
 | Cod_Curso | Inteiro | 6 Bytes | FK, NOT NULL |  Código do curso que o aluno está matriculado |
+
+> 1 caractere = 1 byte
+
+## Implementação do Banco de dados
+1. Para criar uma tabela que possuí chave estrangeira(depende de outra tabela), eu preciso primeiro criar a tabela dessa chave estrangeira. **Caso contrário, haverá erro**.
+
+2. Ir criando as tabelas em sequência.
+
+3. Ao inserir dados, segue a mesma lógica de criação de tabelas.
+> Irei postar logo mais os códigos e explicar sobre sql
