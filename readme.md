@@ -1210,3 +1210,50 @@ Para visualizar as tabelas do BD
 ```sql
 SHOW TABLES;
 ```
+
+## SQL Constrains(restrições)
+- São regras aplicadas as colunas da tabela.
+- Usada para limitar os tipos de dados que serão inseridos na coluna.
+- Pode ser especificado no momento de criação da tabela(CREATE) ou depois dela ter sido criada(ALTER).
+
+### Principais Constrains
+- NOT NULL
+- UNIQUE
+- PRIMARY KEY
+- FOREIGN KEY
+- DEFAULT
+
+### NOT NULL
+- Define que aquela coluna não pode exister valores nulos.
+- Desse modo, não é possível inserir um registro(ou atualizar) sem entrar com um valor nesse campo.
+
+### UNIQUE
+- Identifica de forma única cada registro do banco de dados.
+- UNIQUE e PRIMARY KEY garantem que aquele registro será exclusivo na tabela.
+- PRIMARY KEY já é automaticamente UNIQUE.
+- Podem existir vários UNIQUE, mas apenas uma PRIMARY KEY na tabela.
+
+### PRIMARY KEY
+- Identifica de forma única cada registro.
+- Único.
+- Não pode ser nulo.
+- Apenas uma Chave primário por tabela.
+
+### FOREIGN KEY
+- Define a relação entre duas ou mais tabelas.
+- Aponta para a Chave primária de outra tabela.
+- Não é única.
+
+```sql
+CONSTRAINT fk_ID_Autor FOREIGN KEY(ID_Autor)
+REFERENCES tbl_Autor(ID_Autor)
+```
+
+> *CONSTRAINT fk_ID_Autor* - nome da registração.
+
+> FOREIGN KEY(ID_Autor) nome da coluna que fará referência da PK da outra tabela.
+
+> REFERENCES tbl_Autor(ID_Autor) nome da tabela que possuí a PK seguido do nome da coluna.
+
+### DEFAULT
+- Valor que será padrão caso nenhum valor seja inserido naquela coluna.
