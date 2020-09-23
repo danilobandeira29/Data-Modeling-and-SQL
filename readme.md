@@ -1179,3 +1179,34 @@ Linguagem de consulta estruturado
 
 </br>
 
+## Criando, visualizando e excluindo um Banco de dados
+Para criar, basta ir no MySQL Workbench ou o SGBDR que você está utilizando e executar o comando:
+
+```sql
+CREATE DATABASE IF NOT EXISTS db_Biblioteca;
+```
+
+Para verificar os bancos de dados que existem, executar o comando:
+```sql
+SHOW DATABASES;
+```
+
+Para utilizar um BD, você precisa selecioná-lo utilizando o comando:
+```sql
+USE db_Biblioteca;
+```
+
+Para visualizar o BD selecionado, execute o comando:
+```sql
+SELECT DATABASE();
+```
+
+Para excluir um BD
+```sql
+DROP DATABASE IF EXISTS db_Biblioteca;
+```
+
+Para visualizar as tabelas do BD
+```sql
+SHOW TABLES;
+```
