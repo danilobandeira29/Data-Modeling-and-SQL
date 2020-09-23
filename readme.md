@@ -1128,3 +1128,54 @@ Atributos: Entidade Aluno
 
 3. Ao inserir dados, segue a mesma lógica de criação de tabelas.
 > Irei postar logo mais os códigos e explicar sobre sql
+
+## SQL - Structured Query Language
+Linguagem de consulta estruturado
+
+### Funções
+- Permite acesso aos dados em SGBDR.
+- Permite **inserir** e **manipular** dados em Banco de Dados.
+- Permite **criar** e **excluir tabelas** e banco de dados.
+- Permite criar **triggers**, **visões**, **Stored Procedures**.
+- Permite configurar permissões de acesso.
+
+### Grupo de Comandos SQL
+1. DDL - Data Definition Language.
+2. DML - Data Manipulation Language.
+3. DCL - Data Control Language.
+4. DQL - Data Query Language.
+
+### 1. DDL - Data Definition Language
+| COMANDO | DESCRIÇÃO |
+| :---- | :---- |
+|CREATE|Cria uma nova tabela, visão ou objeto|
+|ALTER|Modifica uma tabela ou objeto existente no banco|
+|DROP|Exclui uma tabela ou objeto|
+
+</br>
+
+### 2. DML - Data Manipulation Language
+| COMANDO | DESCRIÇÃO |
+| :---- | :---- |
+|INSERT|Inserir um novo registro|
+|UPDATE|Modifica registro|
+|DELETE|Exclui registro|
+
+</br>
+
+### 3. DCL - Data Control Language
+| COMANDO | DESCRIÇÃO |
+| :---- | :---- |
+|GRANT|Dá acesso a um usuário|
+|REVOKE|Retira acesso/privilegios do usuário|
+
+</br>
+
+### 4. DDL - Data Query Language
+| COMANDO | DESCRIÇÃO |
+| :---- | :---- |
+|SELECT|Seleciona, obtém os registro de uma tabela|
+
+
+</br>
+
