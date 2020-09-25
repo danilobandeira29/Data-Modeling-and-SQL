@@ -1326,3 +1326,36 @@ Para alterar o comando dos próximos valores de um auto_increment
 ALTER TABLE tbl_test_incremento
 AUTO_INCREMENT = 50;
 ```
+## Tipos de dados(mySQL)
+- Existem vários tipos de dados quem podem ser inseridos com valores de intervalos diferentes. Alguns exemplos:
+
+| Tipo | Descrição |
+|:---- | :-------  |
+|INT   | Inteiro regular, pode variar entre -2147483648 e 2147483647|
+|SMALLINT   | Inteiro, pode variar entre -32768 e 32768|
+|DECIMAL(P,D)  | Ponto flutuante, decimal(P,D) onde valor máximo de P é 1 à 65 e D é 0 à 30|
+|FLOAT(P,D)   | Ponto flutuante, decimal(P,D) onde valor máximo de P é 1 à 65 e D é 0 à 24|
+|VARCHAR| Ocupa tamanho variado até 65, 533(onde será somado a 2, valor do prefixo) por **registro**|
+|CHAR| Ocupa tamanho fixo entre 0 e 255|
+|BOOLEAN| Valor entre 0 e 1|
+|BLOB|Utilizado para armazenar grandes quantidades de dados, como imagem|
+|MEDIUMTEXT|Permite strings grandes, como descrição|
+
+</br>
+
+> DECIMAL(P,D), P se refere a precisão do valor, ou seja, qual o valor de digitos totais e o D se refere a escala que são o número de casas após a vírgula. **Padrão DECIMAL(10,0)**.
+
+> FLOAT(P,D), Padrão FLOAT(10, 2).
+
+> VARCHAR, Caso eu tenha dois varchar no mesmo registro, posso coloca-los com valor máximo de 32765+2+32766+2=65535
+
+```sql
+CREATE TABLE IF NOT EXISTS varchar_test (
+    s1 VARCHAR(32765) NOT NULL,
+    s2 VARCHAR(32766) NOT NULL
+)  CHARACTER SET 'latin1' COLLATE LATIN1_DANISH_CI;
+
+```
+
+Mais informais sobre os tipos de dados aceitos no mySQL, acessar: https://www.mysqltutorial.org/mysql-data-types.aspx
+
