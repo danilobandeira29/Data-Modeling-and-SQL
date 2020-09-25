@@ -1290,3 +1290,39 @@ CREATE TABLE IF NOT EXISTS tbl_Editora(
 
 SHOW TABLES;
 ```
+
+## Auto_increment
+- Permite que um número único seja gerado quando um novo registro for inserido.
+- Em mySQL é o comando AUTO_INCREMENT.
+- Possuí valor inicial padrão 1 e incrementa 1 quando um novo registro é inserido.
+- Posso alterar o valor inicial padrão AUTO_INCREMENT = 100 para iniciar do 100, por exemplo.
+- Só pode existir **um AUTO_INCREMENT por tabela**.
+- **NÃO** preciso inserir valor naquela coluna, pois o valor é inserido de forma automática, como o nome sugere.
+- **NÃO** necessita utilizar a constraint NOT NULL, pois ele já possuí de forma automática.
+
+Exemplo:
+```sql
+CREATE TABLE IF NOT EXISTS tbl_teste_incremento(
+  ID_Test SMALLINT AUTO_INCREMENT PRIMARY KEY,
+  Nome VARCHAR(50) NOT NULL
+) AUTO_INCREMENT = 40;
+
+INSERT INTO tbl_teste_incremento(Nome) VALUES('Danilo');
+INSERT INTO tbl_teste_incremento(Nome) VALUES('Ana');
+
+SELECT * FROM tbl_teste_incremento;
+
+SELECT MAX(ID_Test) FROM tbl_test_incremento;
+```
+
+> SELECT MAX(nome_coluna) FROM nome_tabela retorna o valor máximo/registro mais atual.
+
+> SELECT * FROM tbl_test_incremento WHERE ID_Test=LAST_INSERT_ID(); faz com que eu selecione o último registro inserido no banco
+
+### Alterar os próximos valores do AUTO_INCREMENT
+Para alterar o comando dos próximos valores de um auto_increment
+
+```SQL
+ALTER TABLE tbl_test_incremento
+AUTO_INCREMENT = 50;
+```
