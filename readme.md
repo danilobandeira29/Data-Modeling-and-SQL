@@ -1245,8 +1245,7 @@ SHOW TABLES;
 - Não é única.
 
 ```sql
-CONSTRAINT fk_ID_Autor FOREIGN KEY(ID_Autor)
-REFERENCES tbl_Autor(ID_Autor)
+CONSTRAINT fk_ID_Autor FOREIGN KEY(ID_Autor) REFERENCES tbl_Autor(ID_Autor)
 ```
 
 > *CONSTRAINT fk_ID_Autor* - nome da registração.
@@ -1257,3 +1256,37 @@ REFERENCES tbl_Autor(ID_Autor)
 
 ### DEFAULT
 - Valor que será padrão caso nenhum valor seja inserido naquela coluna.
+
+### Criando tabelas
+```sql
+CREATE TABLE [IF NOT EXISTS] nome_tabela(
+  nome_coluna dominio_dado constraints,
+  ...
+);
+```
+
+> [comando opcional] retirar os cochetes
+
+```sql
+CREATE TABLE IF NOT EXISTS tbl_Livro(
+  ID_Livro SMALLINT AUTO_INCREMENT PRIMARY KEY,
+  Nome_Livro VARCHAR(50) NOT NULL,
+  ISBN VARCHAR(30) NOT NULL,
+  ID_Autor SMALLINT NOT NULL,
+  Data_Pub DATE NOT NULL,
+  Preco_Livro DECIMAL NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS tbl_Autor(
+  ID_Autor SMALLINT AUTO_INCREMENT PRIMARY KEY,
+  Nome_Autor VARCHAR(50),
+  Sobrenome_Autor VARCHAR(60),
+);
+
+CREATE TABLE IF NOT EXISTS tbl_Editora(
+  ID_Editora SMALLINT AUTO_INCREMENT PRIMARY KEY,
+  Nome_Editora VARCHAR(50)
+);
+
+SHOW TABLES;
+```
