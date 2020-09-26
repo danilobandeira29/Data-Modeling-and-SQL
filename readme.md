@@ -1389,3 +1389,15 @@ ALTER TABLE tbl_livro ADD
 CONSTRAINT fk_ID_Editora 
 FOREIGN KEY (ID_Editora) REFERENCES tbl_editora(ID_Editora);
 ```
+
+## Plotando o DER à partir do SQL
+1. Ir em databases, reverser engineer.
+2. Seleciona a conexão.
+3. Next, next, seleciona o database, next...
+
+Resultado:
+<p align="center">
+    <img src="https://ik.imagekit.io/xfddek6eqk/DER_a_partir_do_sql_WaEwROaUh.png" alt="DER à partir do SQL"/>
+    
+  </p>
+  <p align="center"><i>DER à partir do SQL</i></p>
