@@ -1359,3 +1359,33 @@ CREATE TABLE IF NOT EXISTS varchar_test (
 
 Mais informais sobre os tipos de dados aceitos no mySQL, acessar: https://www.mysqltutorial.org/mysql-data-types.aspx
 
+## Alterando tabelas(ALTER TABLE)
+- Depois da tabela ter sido criado, posso atualizada-la utilizando o seguinte comando:
+```sql
+ALTER TABLE nome_table ADD COLUMN nome_coluna;
+```
+
+- Posso atualizar o tipo de dado daquela coluna
+- Posso inserir uma chave primária
+
+```sql
+ALTER TABLE tbl_test MODIFY COLUMN Nome_Pessoa VARCHAR(60) NOT NULL;
+
+ALTER TABLE tbl_test ADD PRIMARY KEY (ID_Test);
+//para isso, a ID_Test já deve exister na tbl_test
+```
+
+Adicionar na tabela de livros as colunas ID_Autor, ID_Editora.
+
+```sql
+ALTER TABLE tbl_livro ADD ID_Autor SMALLINT NOT NULL;
+ALTER TABLE tbl_livro ADD ID_Editora SMALLINT NOT NULL;
+
+ALTER TABLE tbl_livro ADD 
+CONSTRAINT fk_ID_Autor 
+FOREIGN KEY (ID_Autor) REFERENCES tbl_autor(ID_Autor);
+
+ALTER TABLE tbl_livro ADD 
+CONSTRAINT fk_ID_Editora 
+FOREIGN KEY (ID_Editora) REFERENCES tbl_editora(ID_Editora);
+```
