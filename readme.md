@@ -1424,8 +1424,17 @@ INSERT INTO tbl_editora(Nome_Editora) VALUE ('Editora3');
 INSERT INTO tbl_editora(Nome_Editora) VALUE ('Editora4');
 ```
 
-Agora consigo inserir dados na tabela de livro, pois ela depende de chaves estrangeiras(ID_Autor e ID_Editora).
+Agora consigo inserir dados na tabela de livro, pois ela depende de chaves estrangeiras(ID_Autor e ID_Editora). Lembrando que os valores das chaves estrangeiras devem fazer referencias as chaves primárias existentes em ambas as tabelas.
 
 ```sql
-INSERT INTO tbl_livro(Nome_Livro, ISBN, ID_Autor, Data_Pub, Preco_Livro, ID_Editora) VALUES('Dexter is delicious', '4444', 1, '2020-09-26', 50, 4);
+INSERT INTO tbl_livro(Nome_Livro, ISBN, ID_Autor, Data_Pub, Preco_Livro, ID_Editora) VALUES('Dexter is delicious', 4444, 1, '2020-09-26', 50, 4);
+```
+## Datatype of column(tipos de dados de uma tabela)
+Para saber o tipo de dados da coluna de uma tabela basta executar o comando;
+
+```sql
+SELECT data_type, column_type 
+FROM information_schema.columns 
+WHERE table_schema = 'db_Biblioteca'
+AND table_name = 'tbl_livro'; 
 ```
