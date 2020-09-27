@@ -1471,3 +1471,90 @@ SELECT Nome_Livro, ID_livro, Preco_Livro
 FROM tbl_livro
 ORDER BY Preco_Livro DESC;
 ```
+## Indexar tabelas
+- Para realizar consultas de maneira performatica.
+- Vai direto ao indíce ao invés de percorrer toda a tabela.
+
+**Em mySQL, algumas colunas já possuí indíces:**
+- PRIMARY KEY
+- FOREIGN KEY
+- CONSTRAINT UNIQUE
+
+Existem 2 tipos de Indíces:
+**Clusterizado**
+- Só existe um por tabela.
+- Altera a forma que os dados são armazenados na tabela.
+- Caso não possua chave primária a constraint UNIQUE irá servir como indíce.
+- Caso não possua PK e UNIQUE, os dados serão armazenados em uma estrutura não-organizada chamada *heap*.
+
+**Não-Clusterizado**
+- Podem existir vários por tabela.
+- Não altera a forma que os dados são armazenados.
+- Cria um objeto que irá apontar para o indíce,**ou seja, serve como ponteiro**.
+
+## Criar index
+Criar tabela e o index ao mesmo tempo(significa que o banco foi bem planejado).
+```sql
+CREATE TABLE IF NOT EXISTS tbl_test(
+  id_test int AUTO_INCREMENT PRIMARY KEY,
+  nome_test varchar(50) NOT NULL,
+  INDEX (id_test, nome_test) 
+);
+
+```
+
+Posso criar um indíce em uma tabela que já existe
+```sql
+CREATE [UNIQUE] INDEX nome_index
+ON nome_tabela(
+  coluna1 [ASC | DESC],
+  coluna2 [ASC | DESC],
+  coluna3 [ASC | DESC]...
+);
+```
+Posso utilizar o comando ALTER // ADD INDEX
+```sql
+ALTER TABLE nome_tabela ADD INDEX nome_index(colunas);
+```
+
+### Mostrar index de uma tabela
+```sql
+SHOW INDEX FROM tbl_test;
+```
+
+Comando para explicar outro comando, como será de fato executado:
+```SQL
+EXPLAIN SELECT * FROM tbl_livro WHERE nome_livro = 'Dexter';
+```
+### Resultado da consulta na tabela em uma coluna não-indexada com o extra WHERE
+<p align="center">
+    <img src="https://ik.imagekit.io/xfddek6eqk/comando_explain_se_t7Qiq6.png" alt="Resultado da consulta na tabela em uma coluna não-indexada com o extra WHERE"/>
+    
+  </p>
+  <p align="center"><i>Resultado da consulta na tabela em uma coluna não-indexada com o extra WHERE</i></p>
+
+É possível observar na imagem acima que para realizar tal consulta, foi necessário percorrer 20% do banco para retornar o resultado.
+
+**NÃO criar indíces em qualquer coluna. Evitar utilizar em colunas que alteram muito seu valor, pois ao ter o valor alterado o index também deve ser atualizado... logo, irá gerar uma lentidão.**
+
+**Criar indíces em colunas que são mais acessadas, mas que não sofrem alterações constantes.**
+
+### Resultado da consulta na tabela em uma coluna indexada com extra WHERE
+
+```sql
+EXPLAIN SELECT * FROM tbl_livro
+WHERE nome_livro = 'Dexter';
+```
+
+<p align="center">
+    <img src="https://ik.imagekit.io/xfddek6eqk/comando_explain_com_where_jQkuLvjYm.png" alt="Resultado da consulta na tabela em uma coluna indexada com extra WHERE"/>
+    
+  </p>
+  <p align="center"><i>Resultado da consulta na tabela em uma coluna indexada com extra WHERE</i></p>
+
+Observação: Caso eu faça um consulta passando a chave primária no where, é possível observar que o filtro é o mesmo acima... ou seja, uma consulta direta ao dado desejado.
+
+### Remover index
+```SQL
+DROP INDEX nome_index ON nome_tabela;
+```
