@@ -1438,3 +1438,19 @@ FROM information_schema.columns
 WHERE table_schema = 'db_Biblioteca'
 AND table_name = 'tbl_livro'; 
 ```
+## SELECT - Realizar consultas simples
+
+```SQL
+SELECT coluna FROM tabela;
+```
+
+Dessa forma ainda não é possível pegar os dados de mais de uma tabela, mesmo que elas estejam relacionadas.
+
+Exemplos:
+```SQL
+SELECT nome_editora FROM tbl_editora;
+
+SELECT * FROM tbl_editora;
+
+SELECT * FROM tbl_editora WHERE nome_editora = 'Salgados';
+```
