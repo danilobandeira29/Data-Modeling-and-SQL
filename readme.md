@@ -1372,7 +1372,7 @@ ALTER TABLE nome_table ADD COLUMN nome_coluna;
 ALTER TABLE tbl_test MODIFY COLUMN Nome_Pessoa VARCHAR(60) NOT NULL;
 
 ALTER TABLE tbl_test ADD PRIMARY KEY (ID_Test);
-//para isso, a ID_Test já deve exister na tbl_test
+-- para isso, a ID_Test já deve exister na tbl_test
 ```
 
 Adicionar na tabela de livros as colunas ID_Autor, ID_Editora.
@@ -1453,4 +1453,21 @@ SELECT nome_editora FROM tbl_editora;
 SELECT * FROM tbl_editora;
 
 SELECT * FROM tbl_editora WHERE nome_editora = 'Salgados';
+
+```
+
+## ORDER BY - Consultas ordenadas;
+Caso queira em ordem crescente, posso utilizar a palavra ASC ou não, já que por padrão é ordenado de forma crescente.
+
+```sql
+SELECT Nome_Livro, ID_livro, Preco_Livro
+FROM tbl_livro
+ORDER BY Preco_Livro ASC;
+```
+
+Caso queira em ordem descrecente, basta utilizar a palavra DESC.
+```sql
+SELECT Nome_Livro, ID_livro, Preco_Livro
+FROM tbl_livro
+ORDER BY Preco_Livro DESC;
 ```
