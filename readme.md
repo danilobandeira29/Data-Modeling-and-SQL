@@ -1401,3 +1401,31 @@ Resultado:
     
   </p>
   <p align="center"><i>DER à partir do SQL</i></p>
+
+## Inserir dados no banco mysql
+Utilizando o comando
+
+```sql
+INSERT INTO nome_table(coluna1, coluna2) VALUES (valor1, valor2);
+```
+**Começar inserindo os dados por tabelas que não depende de outras tabelas, ou seja, que não possuem chave estrangeira.**
+
+```sql
+INSERT INTO tbl_autor(ID_Autor, Nome_Autor) VALUES (1, 'Danilo Bandeira');
+INSERT INTO tbl_autor(ID_Autor, Nome_Autor) VALUES (2, 'Ana Banana');
+INSERT INTO tbl_autor(ID_Autor, Nome_Autor) VALUES (3, 'Larica');
+INSERT INTO tbl_autor(ID_Autor, Nome_Autor) VALUES (4, 'Thayann');
+```
+
+```sql
+INSERT INTO tbl_editora(Nome_Editora) VALUE ('Editora1');
+INSERT INTO tbl_editora(Nome_Editora) VALUE ('Editora2');
+INSERT INTO tbl_editora(Nome_Editora) VALUE ('Editora3');
+INSERT INTO tbl_editora(Nome_Editora) VALUE ('Editora4');
+```
+
+Agora consigo inserir dados na tabela de livro, pois ela depende de chaves estrangeiras(ID_Autor e ID_Editora).
+
+```sql
+INSERT INTO tbl_livro(Nome_Livro, ISBN, ID_Autor, Data_Pub, Preco_Livro, ID_Editora) VALUES('Dexter is delicious', '4444', 1, '2020-09-26', 50, 4);
+```
