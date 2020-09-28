@@ -1528,10 +1528,10 @@ EXPLAIN SELECT * FROM tbl_livro WHERE nome_livro = 'Dexter';
 ```
 ### Resultado da consulta na tabela em uma coluna não-indexada com o extra WHERE
 <p align="center">
-    <img src="https://ik.imagekit.io/xfddek6eqk/comando_explain_se_t7Qiq6.png" alt="Resultado da consulta na tabela em uma coluna não-indexada com o extra WHERE"/>
+    <img src="https://ik.imagekit.io/xfddek6eqk/comando_explain_se_t7Qiq6.png" alt="Resultado da consulta na tabela em uma coluna não-indexada"/>
     
   </p>
-  <p align="center"><i>Resultado da consulta na tabela em uma coluna não-indexada com o extra WHERE</i></p>
+  <p align="center"><i>Resultado da consulta na tabela em uma coluna não-indexada</i></p>
 
 É possível observar na imagem acima que para realizar tal consulta, foi necessário percorrer 20% do banco para retornar o resultado.
 
@@ -1557,4 +1557,11 @@ Observação: Caso eu faça um consulta passando a chave primária no where, é 
 ### Remover index
 ```SQL
 DROP INDEX nome_index ON nome_tabela;
+```
+
+## WHERE
+Permite filtrar registros em uma consulta. Consigo utilizar com operadores mais complexos para filtragens mais complexas.
+
+```sql
+SELECT colunas FROM tabela WHERE coluna = valor;
 ```
