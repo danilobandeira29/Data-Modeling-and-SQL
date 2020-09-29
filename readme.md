@@ -1606,5 +1606,14 @@ Caso queira excluir **TODOS** os registros de uma tabela, utilizar o *TRUNCATE T
 ```SQL
 TRUNCATE TABLE tbl_livro;
 ```
+**Observação:** Caso a tabela esteja relacionada, talvez seja necessário excluir os registros da outra tabela primeiro(irei aprender sobre em outras aulas).
+
+## ALIAS
+Dar um apelido a coluna/tabela.
+
+```sql
+SELECT ID_Livro AS CÓDIGO, Nome_livro AS Livro
+FROM tbl_livro AS TABELA_DE_LIVROS;
+```
 **Observação:**
-1. Caso a tabela esteja relacionada, talvez seja necessário excluir os registros da outra tabela primeiro(irei aprender sobre em outras aulas).
+Alteração no nome da tabela é mais utilizada quando hover junção de tabelas, utilizando o *JOIN*.
