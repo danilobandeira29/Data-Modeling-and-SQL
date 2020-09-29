@@ -1565,3 +1565,25 @@ Permite filtrar registros em uma consulta. Consigo utilizar com operadores mais 
 ```sql
 SELECT colunas FROM tabela WHERE coluna = valor;
 ```
+## AND, OR e NOT
+- Operadores lógicos usados para filtrar registros em mais de uma condição.
+
+Exemplos:
+
+```SQL
+SELECT ID_Livro, Nome_Livro
+FROM tbl_livro
+WHERE ID_Livro >= 2 OR Nome_livro = 'Dexter2';
+```
+
+```SQL
+SELECT ID_Livro, Nome_Livro
+FROM tbl_livro
+WHERE ID_Livro < 2 AND NOT Nome_livro = 'Dexter2';
+```
+
+```SQL
+SELECT ID_Livro, Nome_Livro
+FROM tbl_livro
+WHERE NOT(ID_Livro >= 4 OR Nome_livro = 'Dexter')
+```
