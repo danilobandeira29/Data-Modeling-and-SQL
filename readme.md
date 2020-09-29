@@ -1587,3 +1587,24 @@ SELECT ID_Livro, Nome_Livro
 FROM tbl_livro
 WHERE NOT(ID_Livro >= 4 OR Nome_livro = 'Dexter')
 ```
+## Excluir Registros
+Caso queira excluir poucos registros, utilizar o DELETE
+
+```SQL
+DELETE FROM tbl_livro
+WHERE ID_Livro = 4;
+```
+**Observações:**
+1. Utilizar o WHERE, pois sem isso, irá deletar todos os registros da tabela.
+2. No safemode, posso deletar apenas utilizando o ID como filtro ou se a coluna for indexada.
+3. Caso a tabela esteja relacionada, será necessário utilizar o join(irei aprender sobre em outras aulas).
+
+</br>
+
+Caso queira excluir **TODOS** os registros de uma tabela, utilizar o *TRUNCATE TABLE*, pois ele é mais rápido e consome menos recursos do sistema e log de transações.
+
+```SQL
+TRUNCATE TABLE tbl_livro;
+```
+**Observação:**
+1. Caso a tabela esteja relacionada, talvez seja necessário excluir os registros da outra tabela primeiro(irei aprender sobre em outras aulas).
