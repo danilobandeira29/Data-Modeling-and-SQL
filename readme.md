@@ -1616,4 +1616,59 @@ SELECT ID_Livro AS CÓDIGO, Nome_livro AS Livro
 FROM tbl_livro AS TABELA_DE_LIVROS;
 ```
 **Observação:**
-Alteração no nome da tabela é mais utilizada quando hover junção de tabelas, utilizando o *JOIN*.
+1. Facilita quando tenho que criar códigos grandes, complexos.
+2. Alteração no nome da tabela é mais utilizada quando hover junção de tabelas, utilizando o *JOIN*.
+
+## Funções de agregação(MAX, MIN, AVG, COUNT, SUM)
+- Permite executar operações aritméticas nos valores de uma coluna em todos os registros de uma tabela.
+- Retorna um valor único baseado em um conjunto de valores.
+```sql
+nome_função(ALL | DISTINCT expressão)
+```
+**Observações:**
+1. ALL pega todos os valores, já é padrão.
+2. DISTINCT pega os valores que não se repetem.
+
+Funções mais comuns:
+- MIN = Valor mínimo
+- MAX = Valor máximo
+- AVG = Média aritmética
+- SUM = Total
+- COUNT = Contador de 1 em 1
+
+Retorna a quantidade de livros registrados.
+```SQL
+SELECT COUNT(*) FROM tbl_livro;
+```
+</br>
+
+Retorna a quantidade de livros registrados que possuem Id_Autor diferentes, pois podem existem vários livros de apenas um autor.
+
+```SQL
+SELECT COUNT(DISTINCT Id_Autor) FROM tbl_livro;
+```
+</br>
+
+Retorna o valor máximo na coluna Preco_livro.
+```SQL
+SELECT MAX(Preco_livro) FROM tbl_livro;
+```
+</br>
+
+Retorna o valor mínimo na coluna de Preco_livro.
+```SQL
+SELECT MIN(Preco_livro) FROM tbl_livro;
+```
+</br>
+
+Retorna a somatório dos valores na coluna Preco_livro.
+```SQL
+SELECT SUM(Preco_livro) FROM tbl_livro;
+```
+</br>
+
+Retorna a média aritmética de Preco_livro.
+```SQL
+SELECT AVG(Preco_livro) FROM tbl_livro;
+```
+</br>
