@@ -1672,3 +1672,10 @@ Retorna a média aritmética de Preco_livro.
 SELECT AVG(Preco_livro) FROM tbl_livro;
 ```
 </br>
+
+## Renomear tabelas
+Não mexe nos dados, mas é sempre bom fazer um backup.
+
+```sql
+RENAME TABLE nome_antigo TO novo_nome;
+```
