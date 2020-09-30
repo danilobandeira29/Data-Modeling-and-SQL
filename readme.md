@@ -1714,29 +1714,76 @@ WHERE Data_pub BETWEEN '2020-10-29' AND '2021-10-29';
 
 Livros que o nome começam com D, não importando o que vem depois.
 ```SQL
-SELECT *
-FROM tbl_livro
+SELECT * FROM tbl_livro
 WHERE Nome_Livro LIKE 'D%';
 ```
 Livros que o nome NÃO começam com D, não importando o que vem depois.
 ```SQL
-SELECT *
-FROM tbl_livro
+SELECT * FROM tbl_livro
 WHERE Nome_livro NOT LIKE 'D%';
 ```
 
 Livro que terminam com S, não importando o que vem antes.
 
 ```sql
-SELECT *
-FROM tbl_livro
+SELECT * FROM tbl_livro
 WHERE Nome_livro LIKE '%S';
 ```
 
 Livros que possuem a segunda letra m, não importando o que vem depois.
 
 ```SQL
-SELECT *
-FROM tbl_livro
+SELECT * FROM tbl_livro
 WHERE Nome_livro LIKE '_m%';
+```
+
+## REGEXP
+Busca padrões baseados em expressão regular(padrão de caracteres).
+
+[...] - Qualquer caracter único no intervalo ou conjunto especifícado.
+
+Exemplos:
+1. [a-d] (entre a e d)
+2. [aeiou] (vogais);
+
+[^...] - Qualquer caracterer único que **NÃO ESTEJA** no intervalo ou conjunto especifícado.
+
+Exemplos:
+1. [^a-d] (não esteja entre a e d)
+
+2. [^aeiou] (qualquer string que comece com consoante)
+
+^ - Início da string
+
+$ - Fim da string
+
+a|b|c - Alternação (a ou b ou c)
+
+Todos os livros que não começam com vogais
+
+```SQL
+SELECT * FROM tbl_livro
+WHERE Nome_livro
+REGEXP '^[^aeiou]';
+```
+
+Que terminam com *us* ou *hand*
+```SQL
+SELECT * FROM tbl_livro
+WHERE Nome_livro
+REGEXP '[us]$|[hand]$'
+```
+
+Livros que começam com E ou D
+```sql
+SELECT * FROM tbl_livro
+WHERE Nome_livro
+REGEXP '^[ED]';
+```
+
+Livros que começam com 'dex'
+```sql
+SELECT * FROM tbl_livro
+WHERE Nome_livro
+REGEXP '^dex';
 ```
