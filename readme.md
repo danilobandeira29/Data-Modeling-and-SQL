@@ -1679,3 +1679,14 @@ Não mexe nos dados, mas é sempre bom fazer um backup.
 ```sql
 RENAME TABLE nome_antigo TO novo_nome;
 ```
+## Atualizar registros
+- Bastante utilizado no dia a dia.
+- Pode atualizar um ou vários registros, tudo depende do filtro aplicado no WHERE(ou não utilização do mesmo).
+
+```sql
+UPDATE tbl_livro 
+SET nome_livro = 'Dexter gods left hand' 
+WHERE nome_livro = 'Dexter2';
+```
+
+**Observação:** Se eu não utilizar o *WHERE*, **TODOS** os registros serão atualizados.
