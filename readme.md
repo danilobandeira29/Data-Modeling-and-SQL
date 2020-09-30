@@ -1703,3 +1703,36 @@ SELECT Nome_livro AS Livro, Preco_livro AS Preço, Data_pub AS Lançamento
 FROM tbl_livro
 WHERE Data_pub BETWEEN '2020-10-29' AND '2021-10-29';
 ```
+
+## LIKE e NOT LIKE
+- Filtragem de padrão de caracteres.
+- Similar a REGEX.
+
+Livros que o nome começam com D, não importando o que vem depois.
+```SQL
+SELECT *
+FROM tbl_livro
+WHERE Nome_Livro LIKE 'D%';
+```
+Livros que o nome NÃO começam com D, não importando o que vem depois.
+```SQL
+SELECT *
+FROM tbl_livro
+WHERE Nome_livro NOT LIKE 'D%';
+```
+
+Livro que terminam com S, não importando o que vem antes.
+
+```sql
+SELECT *
+FROM tbl_livro
+WHERE Nome_livro LIKE '%S';
+```
+
+Livros que possuem a segunda letra m, não importando o que vem depois.
+
+```SQL
+SELECT *
+FROM tbl_livro
+WHERE Nome_livro LIKE '_m%';
+```
