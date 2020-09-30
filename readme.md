@@ -1690,3 +1690,16 @@ WHERE nome_livro = 'Dexter2';
 ```
 
 **Observação:** Se eu não utilizar o *WHERE*, **TODOS** os registros serão atualizados.
+
+## BETWEEN Seleção entre intervalos
+
+```sql
+SELECT Nome_Livro AS Livro, Preco_Livro AS Preço
+FROM tbl_livro
+WHERE Preco_Livro BETWEEN 50.00 AND 99.99;
+```
+```sql
+SELECT Nome_livro AS Livro, Preco_livro AS Preço, Data_pub AS Lançamento
+FROM tbl_livro
+WHERE Data_pub BETWEEN '2020-10-29' AND '2021-10-29';
+```
