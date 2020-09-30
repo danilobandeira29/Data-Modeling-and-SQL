@@ -1708,6 +1708,10 @@ WHERE Data_pub BETWEEN '2020-10-29' AND '2021-10-29';
 - Filtragem de padrão de caracteres.
 - Similar a REGEX.
 
+**%** = qual cadeia de 0 ou mais caracteres.
+
+**_** = um caractere único.
+
 Livros que o nome começam com D, não importando o que vem depois.
 ```SQL
 SELECT *
