@@ -1787,3 +1787,35 @@ SELECT * FROM tbl_livro
 WHERE Nome_livro
 REGEXP '^dex';
 ```
+
+## DEFAULT (valor padrão)
+Se nenhum valor for inseridornaquele campo, ele irá setar um valor padrão.
+
+Criar uma coluna em uma tabela existente.
+
+```sql
+ALTER TABLE tbl_livro
+ADD COLUMN data_inscricao DATE
+DEFAULT '2020-10-01';
+```
+
+Modificar uma coluna que já existe
+```SQL
+ALTER TABLE tbl_livro
+MODIFY COLUMN data_inscricao DATE
+DEFAULT '1999-01-01';
+```
+
+Criar uma tabela já com o valor default
+```sql
+CREATE TABLE IF NOT EXISTS tbl_livro(
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(50) DEFAULT 'John Doe',
+  INDEX(nome)
+) AUTO_INCREMENTO = 10;
+```
+
+Caso queira remover, basta utilizar o ALTER TABLE com MODIFY mas não inserir o DEFAULT;
+```sql
+ALTER TABLE tbl_livro MODIFY COLUMN data_inscricao
+```
