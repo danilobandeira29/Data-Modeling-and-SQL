@@ -1819,3 +1819,14 @@ Caso queira remover, basta utilizar o ALTER TABLE com MODIFY mas não inserir o 
 ```sql
 ALTER TABLE tbl_livro MODIFY COLUMN data_inscricao
 ```
+
+## Backup do BD
+Utilizar o mysqldump no terminal:
+
+Fazer backup:
+system mysqldump -u(user) root -p(para pedir o password) nome_banco > C:\Users\Danilo\Documents\db_biblioteca_backup.sql
+
+Para restaurar backup:
+
+Criar novo banco vazio
+system mysql -u root -p banco_vazio_criado < C:\Users\Danilo\Documents\db_biblioteca_backup.sql
