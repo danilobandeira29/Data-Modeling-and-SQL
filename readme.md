@@ -1830,3 +1830,5 @@ Para restaurar backup:
 
 Criar novo banco vazio
 system mysql -u root -p banco_vazio_criado < C:\Users\Danilo\Documents\db_biblioteca_backup.sql
+
+> No Windows: abrir a CLI do MySQL, utilizar o comando system mysqldump...
