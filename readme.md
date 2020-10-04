@@ -1819,3 +1819,33 @@ Caso queira remover, basta utilizar o ALTER TABLE com MODIFY mas não inserir o 
 ```sql
 ALTER TABLE tbl_livro MODIFY COLUMN data_inscricao
 ```
+## GROUP BY
+Usada pra agrupar registros em subgrupos baseados em colunas ou valores retornados por uam expressão.
+```sql
+SELECT colunas, função_agregação() FROM tabela
+WHERE filtro
+GROUP BY colunas
+```
+**Importante que tenha a função de agregação**
+
+Exemplos:
+Irá retonar o total de produtos vendidos por cidade.
+```sql
+SELECT Cidade, SUM(quantidade) FROM Vendas
+GROUP BY Cidade;
+```
+</br>
+Irá retornar o total de registros, mas retornando apenas uma cidade.(errado)
+
+```sql
+SELECT Colunas, COUNT(*) FROM Vendas;
+```
+
+</br>
+Irá retornar o total de registros de cada cidade.(certo)
+
+```sql
+SELECT Colunas, COUNT(*) FROM Vendas
+GROUP BY Cidade;
+```
+> Possuí o filtro *HAVING*, que funciona como o WHERE, mas para *GROUP BY*.
