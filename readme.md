@@ -1622,6 +1622,9 @@ FROM tbl_livro AS TABELA_DE_LIVROS;
 ## Funções de agregação(MAX, MIN, AVG, COUNT, SUM)
 - Permite executar operações aritméticas nos valores de uma coluna em todos os registros de uma tabela.
 - Retorna um valor único baseado em um conjunto de valores.
+### **CUIDADO!!**
+**Sempre interessante agrupar os dados(*GROUP BY*) para evitar erros.**
+
 ```sql
 nome_função(ALL | DISTINCT expressão)
 ```
@@ -1863,3 +1866,47 @@ SELECT Colunas, COUNT(*) FROM Vendas
 GROUP BY Cidade;
 ```
 > Possuí o filtro *HAVING*, que funciona como o WHERE, mas para *GROUP BY*.
+
+## HAVING
+- Filtro de agrupamento.
+- Usada para especificar condições de filtragem em grupos de registros ou agregações.
+- Frequentemente usado em clásula GROUP BY para filtrar as colunas agrupadas.
+- Similar ao *WHERE*, **mas aplicado ao GROUP BY AO INVÉS DO SELECT**.
+- **Aceita função de agregação**.
+
+```SQL
+SELECT Coluna, Função_Agregação() FROM Tabela WHERE Filtro
+GROUP BY Coluna HAVING Filtro_Agrupamento;
+```
+
+Exemplos:
+1. Preciso fazer o agrupamento por cidade *GROUP BY*, já que possuem várias cidades.
+2. Depois aplico o filtro no *GROUP BY* que é o *HAVING*.
+
+Consulta agrupando os registros por cidade, onde a quantidade de itens vendidos são menores que 2500.
+
+```SQL
+SELECT Cidade, SUM(Quantidade) AS Total_Quantidade
+FROM Vendas GROUP BY Cidade HAVING SUM(Quantidade) < 2500;
+```
+
+</br>
+
+Irá me retornar apenas a primeira cidade que encontrar no registro, somando a quantidade de TODOS os registros(de todas as cidades). OU SEJA, ESTÁ ERRADO!!
+
+```sql
+-- Ao utilizar uma função de agregação, devo utilizar o agrupamento(GROUP BY) para evitar erros.
+
+SELECT Cidade, Produto, SUM(Quantidade) AS Total_Vendido
+FROM Vendas;
+```
+
+</br>
+
+Consulta para agrupar por cidade os registros onde foram vendidos menos de 1500 teclados.
+
+```sql
+SELECT Cidade, Produto, SUM(Quantidade) AS Total_Vendido
+FROM Vendas WHERE Produto = 'Teclado'
+GROUP BY Cidade HAVING SUM(Quantidade) < 1500;
+```
