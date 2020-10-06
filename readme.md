@@ -1914,7 +1914,7 @@ GROUP BY Cidade HAVING SUM(Quantidade) < 1500;
 ## VIEWS
 - Tabela virtual gerada à partir de um conjunto/resultado de consultas.
 - Possuí linhas e colunas, e aceita comandos SQL como qualquer outra tabela.
-- Posso realizar consultas em cima das VIEWS.
+- Posso realizar consultas em cima das VIEWS, para facilitar em consultas complexas.
 - Mostra os resultados atualizados, já que o BD recria os dados a cada consulta na view.
 
 ```sql
