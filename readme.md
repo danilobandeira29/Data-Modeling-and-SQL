@@ -1837,7 +1837,7 @@ system mysql -u root -p banco_vazio_criado < C:\Users\Danilo\Documents\db_biblio
 > No Windows: abrir a CLI do MySQL, utilizar o comando system mysqldump...
 
 ## GROUP BY
-Usada pra agrupar registros em subgrupos baseados em colunas ou valores retornados por uam expressão.
+Usada pra agrupar registros em subgrupos baseados em colunas ou valores retornados por uma expressão.
 ```sql
 SELECT colunas, função_agregação() FROM tabela
 WHERE filtro
@@ -1909,4 +1909,22 @@ Consulta para agrupar por cidade os registros onde foram vendidos menos de 1500 
 SELECT Cidade, Produto, SUM(Quantidade) AS Total_Vendido
 FROM Vendas WHERE Produto = 'Teclado'
 GROUP BY Cidade HAVING SUM(Quantidade) < 1500;
+```
+
+## VIEWS
+- Tabela virtual gerada à partir de um conjunto/resultado de consultas.
+- Possuí linhas e colunas, e aceita comandos SQL como qualquer outra tabela.
+- Posso realizar consultas em cima das VIEWS.
+- Mostra os resultados atualizados, já que o BD recria os dados a cada consulta na view.
+
+```sql
+CREATE VIEW [Nome_view] AS SELECT Colunas
+FROM Tabela WHERE Filtro;
+```
+
+```sql
+CREATE VIEW vw_LivroAutores
+AS SELECT tbl_Livro.Nome_livro AS Livro, tbl_Autor.Nome_Autor AS Autor 
+FROM tbl_Livro INNER JOIN tbl_Autor
+ON tbl_Livro.ID_Autor = tbl_Autor.ID_Autor 
 ```
