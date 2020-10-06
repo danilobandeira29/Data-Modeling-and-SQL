@@ -1928,3 +1928,13 @@ AS SELECT tbl_Livro.Nome_livro AS Livro, tbl_Autor.Nome_Autor AS Autor
 FROM tbl_Livro INNER JOIN tbl_Autor
 ON tbl_Livro.ID_Autor = tbl_Autor.ID_Autor 
 ```
+## Atualizar VIEWS
+```SQL
+ALTER VIEW vw_LivroAutores
+AS SELECT tbl_Livro.Nome_Livro AS Livro,
+tbl_Livro.Preco_livro AS Preço,
+tbl_Autor.Nome_Autor AS Autor 
+FROM tbl_Livro
+INNER JOIN tbl_Autor
+ON tbl_Livro.ID_Autor = tbl_Autor.ID_Autor;
+```
