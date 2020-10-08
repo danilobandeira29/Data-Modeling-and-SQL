@@ -1938,3 +1938,39 @@ FROM tbl_Livro
 INNER JOIN tbl_Autor
 ON tbl_Livro.ID_Autor = tbl_Autor.ID_Autor;
 ```
+
+## JOIN
+- Usado para combinar dados de duas ou mais tabelas que se relacionam.
+
+**Existem vários tipos de JOIN, mas o mais utilizados:**
+### INNER JOIN
+Retorna quando houver ao menos dado em ambas as tabelas(correspondencia em ambas as tabelas).
+
+### OUTER JOIN
+Retorna mesmo quando NÃO há correspondencia em uma das tabelas(ou ambas).
+Dividi-se em: LEFT JOIN, RIGHT JOIN e FULL JOIN.
+
+```sql
+SELECT Colunas FROM Tabela1
+INNER JOIN Tabela2 ON Tabela1.Coluna = Tabela2.Coluna; 
+```
+
+Exemplos:
+
+Consulta e cruza as tabelas onde o ID_Editora ocorre em ambas as tabelas e retorna apenas os registros que o nome da editora começa com S.
+
+```sql
+SELECT L.Nome_Livro, E.Nome_Editora
+FROM tbl_Livro AS L
+INNER JOIN tbl_Editora AS E
+ON L.Id_Editora = E.Id_Editora
+WHERE E.Nome_Editora REGEXP '^S';
+```
+
+Consulta e cruza os dados de todas as tabelas que fazem relação com tbl_livro
+```SQL
+SELECT L.Nome_Livro AS Livro, A.Nome_Autor AS Autor, E.Nome_Editora AS Editora
+FROM tbl_Livro AS L
+INNER JOIN tbl_Autor AS A ON L.Id_Autor = A.Id_Autor
+INNER JOIN tbl_Editora AS E ON L.Id_Editora = E.Id_Editora;
+```
