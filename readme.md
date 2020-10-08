@@ -1967,7 +1967,9 @@ ON L.Id_Editora = E.Id_Editora
 WHERE E.Nome_Editora REGEXP '^S';
 ```
 
-Consulta e cruza os dados de todas as tabelas que fazem relação com tbl_livro
+Consulta e cruza os dados de todas as tabelas que fazem relação com tbl_livro.
+
+**A tabela mais importante vai no FROM**
 ```SQL
 SELECT L.Nome_Livro AS Livro, A.Nome_Autor AS Autor, E.Nome_Editora AS Editora
 FROM tbl_Livro AS L
