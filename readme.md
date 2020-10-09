@@ -1955,6 +1955,8 @@ SELECT Colunas FROM Tabela1
 INNER JOIN Tabela2 ON Tabela1.Coluna = Tabela2.Coluna; 
 ```
 
+> ON chave_primaria = chave_estrangeira
+
 Exemplos:
 
 Consulta e cruza as tabelas onde o ID_Editora ocorre em ambas as tabelas e retorna apenas os registros que o nome da editora começa com S.
@@ -1976,3 +1978,13 @@ FROM tbl_Livro AS L
 INNER JOIN tbl_Autor AS A ON L.Id_Autor = A.Id_Autor
 INNER JOIN tbl_Editora AS E ON L.Id_Editora = E.Id_Editora;
 ```
+
+Imagem para representar o funcionamento do INNER JOIN:
+<p align="center">
+  <img src="https://ik.imagekit.io/xfddek6eqk/inner_join_a1lh1mKyL.png" 
+  alt="INNER JOIN"
+  />
+</p>
+<p align="center"><i>INNER JOIN</i></p>
+
+fonte: https://www.youtube.com/watch?v=C_OpAzDImfI&list=PLucm8g_ezqNrWAQH2B_0AnrFY5dJcgOLR&index=32
