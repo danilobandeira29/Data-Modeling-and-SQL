@@ -1988,3 +1988,13 @@ Imagem para representar o funcionamento do INNER JOIN:
 <p align="center"><i>INNER JOIN</i></p>
 
 fonte: https://www.youtube.com/watch?v=C_OpAzDImfI&list=PLucm8g_ezqNrWAQH2B_0AnrFY5dJcgOLR&index=32
+
+## OUTER JOINS (LEFT/RIGHT/FULL JOIN)
+### LEFT JOIN
+Retorna todas as linhas da tabela à esquerda, mesmo que não haja correspondencia na tabela da direita.
+
+### RIGHT JOIN
+Retorna todas as linhas da tabela à direita, mesmo que não haja correspondencia na tabela da direita.
+
+### FULL JOIN
+Retorna linhas quando houver uma correspondência em qualquer uma das tabelas, **é a combinação do LEFT e RIGHT JOIN**
