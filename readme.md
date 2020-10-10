@@ -1998,3 +1998,88 @@ Retorna todas as linhas da tabela à direita, mesmo que não haja correspondenci
 
 ### FULL JOIN
 Retorna linhas quando houver uma correspondência em qualquer uma das tabelas, **é a combinação do LEFT e RIGHT JOIN**
+
+```sql
+SELECT coluna FROM tabela_esquerda 
+LEFT (OUTER) JOIN tabela_direita
+ON tabela_esquerda.coluna1 = tabela_direita.coluna2;
+```
+</br>
+
+Consulta que irá me retornar todas os dados da tabela Autor que fazem correspondencia com a tabela de Livro, inclusive os que não fazem(autor que não possuí livro cadastrado)
+
+Caso eu inverta a ordem das tabelas, irá mostrar apenas os livros que possuem autor, pois não existe livro sem autor publicado.
+```sql
+SELECT * FROM tbl_autor
+LEFT JOIN tbl_livro
+ON tbl_autor.id_autor = tbl_livro.id_autor
+```
+> Cada tabela é uma palma da mão, a tabela do FROM vai subir para a outra tabela mescar, LEFT diz para qual lado irá mescar e o lado da tabela do FROM, no caso esquerdo.
+
+Imagem para representar o funcionamento do LEFT (OUTER) JOIN:
+<p align="center">
+  <img src="https://ik.imagekit.io/xfddek6eqk/leftjoinm_hHlQowDt7.png" 
+  alt="LEFT JOIN"
+  />
+</p>
+<p align="center"><i>LEFT JOIN</i></p>
+
+fonte: https://www.youtube.com/watch?v=4m3HNtsFRoI&list=PLucm8g_ezqNrWAQH2B_0AnrFY5dJcgOLR&index=33
+
+### Excluir correspondencias com o LEFT JOIN
+```sql
+SELECT * FROM tabela_esquerda
+LEFT JOIN tabela_direita
+ON tabela_esquerda.coluna1 = tabela_direita.coluna1
+WHERE tabela_direita.coluna1 IS NULL;
+```
+</br>
+
+Consulta que irá retornar apenas os autores que não tiver livros publicados.
+```sql
+SELECT * FROM tbl_Autor
+LEFT JOIN tbl_Livro ON tbl_Autor.Id_Autor = tbl_Livro.Id_Livro
+WHERE tbl_Livro.Id_livro IS NULL;
+```
+
+Imagem para representar o funcionamento do LEFT (OUTER) JOIN excluindo a correspondencia:
+<p align="center">
+  <img src="https://ik.imagekit.io/xfddek6eqk/left_0xCpW2RnK.png" 
+  alt="LEFT JOIN excluindo a correspondencia"
+  />
+</p>
+<p align="center"><i>LEFT JOIN excluindo a correspondencia</i></p>
+
+### RIGHT JOIN
+Mesma funcionalidade do LEFT JOIN, apenas inverte a ordem das colunas.
+
+```sql
+SELECT * FROM tabela_direita
+RIGHT JOIN tabela_esquerda
+ON tabela_direita.coluna1 = tabela_esquerda.coluna2;
+```
+
+> Cada tabela é uma palma da mão, a tabela do FROM vai subir para a outra tabela mescar, RIGHT diz para qual lado irá mescar e o lado da tabela do FROM, no caso direito.
+
+Consulta para retornar todas as editoras, inclusive as que não publicaram livros
+```sql
+SELECT * FROM tbl_Livro
+RIGHT JOIN tbl_Editora
+ON tbl_Editora.id_editora = tbl_Livro.id_editora;
+```
+
+Consulta para retornar apenas as editoras que não publicaram livro
+```sql
+SELECT * FROM tbl_Livro AS L
+RIGHT JOIN tbl_Editora AS E
+ON E.id_editora = L.id_editora
+WHERE L.id_livro IS NULL;
+```
+
+Imagem para representar o funcionamento do LEFT (OUTER) JOIN excluindo a correspondencia:
+<p align="center">
+  <img src="https://ik.imagekit.io/xfddek6eqk/right_join_maDSVHYI7.png" 
+  alt="RIGHT JOIN"
+  />
+</p>
+<p align="center"><i>RIGHT JOIN</i></p>
