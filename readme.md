@@ -2124,3 +2124,19 @@ SELECT CONCAT('A quantidade de ', item, ' é ', quantidade) AS Resultado
 FROM test_nulo
 WHERE item = 'Teclado';
 ```
+
+**IFNULL**
+
+Para evitar esse tipo de comportamento, podemos utilizar a função **IFNULL** dentro do **CONCAT**:
+
+```sql
+IFNULL(coluna, valor caso seja null)
+```
+
+```sql
+SELECT CONCAT('A quantidade de ', item, ' é ', IFNULL(quantidade, 0)) AS Resultado
+FROM test_nulo
+WHERE item = 'Teclado';
+```
+
+
