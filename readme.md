@@ -2083,3 +2083,44 @@ Imagem para representar o funcionamento do LEFT (OUTER) JOIN excluindo a corresp
   />
 </p>
 <p align="center"><i>RIGHT JOIN</i></p>
+
+## Concatenação de string com  CONCAT, IFNULL E COALESCE
+Concaternar strings usando a função CONCAT.
+
+```sql
+CONCAT(string | coluna, string | coluna, ...)
+```
+
+```sql
+SELECT CONCAT ('Danilo ', 'Bandeira') AS 'Nome Completo';
+```
+
+```sql
+SELECT CONCAT (Nome_autor, ' ', Sobrenome_Autor) AS 'Nome Completo'
+FROM tbl_autor;
+```
+> Para que o nome da coluna não mostre 'CONCAT...', devo utilizar o AS(ALIAS).
+
+</br>
+
+**Se a string for concatenada com NULL, será retornado apenas NULL.**
+```sql
+CREATE TABLE IF NOT EXISTS test_nulo(
+  id SMALLINT PRIMARY KEY AUTO_INCREMENT,
+  item VARCHAR(50),
+  quantidade SMALLINT NULL
+);
+
+INSERT INTO test_nulo(item, quantidade) VALUES ('Mouse', 10);
+INSERT INTO test_nulo(item, quantidade) VALUES ('Teclado', NULL);
+
+-- Irá me retornar normalmente
+SELECT CONCAT('A quantidade de ', item, ' é ', quantidade) AS Resultado
+FROM test_nulo
+WHERE item = 'Mouse';
+
+-- Irá retornar apenas NULL
+SELECT CONCAT('A quantidade de ', item, ' é ', quantidade) AS Resultado
+FROM test_nulo
+WHERE item = 'Teclado';
+```
