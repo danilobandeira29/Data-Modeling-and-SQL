@@ -2139,4 +2139,20 @@ FROM test_nulo
 WHERE item = 'Teclado';
 ```
 
+**COALESCE**
 
+Retornará o primeiro valor não-nulo encontrado em seus argumentos.
+
+```SQL
+COALESCE(valor1, valor2, ...)
+```
+
+Irá verificar o primeiro valor *NULL*, mas não vai retornar por ser *NULL*.
+
+Irá verificar o segundo valor, como a quantidade de teclado é *NULL*, ele irá pular para a próxima verificação... até chegar no *0*, que é um valor não-nulo, e irá retornar ele.
+
+```sql
+SELECT CONCAT('A quantidade de ', item, ' é ', COALESCE(NULL, quantidade, NULL, 0)) AS Resultado
+FROM test_nulo
+WHERE item = 'Teclado';
+```
