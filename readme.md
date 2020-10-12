@@ -2199,3 +2199,15 @@ SELECT TRUNCATE(2 * 9 / 3, 2);
 Para divisão inteira, posso utilizar a função *x DIV y*
 
 Para pegar o resto da divisão, posso utilizar a função *x MOD y*
+
+## Funções matemáticas
+É possível utilizar funções matemáticas para retornar valores de uma coluna em outra coluna com valores já calculados
+
+- TRUNCATE(x, y) valor float x com y casas decimais
+- CEILING() arredonda pra cima
+- FLOOR() arredonda pra baixo
+- PI() retorna o valor de pi
+- POW(x, y) retorna o valor x elevado a y
+- SQRT() raíz quadrada
+- SIN() seno de um número dado em radianos
+- HEX() hexadecimal de um valor decimal
