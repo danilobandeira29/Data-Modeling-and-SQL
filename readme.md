@@ -2156,3 +2156,46 @@ SELECT CONCAT('A quantidade de ', item, ' é ', COALESCE(NULL, quantidade, NULL,
 FROM test_nulo
 WHERE item = 'Teclado';
 ```
+
+## Operações aritméticas
+É possível realizar operações matematicas simples nos valores de uma coluna e retornar resultados em uma coluna calculada. Para isso, usamos os operadores matématicos comuns:
+
+- (+) soma
+- (-) subtração
+- (/) divisão
+- (*) multiplicação
+- (% ou MOD) módulo ou resto da divisão
+- (DIV) divisão inteira
+
+Retorna o valor dessa multiplicação.
+```sql
+SELECT 2 * 2 AS Multiplicação;
+```
+</br>
+
+Retorna as colunas livro, preço de cada unidade, seguido da coluna que retornará o preço de 5 unidades desse livro.
+```sql
+SELECT Nome_livro AS Livro,
+Preco_livro AS 'Preço unidade',
+Preco_livro * 5 AS 'Preço de 5 unidade'
+FROM tbl_livro;
+```
+</br>
+
+Irá retornar 6.0000
+```sql
+SELECT 2 * 9 / 3;
+```
+</br>
+
+Para arredondar as casas decimais, posso utilizar a função *TRUNCATE(valor, precisão)*
+
+```sql
+SELECT TRUNCATE(2 * 9 / 3, 2);
+```
+
+</br>
+
+Para divisão inteira, posso utilizar a função *x DIV y*
+
+Para pegar o resto da divisão, posso utilizar a função *x MOD y*
