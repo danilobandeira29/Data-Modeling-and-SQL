@@ -2211,3 +2211,5 @@ Para pegar o resto da divisão, posso utilizar a função *x MOD y*
 - SQRT() raíz quadrada
 - SIN() seno de um número dado em radianos
 - HEX() hexadecimal de um valor decimal
+
+## Stored Procedures
