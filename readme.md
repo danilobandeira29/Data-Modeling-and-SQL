@@ -2212,4 +2212,43 @@ Para pegar o resto da divisão, posso utilizar a função *x MOD y*
 - SIN() seno de um número dado em radianos
 - HEX() hexadecimal de um valor decimal
 
-## Stored Procedures
+## Funções e Procedimentos
+- Funções e procedimentos são rotinas que serão armazenadas, para que quando aja necessidade, basta chama-lás pelo nome para executar.
+- São similares, mas com invocação diferente.
+- São invocadas de maneira diferente também.
+- Consigo aplicar com inner join ou qualquer outra técnica que aprendi.
+
+```sql
+CREATE FUNCTION nome_função(parâmetros)
+RETURNS tipos_de_dados_retornados
+código_função;
+```
+
+> Caso não funciona, executar `SET GLOBAL log_bin_trust_function_creators = 1;`
+
+Invocando uma função
+```sql
+SELECT nome_função(parâmetros);
+```
+
+Criando função
+```sql
+CREATE FUNCTION fnc_test(a DECIMAL(11, 2), b INT) RETURNS INT
+RETURN a * b;
+```
+Invocando a função *fnc_test*
+```sql
+SELECT fnc_test(12. 5, 6);
+```
+
+Aplicando em uma tabela
+```sql
+SELECT Nome_livro AS Livro, fnc_test(Preco_livro, 6) AS 'Valor de 6 unidades'
+FROM tbl_livro
+WHERE id_livro = 2;
+```
+
+Excluindo função
+```sql
+DROP FUNCTION nome_função;
+```
