@@ -2252,3 +2252,4 @@ Excluindo função
 ```sql
 DROP FUNCTION nome_função;
 ```
+## Procedimentos armazenados
