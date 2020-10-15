@@ -2252,4 +2252,47 @@ Excluindo função
 ```sql
 DROP FUNCTION nome_função;
 ```
-## Procedimentos armazenados
+## Procedimentos armazenados(Stored procedures)
+
+São uma sub-rotinas disponíveis para aplicações que acessem o SGBD.
+
+Para que usar?
+- Para validação de dados
+- Controle de acesso
+- Execução de declarações SQL complexas
+- E outras situações
+
+Criar procedimento
+```sql
+CREATE PROCEDURE nome_procedimento(parâmetros)
+declarações;
+```
+> Ou posso fazer a criação clicando com o botão direito em *Stored Procedures*, onde ele irá criar já a estrutura fazendo uso do bloco *BEGIN* e *END*.
+
+Invocando procedimento
+```sql
+CALL nome_procedimento(parâmetros);
+```
+
+Deletando procedimento
+```sql
+DROP PROCEDURE nome_procedimento;
+```
+
+Criando meu procedimento que irá retornar o valor de um livro, passando o seu id quando chamar o procedimento.
+```sql
+CREATE PROCEDURE verPreco(idLivro SMALLINT)
+SELECT CONCAT('O preço do livro é ', Preco_livro) AS Preço
+FROM tbl_livro
+WHERE Id_livro = idLivro;
+```
+
+Chamando o procedimento e passando o id do livro pelo parâmetro.
+```sql
+CALL verPreco(1);
+```
+
+Deletando o procedimento.
+```sql
+DROP PROCEDURE verPreco;
+```
