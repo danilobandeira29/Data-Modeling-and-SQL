@@ -2296,3 +2296,26 @@ Deletando o procedimento.
 ```sql
 DROP PROCEDURE verPreco;
 ```
+## Blocos BEGIN... END
+- Delimita um escopo de uma *function* ou *stored-procedures*.
+- Cada declaração(SELECT...) possuí um delimitador(;)
+- Um SELECT, DROP e afins são declarações.
+- BEGIN END pode ser aninhado, como um if.
+- **Delimitador(;) pode causar um problema. Para evitar isso, devemos utilizar um comando chamado *DELIMITER* para criar um delimitador diferente do ponto e vírgula**
+
+Criando função utilizando BEGIN...END
+```sql
+SET GLOBAL log_bin_trust_function_creators = 1;
+
+DELIMITER $$
+CREATE FUNCTION aumenta_preco(valor DECIMAL(11, 2), taxa DECIMAL(11, 2)) RETURNS DECIMAL(11, 2)
+BEGIN
+  RETURN valor * taxa;
+END
+DELIMITER ;
+```
+
+Chamando função
+```sql
+SELECT aumenta_preco(22.3, 10.00) AS Resultado;
+```
