@@ -2319,3 +2319,20 @@ Chamando função
 ```sql
 SELECT aumenta_preco(22.3, 10.00) AS Resultado;
 ```
+
+Criando uma procedure com o bloco BEGIN...END e chamando.
+```sql
+DELIMITER //
+CREATE PROCEDURE verPreco(idLivro SMALLINT)
+BEGIN
+  SELECT CONCAT('O valor do livro é: ', Preco_livro) AS Preço
+  FROM tbl_livro
+  WHERE id_livro = idLivro;
+  SELECT 'Procedimento realizado com sucesso!';
+END//
+DELIMITER ;
+
+-- Chamando o procedure
+CALL verPreco(1);
+```
+Irão abrir duas janelas de resultado: Uma com o primeiro SELECT e outra com o segundo SELECT. **Executou as duas por causa do bloco BEGIN...END e ELAS FORAM SEPARADAS POR ;**.
