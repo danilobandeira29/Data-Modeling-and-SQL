@@ -2336,3 +2336,16 @@ DELIMITER ;
 CALL verPreco(1);
 ```
 Irão abrir duas janelas de resultado: Uma com o primeiro SELECT e outra com o segundo SELECT. **Executou as duas por causa do bloco BEGIN...END e ELAS FORAM SEPARADAS POR ;**.
+
+## Parâmetros em Stored Procedures(procedimentos armazenados)
+Existem três parâmetros:
+- IN
+- OUT
+- INOUT
+
+### IN
+- **É o modo padrão.** Quando você define um parâmetro IN em um SP, o programa chamador tem que passar um argumento ao procedimento armazenado. Essa passagem de parâmetros é do tipo passagem por valor, **portanto o valor do parâmetro fora do procedimento armazenado permanece inalterado**.
+
+- São semelhantes a parâmetros de função.
+
+Exemplo: Se eu tiver uma variável ou uma coluna com o valor X e passar essa variável/coluna com valor IN para um stored procedures... **esse valor será passado e retornado, mas seu valor original será mantido**.
