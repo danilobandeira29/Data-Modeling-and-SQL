@@ -2349,3 +2349,6 @@ Existem três parâmetros:
 - São semelhantes a parâmetros de função.
 
 Exemplo: Se eu tiver uma variável ou uma coluna com o valor X e passar essa variável/coluna com valor IN para um stored procedures... **esse valor será passado e retornado, mas seu valor original será mantido**.
+
+### OUT
+- O valor passado por parâmetro é setado para NULL. Ou seja, a diferença entre IN e OUT é que no IN o valor não é alterado(fica com valor original) e no OUT será NULL.
