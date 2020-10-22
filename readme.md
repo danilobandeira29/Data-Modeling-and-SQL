@@ -2452,3 +2452,12 @@ SELECT @valor; -- irá me retornar 15
 Basta imaginar como na matrix:
 
 O personagem está ligado a um computador por meio de um cabo. Qualquer coisa que o personagem sofre no **mundo virtual**, é refletido no corpo dele no **mundo real**, **pois o mundo virtual tem a referência do corpo dele do mundo real.**
+
+## Escopo das variáveis
+- Diz respeito aos locais onde a variável "existe", ou seja, onde ela pode ser acessada.
+
+### Níveis de escopo
+- Global (acessíveis de qualquer lugar)
+- Sessão (variáveis @ e de sistema)
+- Parâmetros (nível de rotina, criadas quando a rotina é chamada e destruída quando a rotina encerra)
+- Local (limitadas ao bloco BEGIN...END onde foram criadas)
