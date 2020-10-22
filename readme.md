@@ -2352,3 +2352,10 @@ Exemplo: Se eu tiver uma variável ou uma coluna com o valor X e passar essa var
 
 ### OUT
 - O valor passado por parâmetro é setado para NULL. Ou seja, a diferença entre IN e OUT é que no IN o valor não é alterado(fica com valor original) e no OUT será NULL.
+
+### INOUT
+- Trata-se de uma combinação dos parâmetros IN e OUT.
+- Isso significa que o programa chamador deve passar argumentos e o procedimento armazenado pode modificar o parâmetro INOUT e repassar o novo valor de volta ao programa chamador.
+- **PORTANTO, uma referência à variável externa é passada ao procedimento.**
+- Também conhecido como **Passagem por referência.**
+
