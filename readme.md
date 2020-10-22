@@ -2359,3 +2359,45 @@ Exemplo: Se eu tiver uma variável ou uma coluna com o valor X e passar essa var
 - **PORTANTO, uma referência à variável externa é passada ao procedimento.**
 - Também conhecido como **Passagem por referência.**
 
+Ao chamar esse stored procedure, eu devo passar o nome da editora... então ele fará uma consulta pela tabela de livro e cruzar com a tabela de editora para recuperar os dados necessários... que irá me retornar apenas os livros(nome do livro e editora) da editora passada por parâmetro.
+```sql
+DELIMITER $$
+CREATE PROCEDURE editora_livro(IN editora VARCHAR(50))
+BEGIN
+  SELECT L.Nome_livro, E.Nome_editora
+  FROM tbl_livro AS L
+  INNER JOIN tbl_editora AS E
+  ON L.Id_editora = E.Id_editora
+  WHERE E.Nome_editora = editora;
+END $$
+DELIMITER ;
+
+CALL editora_livro('Celestial');
+```
+> Não altera o valor da editora. O nome disso é **passagem por valor**.
+
+#### Criando variável
+Posso criar uma variável(sempre começa com @) e atribuir o nome da editora dessa forma:
+
+```sql
+SET @minhaeditora = 'Celestial';
+CALL editora_livro(@minhaeditora);
+```
+
+Busca o livro com mesmo id e aumenta o seu valor
+```sql
+DELIMITER $$
+CREATE PROCEDURE aumenta_preco(IN codigo INT, taxa DECIMAL(11, 2))
+BEGIN
+  UPDATE tbl_livro
+  SET Preco_livro = tbl_livro.Preco_livro + (tbl_livro.Preco_livro * 2 / 100)
+  WHERE Id_livro = codigo;
+END $$
+DELIMITER ;
+
+SET @taxa = 10;
+SET @codigoLivro = 2;
+
+CALL aumenta_preco(@codigoLivro, @taxa);
+```
+> **O código do livro não é alterado, pois é um parâmetro IN.**
