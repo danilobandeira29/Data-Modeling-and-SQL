@@ -2447,3 +2447,8 @@ CALL aumento(@valor, 50);
 SELECT @valor; -- irá me retornar 15
 
 ```
+
+## Passagem por referência
+Basta imaginar como na matrix:
+
+O personagem está ligado a um computador por meio de um cabo. Qualquer coisa que o personagem sofre no **mundo virtual**, é refletido no corpo dele no **mundo real**, **pois o mundo virtual tem a referência do corpo dele do mundo real.**
