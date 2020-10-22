@@ -2348,10 +2348,14 @@ Existem três parâmetros:
 
 - São semelhantes a parâmetros de função.
 
+- **É IN pois eu forneço valor para ele.**
+
 Exemplo: Se eu tiver uma variável ou uma coluna com o valor X e passar essa variável/coluna com valor IN para um stored procedures... **esse valor será passado e retornado, mas seu valor original será mantido**.
 
 ### OUT
 - O valor passado por parâmetro é setado para NULL. Ou seja, a diferença entre IN e OUT é que no IN o valor não é alterado(fica com valor original) e no OUT será NULL.
+
+- **É OUT pois eu NÃO forneço valor inicial, mas dentro do procedimento ele é alterado.**
 
 ### INOUT
 - Trata-se de uma combinação dos parâmetros IN e OUT.
@@ -2406,7 +2410,8 @@ CALL aumenta_preco(@codigoLivro, @taxa);
 ### Exemplo stored procedure com parâmetro OUT
 O valor da variável livro entra com valor NULL, recebe o valor do SELECT e retorna com o valor da seleção. **Ou seja, trata-se de uma passagem por referência.**
 
-**Por que passagem por referência?** Acredito que o valor não existe, então é passado para o procedimento e tem seu valor alterado. Ou seja, alterei o valor do valor que foi passado **que na verdade era null, que é apenas referência de onde aguardar o valor**.
+**Por que passagem por referência?** Acredito que o valor não existe, então é passado para o procedimento e tem seu valor alterado. Ou seja, alterei o valor do valor que foi passado **que na verdade era null, que é apenas referência de onde aguardar o valor**. Basta revisar esse conceito em 17:40 : https://www.youtube.com/watch?v=STetVKOhLkI&list=PLucm8g_ezqNrWAQH2B_0AnrFY5dJcgOLR&index=39
+
 ```sql
 DELIMITER //
 CREATE PROCEDURE test_out(IN codigo INT, OUT livro VARCHAR(50))
@@ -2424,6 +2429,8 @@ SELECT @livro;
 ```
 ### Exemplo stored procedure com parâmetro INOUT
 Irá receber uma variável que tem um valor inicial de 10, depois irá alterar o valor dela com base no seu valor inicial multiplicado a taxa... e o resultado irá guardar na variável inicial, alterando seu valor.
+
+**É IN pois eu forneço valor para ele. E é OUT pois o valor alterado é armazenado dentro dele.**
 
 ```sql
 DELIMITER //
