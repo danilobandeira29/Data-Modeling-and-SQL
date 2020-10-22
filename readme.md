@@ -2405,6 +2405,8 @@ CALL aumenta_preco(@codigoLivro, @taxa);
 
 ### Exemplo stored procedure com parâmetro OUT
 O valor da variável livro entra com valor NULL, recebe o valor do SELECT e retorna com o valor da seleção. **Ou seja, trata-se de uma passagem por referência.**
+
+**Por que passagem por referência?** Acredito que o valor não existe, então é passado para o procedimento e tem seu valor alterado. Ou seja, alterei o valor do valor que foi passado **que na verdade era null, que é apenas referência de onde aguardar o valor**.
 ```sql
 DELIMITER //
 CREATE PROCEDURE test_out(IN codigo INT, OUT livro VARCHAR(50))
@@ -2417,5 +2419,24 @@ END //
 DELIMITER ;
 
 CALL test_out(2, @livro);
+
 SELECT @livro;
+```
+### Exemplo stored procedure com parâmetro INOUT
+Irá receber uma variável que tem um valor inicial de 10, depois irá alterar o valor dela com base no seu valor inicial multiplicado a taxa... e o resultado irá guardar na variável inicial, alterando seu valor.
+
+```sql
+DELIMITER //
+CREATE PROCEDURE aumento(INOUT valor DECIMAL(11, 2), taxa DECIMAL(11, 2))
+BEGIN
+  SET valor = valor + (valor * taxa / 100);
+END //
+DELIMITER ;
+
+SET @valor = 10;
+SELECT @valor; -- irá me retornar 10
+
+CALL aumento(@valor, 50);
+SELECT @valor; -- irá me retornar 15
+
 ```
