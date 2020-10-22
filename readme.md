@@ -2384,6 +2384,7 @@ SET @minhaeditora = 'Celestial';
 CALL editora_livro(@minhaeditora);
 ```
 
+### Exemplo stored procedure com parâmetro IN
 Busca o livro com mesmo id e aumenta o seu valor
 ```sql
 DELIMITER $$
@@ -2401,3 +2402,20 @@ SET @codigoLivro = 2;
 CALL aumenta_preco(@codigoLivro, @taxa);
 ```
 > **O código do livro não é alterado, pois é um parâmetro IN.**
+
+### Exemplo stored procedure com parâmetro OUT
+O valor da variável livro entra com valor NULL, recebe o valor do SELECT e retorna com o valor da seleção. **Ou seja, trata-se de uma passagem por referência.**
+```sql
+DELIMITER //
+CREATE PROCEDURE test_out(IN codigo INT, OUT livro VARCHAR(50))
+BEGIN
+  SELECT Nome_livro
+  INTO livro
+  FROM tbl_livro
+  WHERE id_livro = codigo;
+END //
+DELIMITER ;
+
+CALL test_out(2, @livro);
+SELECT @livro;
+```
