@@ -2461,3 +2461,37 @@ O personagem está ligado a um computador por meio de um cabo. Qualquer coisa qu
 - Sessão (variáveis @ e de sistema)
 - Parâmetros (nível de rotina, criadas quando a rotina é chamada e destruída quando a rotina encerra)
 - Local (limitadas ao bloco BEGIN...END onde foram criadas)
+
+### Local
+- Pode ser criada em uma function ou procedure utilizando *DECLARE*.
+- Posso inicializar com um valor ou não.
+- Ficam disponíveis para o BEGIN...END filhos.
+- Seu valor não fica acessível depois que a function/procedure deixa de existir.
+
+Criar variável local
+```sql
+DECLARE nome_variavel1 tipo, nome_variavel2 tipo
+[DEFAULT valor_padrão]
+```
+
+Posso setar valor utilizando o *SET* ou *SELECT...INTO*.
+
+```sql
+DELIMITER //
+CREATE FUNCTION calcula_desconto(idLivro SMALLINT, valorDesconto DECIMAL(11, 2))
+RETURNS DECIMAL(11, 2) DETERMINISTIC
+BEGIN
+  DECLARE preco DECIMAL(11, 2);
+  SELECT Preco_livro FROM tbl_livro
+  WHERE id_livro = idLivro INTO preco;
+  RETURN preco - valorDesconto;
+END //
+DELIMITER ;
+
+SET @idLivro = 1;
+
+SELECT Preco_livro FROM tbl_Livro
+WHERE id_livro = @idLivro;
+
+SELECT calcula_desconto(@idLivro, 10.00);
+```
