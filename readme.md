@@ -2521,3 +2521,18 @@ CASE valor_referência
   ELSE lista_declarações
 END CASE;
 ```
+Criar função para calcular imposto, utilizando IF ELSEIF ELSE END IF:
+```sql
+DELIMITER //
+CREATE FUNCTION calcula_imposto(salario DEC(11, 2)) RETURNS DEC(11, 2) DETERMINISTIC
+BEGIN
+  DECLARE valor_imposto DEC(11, 2);
+  IF salario < 1000 THEN SET valor_imposto = 0;
+  ELSEIF salario < 2000 THEN SET valor_imposto = salario * 0.15;
+  ELSEIF salario < 3000 THEN SET valor_imposto = salario * 0.22;
+  ELSE SET valor_imposto = salario * 0.27;
+  END IF;
+  RETURN valor_imposto;
+END //
+DELIMITER ;
+```
