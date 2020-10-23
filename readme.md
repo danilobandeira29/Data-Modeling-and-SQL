@@ -2497,7 +2497,8 @@ SELECT calcula_desconto(@idLivro, 10.00);
 ```
 
 ## Blocos condicionais IF e CASE
-- Utilizado para testar condições
+- Utilizado para testar condições.
+- Se tiver muitas comparações com a mesma variável, utilizar o CASE.
 
 Existem dois blocos básicos:
 - IF ELSEIF ELSE END IF
