@@ -2536,3 +2536,20 @@ BEGIN
 END //
 DELIMITER ;
 ```
+
+Criar função para calcular imposto, utilizando CASE WHEN THEN ELSE END CASE:
+```sql
+DELIMITER //
+CREATE FUNCTION calcula_imposto_case(salario DEC(11, 2)) RETURNS DEC(11, 2) DETERMINISTIC
+BEGIN
+  DECLARE valor_imposto DEC(11, 2);
+  CASE
+    WHEN salario < 1000 THEN SET valor_imposto = salario * 0;
+    WHEN salario < 2000 THEN SET valor_imposto = salario * 0.15;
+    WHEN salario < 3000 THEN SET valor_imposto = salario * 0.22;
+    ELSE SET valor_imposto = salario * 0.27;
+  END CASE;
+  RETURN valor_imposto;
+END //
+DELIMITER ;
+```
