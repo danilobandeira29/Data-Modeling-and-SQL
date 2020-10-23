@@ -2495,3 +2495,29 @@ WHERE id_livro = @idLivro;
 
 SELECT calcula_desconto(@idLivro, 10.00);
 ```
+
+## Blocos condicionais IF e CASE
+- Utilizado para testar condições
+
+Existem dois blocos básicos:
+- IF ELSEIF ELSE END IF
+- CASE WHEN THEN ELSE END CASE
+
+Sintaxe do IF
+```sql
+IF condição THEN lista_declarações
+  [ELSEIF condição THEN lista_declarações]
+  ...
+  [ELSE lista_declarações]
+END IF;
+```
+
+Sintaxe do CASE
+```sql
+CASE valor_referência
+  WHEN valor_comparado THEN lista_declarações
+  WHEN valor_comparado THEN lista_declarações
+  ...
+  ELSE lista_declarações
+END CASE;
+```
