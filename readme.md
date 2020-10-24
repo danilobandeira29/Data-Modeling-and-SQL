@@ -2567,3 +2567,4 @@ DELIMITER ;
 7. SHOW COLUMNS FROM tbl_livro LIKE "I%"; *Mostrar as que começam com I*
 8. SHOW COLUMNS FROM tbl_Livro WHERE TYPE LIKE "varchar%"; *Colunas onde o tipo é varchar, independente do tamanho*
 9. SHOW GRANTS FOR root@localhost; *Permissões de acesso do usuário root no localhost*
+10. SHOW GRANTS FOR CURRENT_USER;
