@@ -2574,3 +2574,35 @@ DELIMITER ;
 - Atalho para o comando `SHOW COLUMNS FROM`
 - Posso abreviar para `DESC`
 - Não suporta as cláusulas `WHERE` ou `LIKE`
+
+### mysqlshow
+- Utilizar o shell do mySQL
+
+Irá mostrar todos os databases.
+```bash
+mysqlshow -u usuario -p senha
+```
+
+Mostrar as todas as tabelas de um database.
+```bash
+mysqlshow -u usuario -p senha nome_banco
+```
+
+Mostrar as todas colunas da tabela de um database, mas caso a tabela tenha _ no nome, não irá funcionar corretamente.
+```bash
+mysqlshow -u usuario -p senha nome_banco nome_tabela
+```
+**Por utilizar _ no nome da tabela, o shell irá reconhecer como um Wildcard. Par que mostra corretamente todas as colunas, utilizar:**
+```bash
+mysqlshow -u usuario -p senha nome_banco nome_tabela %
+```
+
+Irá trazer todas as tabelas do banco que começam com *t*, juntamente com a contagem de linhas e colunas(primeiro *v* para colunas, segundo *v* para linhas) 
+```bash
+mysqlshow -vv -u usuario -p senha nome_banco 't*'
+```
+
+Irá trazer informações sobre a coluna de uma tabela especifica do banco.
+```bash
+mysqlshow -u usuario -p senha nome_banco nome_tabela nome_coluna
+```
