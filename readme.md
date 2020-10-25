@@ -2557,14 +2557,20 @@ DELIMITER ;
 ## Comando SHOW, DESCRIBE e mysqlshow
 - Utilizados para acessar os metadados no meu sistema.
 - Metadados são dados sobre dados, ou seja, informações sobre objetos do sistema, banco de dados, tabelas do banco, colunas do banco...
+- **Utilizar a CLI do mySQL.**
 
-1. Utilizar a CLI do mySQL
-2. Digitar na CLI: HELP SHOW
-3. SHOW DATABASES;
-4. USE db_biblioteca; SHOW TABLES; SHOW CREATE TABLE tbl_livro;
-5. SHOW CREATE PROCEDURE nome_procedimento; SHOW CREATE FUNCTION nome_func;
-6. SHOW [ FULL ] COLUMNS FROM nome_tabela; *[] significa que é opcional*
-7. SHOW COLUMNS FROM tbl_livro LIKE "I%"; *Mostrar as que começam com I*
-8. SHOW COLUMNS FROM tbl_Livro WHERE TYPE LIKE "varchar%"; *Colunas onde o tipo é varchar, independente do tamanho*
-9. SHOW GRANTS FOR root@localhost; *Permissões de acesso do usuário root no localhost*
-10. SHOW GRANTS FOR CURRENT_USER;
+### SHOW
+2. Digitar na CLI: `HELP SHOW`
+3. `SHOW DATABASES`;
+4. `USE db_biblioteca`; `SHOW TABLES`; `SHOW CREATE TABLE tbl_livro`;
+5. `SHOW CREATE PROCEDURE nome_procedimento`; `SHOW CREATE FUNCTION nome_func`;
+6. `SHOW [ FULL ] COLUMNS FROM nome_tabela`; *[] significa que é opcional*
+7. `SHOW COLUMNS FROM tbl_livro LIKE "I%"`; *Mostrar as que começam com I*
+8. `SHOW COLUMNS FROM tbl_Livro WHERE TYPE LIKE "varchar%"`; *Colunas onde o tipo é varchar, independente do tamanho*
+9. `SHOW GRANTS FOR root@localhost`; *Permissões de acesso do usuário root no localhost*
+10. `SHOW GRANTS FOR CURRENT_USER`;
+
+### DESCRIBE
+- Atalho para o comando `SHOW COLUMNS FROM`
+- Posso abreviar para `DESC`
+- Não suporta as cláusulas `WHERE` ou `LIKE`
