@@ -2647,10 +2647,12 @@ CALL acumula(10, @resultado);
 SELECT @resultado;
 ```
 > Declaro duas variáveis *soma* e *contador*, crio o loop e incremento essas duas variáveis. Faço a comparação do contador com o valor *limite* e caso seja satisfeita, vai sair do loop e vai exibir o valor da *soma*.
-> LEAVE indica que deve sair do loop. **Se não tiver, será um loop infinito.**
+> LEAVE indica que deve sair do bloco/loop. **Se não tiver, será um loop infinito.**
 > Caso o valor 0 seja passado ao *limite*, ele irá retornar 1(valor errado).
 
 ## REPEAT
+- Semelhante ao *DO WHILE*, já que ele verifica a **condição** apenas depois de executar os códigos.
+
 ```sql
 [nome_repeat:] REPEAT
 declarações
@@ -2674,7 +2676,37 @@ BEGIN
 END //
 DELIMITER ;
 
-CALL acumula_repeat(5);
+CALL acumula_repeat(5); -- resultado 15
+
+CALL acumula_repeat(0); -- resultado errado
 ```
 
 **UNSIGNED(sem sinal) aceita apenas valores positivos.**
+
+Resolvendo o problema quando o usuário passa valores menos que 1 no *REPEAT*, já que o teste dele é depois de executar outros comandos.
+```sql
+DELIMITER //
+CREATE PROCEDURE acumula_repeat2(limite TINYINT UNSIGNED)
+main: BEGIN
+  DECLARE contador TINYINT UNSIGNED DEFAULT 0;
+  DECLARE soma INT DEFAULT 0;
+
+  IF limite < 1 THEN
+    SELECT 'O valor passado deve ser maior que 0.' AS Error;
+    LEAVE main;
+  END IF;
+
+  myRepeat: REPEAT
+    SET contador = contador + 1;
+    SET soma = soma + contador;
+  UNTIL contador >= limite
+  END REPEAT myRepeat;
+
+  SELECT soma;
+
+END //
+DELIMITER ;
+
+CALL acumula_repeat2(5);
+CALL acumula_repeat2(0);
+```
