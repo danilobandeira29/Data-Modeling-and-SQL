@@ -2617,6 +2617,8 @@ No mySQL existem:
 - REPEAT
 - WHILE
 
+## LOOP
+
 ```sql
 [nome_loop:] LOOP
 declarações
@@ -2646,3 +2648,33 @@ SELECT @resultado;
 ```
 > Declaro duas variáveis *soma* e *contador*, crio o loop e incremento essas duas variáveis. Faço a comparação do contador com o valor *limite* e caso seja satisfeita, vai sair do loop e vai exibir o valor da *soma*.
 > LEAVE indica que deve sair do loop. **Se não tiver, será um loop infinito.**
+> Caso o valor 0 seja passado ao *limite*, ele irá retornar 1(valor errado).
+
+## REPEAT
+```sql
+[nome_repeat:] REPEAT
+declarações
+UNTIL condicação
+END REPEAT [nome_repeat];
+```
+
+Exemplo:
+```sql
+DELIMITER //
+CREATE PROCEDURE acumula_repeat (limite TINYINT UNSIGNED)
+BEGIN
+  DECLARE contador TINYINT UNSIGNED DEFAULT 0;
+  DECLARE soma INT DEFAULT 0;
+  myRepeat: REPEAT
+    SET contador = contador + 1;
+    SET soma = soma + contador;
+      UNTIL contador >= limite
+  END REPEAT myRepeat;
+  SELECT soma;
+END //
+DELIMITER ;
+
+CALL acumula_repeat(5);
+```
+
+**UNSIGNED(sem sinal) aceita apenas valores positivos.**
