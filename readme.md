@@ -2606,3 +2606,18 @@ Irá trazer informações sobre a coluna de uma tabela especifica do banco.
 ```bash
 mysqlshow -u usuario -p senha nome_banco nome_tabela nome_coluna
 ```
+## Estruturas de repetição LOOP, REPEAT e WHILE
+### Bloco iterativo
+- Bloco de código que executa comandos repetidamente até que a condição de parada seja satisfeita.
+- Pode ser aninhado com outros blocos iterativos.
+
+No mySQL existem:
+- LOOP
+- REPEAT
+- WHILE
+
+```sql
+[nome_loop:] LOOP
+declarações
+END LOOP [nome_loop];
+```
