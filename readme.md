@@ -2621,3 +2621,22 @@ No mySQL existem:
 declarações
 END LOOP [nome_loop];
 ```
+
+Exemplo:
+```sql
+DELIMITER //
+CREATE PROCEDURE acumula(limite INT)
+BEGIN
+  DECLARE contador INT DEFAULT 0;
+  DECLARE soma INT DEFAULT 0;
+  loop_test: LOOP
+    SET contador = contador + 1;
+    SET soma = soma + contador;
+    IF contador >= limite THEN LEAVE loop_test;
+    END IF;
+  END LOOP loop_test;
+  SELECT soma;
+END //
+DELIMITER ;
+```
+> Declaro duas variáveis *soma* e *contador*, crio o loop e incremento essas duas variáveis. Faço a comparação do contador com o valor *limite* e caso seja satisfeita, vai sair do loop e vai exibir o valor da *soma*.
