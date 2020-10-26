@@ -2710,3 +2710,29 @@ DELIMITER ;
 CALL acumula_repeat2(5);
 CALL acumula_repeat2(0);
 ```
+## WHILE
+- A condição é testada antes de executar o código. Ou seja, pode não executar nenhum código caso a condição não seja satisfeita.
+
+```sql
+[nome_while:] WHILE condicao DO
+END WHILE [nome_while];
+```
+
+Exemplo:
+```sql
+DELIMITER //
+CREATE PROCEDURE acumula_while (limite TINYINT UNSIGNED)
+BEGIN
+  DECLARE contador TINYINT UNSIGNED DEFAULT 0;
+  DECLARE soma INT DEFAULT 0;
+  myWhile: WHILE contador < limite DO
+    SET contador = contador + 1;
+    SET soma = contador + soma;
+  END WHILE myWhile;
+  SELECT soma;
+END //
+DELIMITER ;
+
+CALL acumula_while(5);
+CALL acumula_while(0);
+```
