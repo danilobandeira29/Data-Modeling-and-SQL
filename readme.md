@@ -2610,6 +2610,7 @@ mysqlshow -u usuario -p senha nome_banco nome_tabela nome_coluna
 ### Bloco iterativo
 - Bloco de código que executa comandos repetidamente até que a condição de parada seja satisfeita.
 - Pode ser aninhado com outros blocos iterativos.
+- Importantes em *functions* e *triggers*.
 
 No mySQL existem:
 - LOOP
@@ -2625,7 +2626,7 @@ END LOOP [nome_loop];
 Exemplo:
 ```sql
 DELIMITER //
-CREATE PROCEDURE acumula(limite INT)
+CREATE PROCEDURE acumula(limite INT, OUT resultado INT)
 BEGIN
   DECLARE contador INT DEFAULT 0;
   DECLARE soma INT DEFAULT 0;
@@ -2635,8 +2636,13 @@ BEGIN
     IF contador >= limite THEN LEAVE loop_test;
     END IF;
   END LOOP loop_test;
-  SELECT soma;
+  SET resultado = soma;
 END //
 DELIMITER ;
+
+CALL acumula(10, @resultado);
+
+SELECT @resultado;
 ```
 > Declaro duas variáveis *soma* e *contador*, crio o loop e incremento essas duas variáveis. Faço a comparação do contador com o valor *limite* e caso seja satisfeita, vai sair do loop e vai exibir o valor da *soma*.
+> LEAVE indica que deve sair do loop. **Se não tiver, será um loop infinito.**
