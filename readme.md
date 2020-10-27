@@ -2763,3 +2763,23 @@ DELIMITER ;
 
 CALL acumula_iterate (10);
 ```
+
+```sql
+DELIMITER $$
+CREATE PROCEDURE numeros_pares (limite TINYINT UNSIGNED)
+BEGIN
+  DECLARE contador TINYINT UNSIGNED DEFAULT 0;
+  myWhile: WHILE contador < limite DO
+    SET contador = contador + 1;
+    IF MOD(contador, 2) THEN
+      ITERATE myWhile;
+    END IF;
+    SELECT CONCAT(contador, ' é um valor par') AS valor;
+  END WHILE myWhile;
+END $$
+DELIMITER ;
+
+CALL numeros_pares (10);
+```
+
+> O resultado do *MOD* de um valor dividido por 2 será 0 ou 1. Caso seja 1, o *IF* irá interpretar como *TRUE*, caso 0 será será *FALSE*.
