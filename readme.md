@@ -2738,9 +2738,9 @@ CALL acumula_while(0);
 ```
 
 ## ITERATE
+- **Funciona como um *JUMP*.**
 - Significa "inicie o loop novamente à partir desse ponto".
 - **É declarado e funciona apenas dentro de LOOP, REPEAT ou WHILE.**
-- Funciona como um *JUMP*.
 
 Iterate em um LOOP:
 ```sql
@@ -2764,6 +2764,8 @@ DELIMITER ;
 CALL acumula_iterate (10);
 ```
 
+Iterate em um WHILE:
+
 ```sql
 DELIMITER $$
 CREATE PROCEDURE numeros_pares (limite TINYINT UNSIGNED)
@@ -2783,3 +2785,23 @@ CALL numeros_pares (10);
 ```
 
 > O resultado do *MOD* de um valor dividido por 2 será 0 ou 1. Caso seja 1, o *IF* irá interpretar como *TRUE*, caso 0 será será *FALSE*.
+
+
+```sql
+DELIMITER $$
+CREATE PROCEDURE numeros_par (limite TINYINT UNSIGNED)
+BEGIN
+  DECLARE contador TINYINT UNSIGNED DEFAULT 0;
+  myRepeat: REPEAT
+    SET contador = contador + 1;
+    IF MOD(contador, 2) THEN
+      ITERATE myRepeat;
+    END IF;
+    SELECT CONCAT(contador, ' é um valor par') AS valor;
+    UNTIL contador >= limite
+  END REPEAT myRepeat;
+END $$
+DELIMITER ;
+
+CALL numeros_par(10);
+```
