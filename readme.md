@@ -2786,6 +2786,7 @@ CALL numeros_pares (10);
 
 > O resultado do *MOD* de um valor dividido por 2 será 0 ou 1. Caso seja 1, o *IF* irá interpretar como *TRUE*, caso 0 será será *FALSE*.
 
+Iterate em um REPEAT:
 
 ```sql
 DELIMITER $$
