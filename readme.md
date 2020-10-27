@@ -2606,7 +2606,7 @@ Irá trazer informações sobre a coluna de uma tabela especifica do banco.
 ```bash
 mysqlshow -u usuario -p senha nome_banco nome_tabela nome_coluna
 ```
-## Estruturas de repetição LOOP, REPEAT e WHILE
+## Estruturas de repetição LOOP, REPEAT, WHILE e ITERATE
 ### Bloco iterativo
 - Bloco de código que executa comandos repetidamente até que a condição de parada seja satisfeita.
 - Pode ser aninhado com outros blocos iterativos.
@@ -2735,4 +2735,31 @@ DELIMITER ;
 
 CALL acumula_while(5);
 CALL acumula_while(0);
+```
+
+## ITERATE
+- Significa "inicie o loop novamente à partir desse ponto".
+- **É declarado e funciona apenas dentro de LOOP, REPEAT ou WHILE.**
+- Funciona como um *JUMP*.
+
+Iterate em um LOOP:
+```sql
+DELIMITER //
+CREATE PROCEDURE acumula_iterate (limite TINYINT UNSIGNED)
+BEGIN
+  DECLARE contador TINYINT UNSIGNED DEFAULT 0;
+  DECLARE soma INT UNSIGNED DEFAULT 0;
+  myLoop: LOOP
+    SET contador = contador + 1;
+    SET soma = contador + soma;
+    IF contador < limite THEN
+      ITERATE myLoop;
+    END IF;
+    LEAVE myLoop;
+  END LOOP myLoop;
+  SELECT soma;
+END//
+DELIMITER ;
+
+CALL acumula_iterate (10);
 ```
