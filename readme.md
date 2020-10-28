@@ -2806,3 +2806,16 @@ DELIMITER ;
 
 CALL numeros_par(10);
 ```
+## TRIGGERS(gatilhos)
+- Associado a uma tabela.
+- **Ocorre quando um comando *DML -  Data Manipulation*(INSERT, UPDATE, DELETE) é executado.**
+
+Principais usos dos *TRIGGERS*:
+- Verificar integridade dos dados
+- Validação dos dados
+- Rastreamento e registro de logs de atividades nas tabelas
+- Arquivamento de registros excluídos
+
+- Um *TRIGGER* é associado em uma tabela.
+- Armazenado no BD como um arquivo separado.
+- Não são chamados diretamente, são invocados automaticamente.
