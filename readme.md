@@ -2819,3 +2819,72 @@ Principais usos dos *TRIGGERS*:
 - Um *TRIGGER* é associado em uma tabela.
 - Armazenado no BD como um arquivo separado.
 - Não são chamados diretamente, são invocados automaticamente.
+
+Sintaxe do *TRIGGER*:
+```SQL
+CREATE TRIGGER nome timing operacao
+ON tabela_que_vai_agir
+FOR EACH ROW
+declarações
+```
+timing: BEFORE | AFTER
+operação: INSERT | UPDATE | DELETE
+
+```sql
+CREATE TRIGGER myTrigger BEFORE INSERT -- timing e operação
+ON tbl_Livro -- tabela ao qual o trigger será associado
+FOR EACH ROW -- para cada linha inserida
+```
+
+Exemplos:
+```SQL
+CREATE TABLE IF NOT EXISTS produto(
+  id_produto INT NOT NULL AUTO_INCREMENT,
+  nome_produto VARCHAR(45) NULL,
+  preco_normal DECIMAL(11, 2) NULL,
+  preco_desconto DECIMAL(11, 2) NULL,
+  PRIMARY KEY(id_produto)
+);
+
+
+DELIMITER $$
+CREATE TRIGGER tr_desconto BEFORE INSERT
+ON produto
+FOR EACH ROW
+BEGIN
+  SET NEW.preco_desconto = (NEW.preco_normal * 0.88);
+END $$
+DELIMITER ;
+
+INSERT INTO produto(nome_produto, preco_normal) VALUES ('Chocolate', 1.99);
+
+SELECT * FROM produto;
+```
+
+</br>
+
+```sql
+CREATE TABLE IF NOT EXISTS produto(
+  id_produto INT NOT NULL AUTO_INCREMENT,
+  nome_produto VARCHAR(45) NULL,
+  preco_normal DECIMAL(11, 2) NULL,
+  preco_desconto DECIMAL(11, 2) NULL,
+  PRIMARY KEY(id_produto)
+);
+
+
+DELIMITER $$
+CREATE TRIGGER tr_desconto BEFORE INSERT
+ON produto
+FOR EACH ROW
+BEGIN
+  IF NEW.preco_desconto IS NULL THEN
+    SET NEW.preco_desconto = NEW.preco_normal * 0.90;
+  END IF;
+END $$
+DELIMITER ;
+
+INSERT INTO produto(nome_produto, preco_normal) VALUES ('Chocolate', 1.00);
+INSERT INTO produto(nome_produto, preco_normal, preco_desconto) VALUES ('Chiclete', 1.00, 0.50);
+
+```
