@@ -2888,3 +2888,4 @@ INSERT INTO produto(nome_produto, preco_normal) VALUES ('Chocolate', 1.00);
 INSERT INTO produto(nome_produto, preco_normal, preco_desconto) VALUES ('Chiclete', 1.00, 0.50);
 
 ```
+## Gerenciamento de usuários na linha de comando - CREATE USER, SET PASSWORD, RENAME PASSWORD, DROP USER
