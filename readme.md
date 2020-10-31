@@ -2897,3 +2897,12 @@ INSERT INTO produto(nome_produto, preco_normal, preco_desconto) VALUES ('Chiclet
 ```bash
 $ mysql> CREATE USER nomeUsuario@host IDENTIFIED BY 'senha';
 ```
+Caso eu queira que o usuário posso logar de qualquer host, basta não utilizar o @host
+```bash
+$ mysql> CREATE USER nome IDENTIFIED BY 'senha';
+```
+
+Caso eu queira criar um usuário sem senha, basta retirar o *IDENTIFIED BY* 
+```bash
+$ mysql> CREATE USER nome@host;
+```
