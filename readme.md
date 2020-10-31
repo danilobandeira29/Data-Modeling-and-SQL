@@ -2906,3 +2906,14 @@ Caso eu queira criar um usuário sem senha, basta retirar o *IDENTIFIED BY*
 ```bash
 $ mysql> CREATE USER nome@host;
 ```
+
+### ALTER PASSWORD // SET PASSWORD
+**No mysql database server version 5.7.6 or newer.**
+```bash
+$ mysql> ALTER USER 'nome'@'localhost' IDENTIFIED BY 'senha';
+```
+
+**No mysql database server version 5.7.5 or older.**
+```bash
+$ mysql> SET PASSWORD FOR 'user-name-here'@'hostname' = PASSWORD('new-password');
+```
