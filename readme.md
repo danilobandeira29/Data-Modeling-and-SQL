@@ -2889,3 +2889,11 @@ INSERT INTO produto(nome_produto, preco_normal, preco_desconto) VALUES ('Chiclet
 
 ```
 ## Gerenciamento de usuários na linha de comando - CREATE USER, SET PASSWORD, RENAME PASSWORD, DROP USER
+
+1. Abrir o terminal mySQL
+2. Digitar `SELECT User, Host FROM mysql.user;`. Esses dados vem de uma tabela interna.
+
+### CREATE USER
+```bash
+$ mysql> CREATE USER nomeUsuario@host IDENTIFIED BY 'senha';
+```
