@@ -2917,3 +2917,14 @@ $ mysql> ALTER USER 'nome'@'localhost' IDENTIFIED BY 'senha';
 ```bash
 $ mysql> SET PASSWORD FOR 'user-name-here'@'hostname' = PASSWORD('new-password');
 ```
+
+### RENAME USER
+```bash
+$ mysql> RENAME USER nome@host TO novoNome@host;
+```
+**Deve ser passado o host, caso contrário, ele irá alterar o host do *USER*.**
+
+### DROP USER
+```bash
+$ mysql> DROP USER nome@host;
+```
