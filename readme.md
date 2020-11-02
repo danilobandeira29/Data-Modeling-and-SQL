@@ -2970,3 +2970,19 @@ Privilégios administrativos
 |ALL|todos os privilégios disponíveis em um determinado nível, exceto GRANT OPTION|
 |GRANT OPTION|permite dar privilégios a outros usuários|
 |USAGE|não altera privilégios; usado apenas para tarefas administrativas na conta do usuário|
+
+### Níveis de privilégios
+- GLOBAL - acesso a todas as tabelas de todos os bancos de dados; mostra dessa forma na CLI `*.*`
+- DATABASE - acesso a todas as tabelas de um banco específico
+- TABLE - acesso a todas as colunas de uma tabela
+- COLUMN - acesso a colunas especificadas de uma tabela
+
+**As informações de privilégio ficam armazenadas em tabelas especiais chamadas *grant tables***
+
+| **TABELA** | **DESCRIÇÃO** |
+| :-----: | :-----: |
+|user|armazena nomes e senhas de todos os usuários do servidor. também armazena os privilégios globais que são aplicados a todos os bancos de dados do servidor|
+|db|armazena privilégios dos bancos de dados|
+|tables_priv|armazena privilégios de tabelas|
+|columns_priv|armazena privilégios de colunas|
+|procs_priv|armazena privilégios de acesso a funções e stored procedures|
