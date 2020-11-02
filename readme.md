@@ -2928,3 +2928,45 @@ $ mysql> RENAME USER nome@host TO novoNome@host;
 ```bash
 $ mysql> DROP USER nome@host;
 ```
+
+## Definindo privilégios de acesso com GRANT e REVOKE
+Irá mostrar o que o usuário tem permissão e em qual lugar(se é em todos os bancos ou afins)
+
+```bash
+$ mysql > SHOW GRANTS FOR nome@host;
+```
+
+Existe vários *roles*, alguns deles são:
+
+Privilégios para trabalhar com dados
+| **PRIVILÉGIO** | **DESCRIÇÃO** |
+| :-----: | :-----: |
+|INSERT|inserir dados em uma tabela|
+|UPDATE|atualizar dados em uma tabela|
+|DELETE|deletar dados em uma tabela|
+|EXECUTE|executar funções e procedimentos armazenados|
+|SELECT|efetuar consultas em uma tabela|
+
+Privilégios para modificar a estrutura do banco de dados
+| **PRIVILÉGIO** | **DESCRIÇÃO** |
+| :-----: | :-----: |
+|CREATE|criar tabela ou banco de dados|
+|ALTER|modificar uma tabela|
+|DROP|excluir uma tabela ou banco de dados|
+|CREATE VIEW|criar exibições/tabelas virtuais|
+|TRIGGER|criar ou excluir uma trigger em uma tabela|
+|INDEX|criar ou excluir um indíce|
+|CREATE ROUTINE|criar uma função ou um procedimento armazenado|
+|ALTER ROUTINE|alterar uma função ou um procedimento armazenado|
+
+
+Privilégios administrativos
+| **PRIVILÉGIO** | **DESCRIÇÃO** |
+| :-----: | :-----: |
+|CREATE USER|criar contas de usuários|
+|SHOW DATABASES|ver os nomes dos bancos no servidor|
+|SHUTDOWN|desligar o servidor|
+|RELOAD|recarregar as tabelas que armazenam os privilégios dos usuários do BD. assim ela são atualizadas se tiverem sido alteradas|
+|ALL|todos os privilégios disponíveis em um determinado nível, exceto GRANT OPTION|
+|GRANT OPTION|permite dar privilégios a outros usuários|
+|USAGE|não altera privilégios; usado apenas para tarefas administrativas na conta do usuário|
