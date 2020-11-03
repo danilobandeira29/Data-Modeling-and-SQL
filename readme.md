@@ -3018,3 +3018,10 @@ $ mysql > GRANT SELECT
 > ON *.*
 > TO teste2@localhost;
 ```
+
+Privilégio de consulta em nome e sobrenome de autor, podendo apenas atualizar nome do autor de um banco especifíco de uma tabela especifíca.
+```BASH
+$ mysql > GRANT SELECT(nome_autor, sobrenome_autor), UPDATE(nome_autor)
+> ON db_biblioteca.tbl_autor
+> TO ana@localhost;
+```
