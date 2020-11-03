@@ -2986,3 +2986,35 @@ Privilégios administrativos
 |tables_priv|armazena privilégios de tabelas|
 |columns_priv|armazena privilégios de colunas|
 |procs_priv|armazena privilégios de acesso a funções e stored procedures|
+
+Sintaxe de criar privilégio:
+```bash
+$ mysql > GRANT privilegio
+> ON escopo(bancos e/ou tabelas)
+> TO nome@host [IDENTIFIED BY 'senha'];
+```
+> Caso esse usuario nao exista, ele irá criar. Posso passar o *identified by* para criar a senha também
+
+Exemplo:
+```bash
+$ mysql > GRANT SELECT
+> ON *.*
+> TO teste2@localhost;
+```
+**o primeiro * significa em quais bancos.**
+**o segundo * especifíca em quais tabelas daquele banco.**
+
+Todos os privilégios para um database especifíco com a possibilidade de dar privilégios a outros usuários.
+```bash
+$ mysql > GRANT ALL
+> ON db_biblioteca.* ## o * significa todas as tabelas desse banco
+> TO teste2@localhost
+> WITH GRANT OPTION;
+```
+
+Apenas o privilégio de consulta(read) em todos os databases
+```BASH
+$ mysql > GRANT SELECT
+> ON *.*
+> TO teste2@localhost;
+```
