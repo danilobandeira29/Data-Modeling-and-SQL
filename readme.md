@@ -3009,7 +3009,7 @@ Todos os privilégios para um database especifíco com a possibilidade de dar pr
 $ mysql > GRANT ALL
 > ON db_biblioteca.* ## o * significa todas as tabelas desse banco
 > TO teste2@localhost
-> WITH GRANT OPTION;
+> WITH GRANT OPTION; ## dar privilégios a outros usuárioss
 ```
 
 Apenas o privilégio de consulta(read) em todos os databases
@@ -3024,4 +3024,23 @@ Privilégio de consulta em nome e sobrenome de autor, podendo apenas atualizar n
 $ mysql > GRANT SELECT(nome_autor, sobrenome_autor), UPDATE(nome_autor)
 > ON db_biblioteca.tbl_autor
 > TO ana@localhost;
+```
+## REVOKE
+```BASH
+$ mysql > REVOKE privilegios
+> ON escopo
+> FROM nome@host;
+```
+
+Remover um privilégio de um usuário de todas as tabelas de um banco especifíco
+```bash
+$ mysql > REVOKE DELETE
+> ON db_biblioteca.*
+> FROM ana@localhost;
+```
+
+Remover todos os privilégios de dois usuários, inclusive o GRANT OPTION
+```bash
+$ mysql > REVOKE ALL, GRANT OPTION
+> FROM ana@localhost, fabio@localhost;
 ```
