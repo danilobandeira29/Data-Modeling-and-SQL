@@ -3044,3 +3044,16 @@ Remover todos os privilégios de dois usuários, inclusive o GRANT OPTION
 $ mysql > REVOKE ALL, GRANT OPTION
 > FROM ana@localhost, fabio@localhost;
 ```
+
+## Criar novo banco de dados e tabelas utilizando apenas o MySQL Workbench
+- É possível criar um novo banco e tabelas sem criar as linhas na mão, basta utilizar a interface do MySQL Workbench
+
+## Verificar serviço e criar DER para um banco existente
+1. Abrir o menu do Windows, procurar por service e achar a instância do service MySQL e rodar ele.
+2. Posso selecionar um banco como padrão(*Set as default schema*)
+3. Com o banco selecionado, posso clicar em *Database* > *Reverse Engineer* e ir clicando em next, dessa forma irá gerar o Diagrama Entidade Relacionamento do Banco de dados.
+<p align="center">
+    <img src="https://ik.imagekit.io/xfddek6eqk/DER_7FNvJ0HKB.png" alt="DER de um banco teste gerado pelo MySQL Workbench"/>
+    
+  </p>
+  <p align="center"><i>DER de um banco teste gerado pelo MySQL Workbench</i></p>
