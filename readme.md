@@ -3057,3 +3057,48 @@ $ mysql > REVOKE ALL, GRANT OPTION
     
   </p>
   <p align="center"><i>DER de um banco teste gerado pelo MySQL Workbench</i></p>
+
+## Generated Columns
+- Utilizada para gerar ou calcular valores com base em outro coluna da tabela
+- Evita que eu faça formulas de cálculo diretamente na aplicação(back-end)
+
+Sintaxe:
+```sql
+nome_coluna tipo_dados [GENERATED ALWAYS] AS expressao [VIRTUAL | STORED]
+constrains
+```
+
+- **Utilizar o STORED para evitar que o cálculo seja refeito quando ocorrer uma nova consulta.**
+
+Exemplos:
+```SQL
+CREATE TABLE IF NOT EXISTS Users(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  first_name VARCHAR(50) NOT NULL,
+  last_name VARCHAR(50) NOT NULL,
+  full_name VARCHAR(100) GENERATED ALWAYS AS (CONCAT(first_name, ' ', last_name))
+);
+```
+
+```SQL
+CREATE TABLE IF NOT EXISTS Numbers(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  num1 INT NOT NULL,
+  num2 INT NOT NULL,
+  num3 VARCHAR(100) GENERATED ALWAYS AS (num2 * num1)
+);
+```
+```SQL
+CREATE TABLE IF NOT EXISTS tbl_Vendas(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  Preco_produto DECIMAL(11, 2) NOT NULL,
+  Quantidade INT NOT NULL,
+  Desconto DECIMAL(11, 2) NOT NULL,
+  Preco_total DECIMAL(11, 2) GENERATED ALWAYS AS (Preco_produto * Quantidade * (1 - DESCONTO / 100)) STORED
+);
+
+INSERT INTO tbl_Vendas(Preco_produto, Quantidade, Desconto) VALUES (10.00, 5, 10);
+INSERT INTO tbl_Vendas(Preco_produto, Quantidade, Desconto) VALUES (100.00, 1, 1);
+INSERT INTO tbl_Vendas(Preco_produto, Quantidade, Desconto) VALUES (5.00, 50, 25);
+INSERT INTO tbl_Vendas(Preco_produto, Quantidade, Desconto) VALUES (33.33, 5, 10);
+```
