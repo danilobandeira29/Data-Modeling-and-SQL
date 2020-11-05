@@ -3068,7 +3068,7 @@ nome_coluna tipo_dados [GENERATED ALWAYS] AS expressao [VIRTUAL | STORED]
 constrains
 ```
 
-- **Utilizar o STORED para evitar que o cálculo seja refeito quando ocorrer uma nova consulta.**
+- **Utilizar o STORED para evitar que o cálculo seja refeito quando ocorrer uma nova consulta e para SALVAR o valor em uma coluna.**
 
 Exemplos:
 ```SQL
