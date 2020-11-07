@@ -3102,3 +3102,29 @@ INSERT INTO tbl_Vendas(Preco_produto, Quantidade, Desconto) VALUES (100.00, 1, 1
 INSERT INTO tbl_Vendas(Preco_produto, Quantidade, Desconto) VALUES (5.00, 50, 25);
 INSERT INTO tbl_Vendas(Preco_produto, Quantidade, Desconto) VALUES (33.33, 5, 10);
 ```
+
+## *ENUM*
+- Usado para criar enumerações que são lista de **valores permitidos** em uma tabela.
+
+### Grande vantagem de utilizar *ENUM*
+- **Economiza espaço no banco, pois não será necessário criar uma outra tabela que terá.**
+- Os dados terão no máximo de 1 à 2 bytes, independente do tamanho do dado ali dentro.
+
+Exemplo:
+- Ao invés de criar uma tabela com os possível tamanhos e conectar com a tabela de *Camisas* por meio de uma *foreign key*
+- Só existem 4 tamanhos de camisas possível nesse banco, pois isso, posso utilizar o *ENUM*.
+- **Só é válido se tivermos a certeza de que os tamanhos de camisão NUNCA IRÃO MUDAR**.
+
+```SQL
+CREATE TABLE IF NOT EXISTS Camisas(
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  tipo VARCHAR(45),
+  tamanho ENUM('pequeno', 'medio', 'grande', 'extra-grande')
+);
+
+-- irá inserir dois dados corretamente
+INSERT INTO Camisas VALUES ('regata', 'pequeno'), ('regata', 2);
+
+-- não irá inserir, pois medium não faz parte dos valores possível na coluna ENUM
+INSERT INTO Camisas VALUES ('regata', 'medium');
+```
