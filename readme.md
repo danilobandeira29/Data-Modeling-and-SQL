@@ -3128,3 +3128,23 @@ INSERT INTO Camisas VALUES ('regata', 'pequeno'), ('regata', 2);
 -- não irá inserir, pois medium não faz parte dos valores possível na coluna ENUM
 INSERT INTO Camisas VALUES ('regata', 'medium');
 ```
+
+Visualizar os valores permitidos em um *ENUM*
+```sql
+SHOW FULL COLUMNS FROM Camisas;
+
+SHOW COLUMNS FROM Camisas LIKE 'tamanho';
+```
+
+Visualizar os números de índice dos valores enumerados(basta chamar a coluna do enum e somar com 0)
+```sql
+SELECT nome, tamanho + 0 AS tamanho FROM Camisas;
+```
+
+**É possível observar na imagem abaixo a economia de espaço que o *ENUM* traz. Ao invés de armazenar a palavra *pequena/média/grande/extra-grande* ele armazena apenas o índice.**
+ <p align="center">
+    <img src="https://ik.imagekit.io/xfddek6eqk/enum2_T5p8u6ilB.png" alt="SELECT de uma tabela com ENUM"/>
+    
+  </p>
+  <p align="center"><i>SELECT de uma tabela com ENUM</i></p>
+
