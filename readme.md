@@ -3148,3 +3148,18 @@ SELECT nome, tamanho + 0 AS tamanho FROM Camisas;
   </p>
   <p align="center"><i>SELECT de uma tabela com ENUM</i></p>
 
+### Desvantagem de utilizar *ENUM*
+Ao tentar organizar pela coluna *ENUM* o resultado não será retornar em ordem alfabetica mas sim pelos valores inseridos no *ENUM*
+
+```sql
+SELECT * FROM Camisas
+ORDER BY tamanho;
+```
+
+**Para resolver esse problema**
+```sql
+SELECT * FROM Camisas
+ORDER BY CAST(tamanho AS CHAR);
+```
+
+CAST - converte o valor para caractere ou date(chegar documentação).
