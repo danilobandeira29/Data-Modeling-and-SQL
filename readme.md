@@ -3163,3 +3163,22 @@ ORDER BY CAST(tamanho AS CHAR);
 ```
 
 CAST - converte o valor para caractere ou date(chegar documentação).
+
+## Operador UNION
+- Permitir combinar o resultado de duas ou mais consultas em um único resultado
+- Cada declaração *SELECT* deve ter o mesmo número de colunas, tipos de dados e ordem de colunas.
+
+Sintaxe:
+
+```sql
+SELECT declaracao01
+UNION [ALL]
+SELECT declaracao02
+UNION [ALL]
+SELECT declaracao03
+UNION [ALL]
+[ORDER BY colunas];
+```
+- *ALL* serve para exibir todos os resultados incluindo os repetidos, pois por padrão eles são eliminados.
+- *ORDER BY* enxega apenas a primeira declaração *SELECT*, ou seja, tenho que ordenar pelas colunas do primeiro *SELECT*
+
