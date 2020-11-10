@@ -3182,3 +3182,19 @@ UNION [ALL]
 - *ALL* serve para exibir todos os resultados incluindo os repetidos, pois por padrão eles são eliminados.
 - *ORDER BY* enxega apenas a primeira declaração *SELECT*, ou seja, tenho que ordenar pelas colunas do primeiro *SELECT*
 
+Exemplo01:
+
+Retornar nomes de livros e preços dos livros.
+
+Caso o preço do livro seja >= R$60,00 mostrar a mensagem "Livro caro" em uma coluna à direita no resultado da consulta. Caso contrário, mostrar a mensagem "Livro razoável".
+
+Ordernar por preço, do mais barato ao mais caro.
+
+```sql
+SELECT Nome_livro Livro, Preco_livro Preço, 'Livro caro' Resultado
+FROM tbl_livro WHERE Preco_livro >= 60.00
+UNION
+SELECT Nome_livro Livro, Preco_livro Preço, 'Livro razoável' Resultado
+FROM tbl_livro WHERE Preco_livro < 60.00
+ORDER BY Preço;
+```
