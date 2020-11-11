@@ -3198,3 +3198,17 @@ SELECT Nome_livro Livro, Preco_livro Preço, 'Livro razoável' Resultado
 FROM tbl_livro WHERE Preco_livro < 60.00
 ORDER BY Preço;
 ```
+
+Exemplo02:
+
+Retornar nomes de livros, preços e datas de publicação dos livros.
+
+Caso a data de publicação seja anterior a 15/04/2012, mostrar o preço acrescido de 15% em seu valor. Caso o livro custe mais de 65 reais, descontar 10% em seu valor.
+
+```sql
+SELECT nome_livro Livro, preco_livro Preço, data_pub Publicacao, ROUND((preco_livro * 0.90), 2) Preco_final
+FROM tbl_livro WHERE preco_livro > 65.00
+UNION DISTINCT
+SELECT nome_livro Livro, preco_livro Preço, data_pub Publicacao, ROUND((preco_livro * 1.15), 2) Preco_final
+FROM tbl_livro WHERE data_pub < '20201101';
+```
