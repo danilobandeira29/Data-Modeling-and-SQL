@@ -3212,3 +3212,35 @@ UNION DISTINCT
 SELECT nome_livro Livro, preco_livro Preço, data_pub Publicacao, ROUND((preco_livro * 1.15), 2) Preco_final
 FROM tbl_livro WHERE data_pub < '20201101';
 ```
+
+## EVENT
+- Executado de acordo com um agendamento previo feito pelo desenvolvedor(Database administrador).
+
+Pode ser de dois tipos:
+1. Único: ocorre apenas uma vez, em um momento especifíco.
+2. Recorrente: Se repete em intervalos de tempos configurados(toda semana, todo dia... todo mês).
+
+Para isso, devo utilizar a variável de eventos *event_scheduler*, que por padrão está desligada.
+```sql
+SHOW VARIABLES LIKE 'event%';
+```
+
+Ativar/Desativar o agendador de eventos:
+```sql
+SET GLOBAL event_scheduler = ON | OFF;
+```
+
+Sintaxe:
+```sql
+CREATE EVENT nome_evento
+ON SCHEDULE
+  { AT timestamp | EVERY intervelado
+    [STARTS timestamp] [ENDS timestamp] }
+  [ON COMPLETE PRESERVE]
+DO
+  bloco_comandos_sql || procedimento;
+
+```
+
+- **Every nesse caso é o recorrente. Nesse caso, devo passar o *timestamp* de início e fim.**
+- *ON COMPLETE PRESERVE* diz para guardar o evento depois que ele foi executado, caso contrário, ele irá excluír o evento(padrão).
