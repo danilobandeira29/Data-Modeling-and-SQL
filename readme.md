@@ -3244,3 +3244,13 @@ DO
 
 - **Every nesse caso é o recorrente. Nesse caso, devo passar o *timestamp* de início e fim.**
 - *ON COMPLETE PRESERVE* diz para guardar o evento depois que ele foi executado, caso contrário, ele irá excluír o evento(padrão).
+
+### ALTER EVENT
+Podemos alterar um event já criado com esse comando.
+
+```sql
+ALTER EVENT nome_evento AÇÃO
+```
+Com essa *AÇÃO* é possível habilitar ou desabilitar um evento, ou renomeá-lo(Sem que seja necessário excluir um evento do sistema).
+
+AÇÃO inclui *DISABLE*, *ENABLE* e *RENAME*.
