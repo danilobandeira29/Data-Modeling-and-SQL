@@ -3254,3 +3254,18 @@ ALTER EVENT nome_evento AÇÃO
 Com essa *AÇÃO* é possível habilitar ou desabilitar um evento, ou renomeá-lo(Sem que seja necessário excluir um evento do sistema).
 
 AÇÃO inclui *DISABLE*, *ENABLE* e *RENAME*.
+
+### SHOW EVENT
+Permite visualizar todos os eventos do sistema ou de um banco de dados especifíco.
+
+```sql
+SHOW EVENTS;
+
+SHOW EVENTS FROM nome_banco;
+```
+
+### DROP EVENT
+Podemos excluir evento com esse comando.
+```sql
+DROP EVENT IF EXISTS nome_evento;
+```
