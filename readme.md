@@ -3270,4 +3270,69 @@ Podemos excluir evento com esse comando.
 DROP EVENT IF EXISTS nome_evento;
 ```
 ## Implementação do Banco de dados da faculdade
-...
+- Começar criando as tabelas que não possuí chave estrangeira, pois fica mais fácil.
+- Criação das tabelas *departamento*, *curso*, *disciplina*, *turma* e *professor*.
+
+```sql
+CREATE DATABASE IF NOT EXISTS db_college;
+
+USE db_college;
+
+CREATE TABLE IF NOT EXISTS departament(
+  id_departament BINARY(16) PRIMARY KEY,
+  name_departament VARCHAR(30)
+);
+
+CREATE TABLE IF NOT EXISTS course(
+  id_course BINARY(16) PRIMARY KEY,
+  name_course VARCHAR(40) NOT NULL,
+  id_departament INT,
+  CONSTRAINT fk_course_id_departament
+  FOREIGN KEY (id_departament)
+  REFERENCES deparment(id_departament)
+    ON UPDATE CASCADE
+    ON DELETE SET NULl
+);
+
+CREATE TABLE IF NOT EXISTS discipline(
+  id_discipline BINARY(16) PRIMARY KEY,
+  name_discipline VARCHAR(40) NOT NULL
+  hours_discipline INT UNSIGNED NOT NULL,
+  description_discipline VARCHAR(80),
+  num_student INT UNSIGNED
+  id_deparment BINARY(16)
+  CONSTRAINT fk_discipline_id_department
+    FOREIGN KEY (id_deparment)
+    REFERENCES deparment(id_department)
+    ON UPDATE CASCADE
+    ON DELETE SET NULL
+);
+
+CREATE TABLE IF NOT EXISTS class(
+  id_class BINARY(16) PRIMARY KEY,
+  period_class ENUM('morning', 'evening', 'night') NOT NULL,
+  num_student INT UNSIGNED,
+  date_start DATE,
+  date_finished DATE
+  id_course BINARY(16),
+  CONSTRAINT fk_class_id_course
+    FOREIGN KEY(id_course)
+    REFERENCES course(id_course)
+    ON UPDATE CASCADE
+    ON DELETE SET NULL
+);
+
+CREATE TABLE IF NOT EXISTS professor(
+  id_professor BINARY(16) PRIMARY KEY,
+  first_name VARCHAR(30) NOT NULL,
+  last_name VARCHAR(50) NOT NULL,
+  status_professor BOOLEAN,
+  id_departament BINARY(16),
+  CONSTRAINT fk_professor_id_professor
+    FOREIGN KEY (id_departament)
+    REFERENCES departament(id_departament)
+    ON UPDATE CASCADE
+    ON DELETE SET NULL
+);
+
+```
