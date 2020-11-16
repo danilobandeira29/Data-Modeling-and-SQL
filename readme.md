@@ -3269,3 +3269,5 @@ Podemos excluir evento com esse comando.
 ```sql
 DROP EVENT IF EXISTS nome_evento;
 ```
+## Implementação do Banco de dados da faculdade
+...
