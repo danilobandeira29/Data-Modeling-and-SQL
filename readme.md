@@ -3325,7 +3325,7 @@ CREATE TABLE IF NOT EXISTS class(
 CREATE TABLE IF NOT EXISTS professor(
   id_professor BINARY(16) PRIMARY KEY,
   first_name VARCHAR(30) NOT NULL,
-  last_name VARCHAR(50) NOT NULL,
+  last_name VARCHAR(70) NOT NULL,
   status_professor BOOLEAN,
   id_departament BINARY(16),
   CONSTRAINT fk_professor_id_professor
@@ -3333,6 +3333,67 @@ CREATE TABLE IF NOT EXISTS professor(
     REFERENCES departament(id_departament)
     ON UPDATE CASCADE
     ON DELETE SET NULL
+);
+
+CREATE TABLE IF NOT EXISTS student(
+  id_student BINARY(16) PRIMARY KEY,
+  first_name VARCHAR(30) NOT NULL,
+  last_name VARCHAR(70) NOT NULL,
+	cpf VARCHAR(11) NOT NULL,
+  gender VARCHAR(15) NOT NULL,
+  status_student BOOLEAN NOT NULL,
+  name_mother VARCHAR(50) NOT NULL,
+  name_father VARCHAR(50),
+  email VARCHAR(50) NOT NULL,
+  whatsapp VARCHAR(20) NOT NULL,
+  id_class BINARY(16),
+  id_course BINARY(16),
+  CONSTRAINT fk_student_id_course
+    FOREIGN KEY (id_course)
+    REFERENCES course(course) ON UPDATE CASCADE ON DELETE SET NULL,
+	CONSTRAINT fk_student_id_class
+		FOREIGN KEY(id_class)
+		REFERENCES class(id_class) ON UPDATE CASCADE ON DELETE SET NULL
+);
+
+CREATE TABLE IF NOT EXISTS type_phone(
+	id_type_phone BINARY(16) PRIMARY KEY,
+  type_phone VARCHAR(10) DEFAULT 'Mobile'
+);
+
+
+CREATE TABLE IF NOT EXISTS phone_student(
+	id_phone BINARY(16) PRIMARY KEY,
+  number_phone VARCHAR(20),
+  id_student BINARY(16) NOT NULL,
+  id_type_phone BINARY(16) NOT NULL,
+  CONSTRAINT fk_phone_student_id_student
+		FOREIGN KEY (id_student)
+		REFERENCES student(id_student) ON UPDATE CASCADE ON DELETE CASCADE,
+	CONSTRAINT fk_phone_student_type_phone
+		FOREIGN KEY (id_type_phone)
+    REFERENCES type_phone(id_type_phone) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS type_region(
+	id_region BINARY(16) PRIMARY KEY,
+  type_region VARCHAR(11)
+);
+
+CREATE TABLE IF NOT EXISTS address_student(
+	id_address_student BINARY(16) PRIMARY KEY,
+  street VARCHAR(40) NOT NULL,
+  number_house INT NOT NULL,
+  complement VARCHAR(50),
+  zipcode VARCHAR(8) NOT NULL,
+  id_student INT,
+  id_region INT,
+  CONSTRAINT fk_address_student_id_student
+		FOREIGN KEY(id_student)
+		REFERENCES student(id_student) ON UPDATE RESTRICT ON DELETE RESTRICT,
+	CONSTRAINT fk_address_student_id_region
+		FOREIGN KEY(id_region)
+    REFERENCES type_region(id_region) ON UPDATE RESTRICT ON DELETE RESTRICT
 );
 
 ```
