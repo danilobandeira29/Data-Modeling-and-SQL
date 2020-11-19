@@ -3396,4 +3396,32 @@ CREATE TABLE IF NOT EXISTS address_student(
     REFERENCES type_region(id_region) ON UPDATE RESTRICT ON DELETE RESTRICT
 );
 
+CREATE TABLE IF NOT EXISTS history_student(
+  id_history_student BINARY(16) PRIMARY KEY,
+  date_begin DATE NOT NULL,
+  date_end DATE,
+  id_student INT NOT NULL,
+  CONSTRAINT fk_history_student_id_student
+    FOREIGN KEY (id_student)
+    REFERENCES student(id_student)
+      ON UPDATE CASCADE
+      ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS history_discipline(
+  id_history_student BINARY(16),
+  id_discipline BINARY(16),
+  PRIMARY KEY(id_history_student, id_discipline)
+  CONSTRAINT fk_history_disciplina_id_history_student
+    FOREIGN KEY (id_history_student)
+    REFERENCES history_student(id_history_student)
+      ON UPDATE CASCADE
+      ON DELETE RESTRICT,
+  CONSTRAINT fk_history_disciplina_id_discipline
+    FOREIGN KEY (id_discipline)
+    REFERENCES discipline(id_discipline)
+      ON UPDATE CASCADE
+      ON DELETE RESTRICT
+);
+
 ```
