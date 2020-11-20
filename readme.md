@@ -3424,4 +3424,52 @@ CREATE TABLE IF NOT EXISTS history_discipline(
       ON DELETE RESTRICT
 );
 
+CREATE TABLE IF NOT EXISTS professor_discipline(
+  id_professor BINARY(16),
+  id_discipline BINARY(16),
+  PRIMARY KEY(id_professor, id_discipline)
+  CONSTRAINT fk_professor_discipline_id_professor
+    FOREIGN KEY (id_professor)
+    REFERENCES professor(id_professor)
+      ON UPDATE CASCADE
+      ON DELETE RESTRICT,
+  CONSTRAINT fk_professor_discipline_id_discipline
+    FOREIGN KEY (id_discipline)
+    REFERENCES discipline(id_discipline)
+      ON UPDATE CASCADE
+      ON DELETE RESTRICT
+);
+
+CREATE TABLE IF NOT EXISTS student_discipline(
+  id_student BINARY(16),
+  id_discipline BINARY(16),
+  PRIMARY KEY(id_student, id_discipline)
+  CONSTRAINT fk_student_discipline_id_student
+    FOREIGN KEY (id_student)
+    REFERENCES student(id_student)
+      ON UPDATE CASCADE
+      ON DELETE RESTRICT,
+  CONSTRAINT fk_student_discipline_id_discipline
+    FOREIGN KEY (id_discipline)
+    REFERENCES discipline(id_discipline)
+      ON UPDATE CASCADE
+      ON DELETE RESTRICT
+);
+
+CREATE TABLE IF NOT EXISTS course_discipline(
+  id_course BINARY(16),
+  id_discipline BINARY(16),
+  PRIMARY KEY(id_course, id_discipline)
+  CONSTRAINT fk_course_discipline_id_course
+    FOREIGN KEY (id_course)
+    REFERENCES course(id_course)
+      ON UPDATE CASCADE
+      ON DELETE RESTRICT,
+  CONSTRAINT fk_course_discipline_id_discipline
+    FOREIGN KEY (id_discipline)
+    REFERENCES discipline(id_discipline)
+      ON UPDATE CASCADE
+      ON DELETE RESTRICT
+);
+
 ```
