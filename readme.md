@@ -3272,6 +3272,7 @@ DROP EVENT IF EXISTS nome_evento;
 ## Implementação do Banco de dados da faculdade
 - Começar criando as tabelas que não possuí chave estrangeira, pois fica mais fácil.
 - Criação das tabelas *departamento*, *curso*, *disciplina*, *turma* e *professor*.
+- No caso dos ids, por serem *UUID*, terão como domínio *binary(16)* mas serão convertidos antes da inserção dos dados para *binary*.
 
 ```sql
 CREATE DATABASE IF NOT EXISTS db_college;
@@ -3475,6 +3476,8 @@ CREATE TABLE IF NOT EXISTS course_discipline(
 ```
 
 ## Inserção de dados
+- Para fazer a inserção de *UUID* no campo é necessário utilizar a função de conversão de *UUID* para *binary*
+
 ```sql
 INSERT INTO departament (id_departament, name_departament)
 VALUES
