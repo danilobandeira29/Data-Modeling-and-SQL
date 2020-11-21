@@ -3486,19 +3486,16 @@ VALUES
 SELECT BIN_TO_UUID(id_departament) id, name_departament name
 FROM departament;
 
-INSERT INTO professor (first_name, last_name, status_professor, id_departament)
+INSERT INTO professor (id_professor, first_name, last_name, status_professor, id_departament)
 VALUES
-('Fábio', 'dos Reis', false, UUID_TO_BIN(474b33e6-fad5-4d72-8903-c7ddb7e38b68),
-('Sophie', 'Allemand', true, UUID_TO_BIN(957550bb-4982-46d5-804b-98fd804c7f0e),
-('Monica', 'Barroso', true, UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883);
+(UUID_TO_BIN(UUID()), 'Fábio', 'dos Reis', false, UUID_TO_BIN(474b33e6-fad5-4d72-8903-c7ddb7e38b68),
+(UUID_TO_BIN(UUID()), 'Sophie', 'Allemand', true, UUID_TO_BIN(957550bb-4982-46d5-804b-98fd804c7f0e),
+(UUID_TO_BIN(UUID()), 'Monica', 'Barroso', true, UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883);
 
-INSERT INTO course (id_course, id_departament)
+INSERT INTO course (id_course, name_course, id_departament)
 VALUES
-('Matemática', UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883),
-('Psicologia', UUID_TO_BIN(957550bb-4982-46d5-804b-98fd804c7f0e),
-('Análise de Sistemas', UUID_TO_BIN(957550bb-4982-46d5-804b-98fd804c7f0e),
-('Biologia', UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883),
-('História', UUID_TO_BIN(957550bb-4982-46d5-804b-98fd804c7f0e),
-('Engenharia', UUID_TO_BIN(474b33e6-fad5-4d72-8903-c7ddb7e38b68);
+(UUID_TO_BIN(UUID()), 'Matemática', UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883)),
+(UUID_TO_BIN(UUID()), 'Psicologia', UUID_TO_BIN(957550bb-4982-46d5-804b-98fd804c7f0e),
+(UUID_TO_BIN(UUID()), 'Análise de Sistemas', UUID_TO_BIN(957550bb-4982-46d5-804b-98fd804c7f0e)
 
 ```
