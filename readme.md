@@ -3498,4 +3498,13 @@ VALUES
 (UUID_TO_BIN(UUID()), 'Psicologia', UUID_TO_BIN(957550bb-4982-46d5-804b-98fd804c7f0e),
 (UUID_TO_BIN(UUID()), 'Análise de Sistemas', UUID_TO_BIN(957550bb-4982-46d5-804b-98fd804c7f0e)
 
+SELECT BIN_TO_UUID(id_class) id, name_course
+FROM course;
+
+INSERT INTO class (id_class, id_course, period_class, num_student, date_start, date_finished)
+VALUES
+(UUID_TO_BIN(UUID()), UUID_TO_BIN(f80c4444-5e5e-4105-af1d-c6f60a911240), 'morning', 20, '2016-05-12', '2017-10-15'),
+(UUID_TO_BIN(UUID()), UUID_TO_BIN(5cf25b5c-9d09-43f8-bf5b-7671ec213d65), 'night', 10, '2014-05-12', '2020-03-05'),
+(UUID_TO_BIN(UUID()), UUID_TO_BIN(3d5fb22f-dc8e-4524-bc56-f2cfc2b3fc69), 'evening', 15, '2012-05-12', '2014-05-10');
+
 ```
