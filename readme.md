@@ -3510,4 +3510,69 @@ VALUES
 (UUID_TO_BIN(UUID()), UUID_TO_BIN(5cf25b5c-9d09-43f8-bf5b-7671ec213d65), 'night', 10, '2014-05-12', '2020-03-05'),
 (UUID_TO_BIN(UUID()), UUID_TO_BIN(3d5fb22f-dc8e-4524-bc56-f2cfc2b3fc69), 'evening', 15, '2012-05-12', '2014-05-10');
 
+INSERT INTO discipline
+(id_discipline, 
+name_discipline, 
+hours_discipline, 
+description_discipline,
+num_student,
+id_departament) VALUES
+(UUID_TO_BIN(UUDI()),'Math', 70, 'Learn about Math', 40, UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883)),
+(UUID_TO_BIN(UUDI()),'Software Engineer', 80, 'How to create', 40, UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883)),
+(UUID_TO_BIN(UUDI()),'Database', 60, 'How to create', 40, UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883));
+
+INSERT INTO student(
+  id_student,
+  first_name,
+  last_name,
+  cpf,
+  gender,
+  status_student,
+  name_mother,
+  name_father,
+  email,
+  whatsapp,
+  id_class,
+  id_course,
+) VALUES
+(
+  UUID_TO_BIN(UUID()),
+  'Danilo',
+  'Bandeira',
+  '000.000.000-00',
+  'Male', 
+  true, 
+  'Maria', 
+  'José',
+  'danilobandeira29@gmail.com',
+  UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883),
+  UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883)
+),
+(
+  UUID_TO_BIN(UUID()),
+  'Ana',
+  'Banana',
+  '000.000.000-00',
+  'Female', 
+  true, 
+  'Da guia', 
+  'Carlos',
+  'ana@banana.com',
+  UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883),
+  UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883)
+),
+
+
+INSERT INTO type_phone(id_type_phone)
+VALUES (UUID_TO_BIN(UUID()), (UUID_TO_BIN(UUID());
+
+
+INSERT INTO phone_student(id_phone, number_phone, id_student, id_type_phone)
+VALUES (
+  UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883),
+  '86 9 9999-9999',
+  UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883),
+  UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883)
+);
+
 ```
