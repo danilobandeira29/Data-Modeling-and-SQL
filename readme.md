@@ -3575,4 +3575,34 @@ VALUES (
   UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883)
 );
 
+INSERT INTO type_region(
+  id_region,
+  type_region
+) VALUES (UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883), 'avenida');
+
+
+INSERT INTO address_student(
+  id_address_student,
+  street,
+  number_house,
+  zipcode,
+  id_student,
+  id_region
+) VALUES(
+  UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883),
+  'Francisco Marreiros',
+  '24',
+  '64079-010',
+  UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883),
+  UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883)
+)
+
+INSERT INTO history_student(id_history_student, date_begin, date_end, id_student )
+VALUES(
+  UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883), 
+  '01-01-2014', 
+  '31-12-2017',
+  UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883)
+)
+
 ```
