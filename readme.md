@@ -3605,4 +3605,17 @@ VALUES(
   UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883)
 )
 
+
+ALTER TABLE history_discipline 
+ADD COLUMN value FLOAT,
+ADD COLUMN frequency INT;
+
+INSERT INTO history_discipline(id_history, id_discipline, value, frequency) VALUES
+(
+  UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883), 
+  UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883),
+  7.8,
+  40,  
+);
+
 ```
