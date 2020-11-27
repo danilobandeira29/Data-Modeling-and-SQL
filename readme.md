@@ -3628,5 +3628,9 @@ INSERT INTO student_discipline(id_student, id_discipline) VALUES (
   UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883)
 );
 
+INSERT INTO course_discipline(id_course, id_discipline) VALUES(
+  UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883),
+  UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883)
+);
 
 ```
