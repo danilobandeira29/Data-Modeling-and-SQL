@@ -3634,3 +3634,5 @@ INSERT INTO course_discipline(id_course, id_discipline) VALUES(
 );
 
 ```
+
+Fazendo algumas alterações na criação do banco para depois fazer a inserção dos dados...a ideia é verificar o comportamento de opções de foreign key(on update/on delete restrict, cascade, set null, no action). Além do uso do UUID diretamente no banco.
