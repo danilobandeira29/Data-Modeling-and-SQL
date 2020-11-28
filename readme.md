@@ -3481,34 +3481,30 @@ CREATE TABLE IF NOT EXISTS course_discipline(
 ```sql
 INSERT INTO departament (id_departament, name_departament)
 VALUES
-(UUID_TO_BIN(UUID()), 'Ciências Humanas'),
-(UUID_TO_BIN(UUID()), 'Matemática'),
+(UUID_TO_BIN(UUID()), 'Tech'),
+(UUID_TO_BIN(UUID()), 'Nutrição'),
 (UUID_TO_BIN(UUID()), 'Biológicas'),
 (UUID_TO_BIN(UUID()), 'Estágio');
 
 SELECT BIN_TO_UUID(id_departament) id, name_departament name
 FROM departament;
 
-INSERT INTO professor (id_professor, first_name, last_name, status_professor, id_departament)
-VALUES
-(UUID_TO_BIN(UUID()), 'Fábio', 'dos Reis', false, UUID_TO_BIN(474b33e6-fad5-4d72-8903-c7ddb7e38b68),
-(UUID_TO_BIN(UUID()), 'Sophie', 'Allemand', true, UUID_TO_BIN(957550bb-4982-46d5-804b-98fd804c7f0e),
-(UUID_TO_BIN(UUID()), 'Monica', 'Barroso', true, UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883);
+INSERT INTO professor(id_professor, first_name, last_name, status_professor, id_departament) 
+VALUES(UUID_TO_BIN(UUID()), 'Danilo', 'Bandeira', true, UUID_TO_BIN('2c185450-310c-11eb-9349-4ccc6a690672')),
+(UUID_TO_BIN(UUID()), 'Ana', 'Banana', true, UUID_TO_BIN('51ad0eec-285d-11eb-8ce0-4ccc6a690672'));
 
-INSERT INTO course (id_course, name_course, id_departament)
+INSERT INTO course(id_course, name_course, id_departament) 
 VALUES
-(UUID_TO_BIN(UUID()), 'Matemática', UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883)),
-(UUID_TO_BIN(UUID()), 'Psicologia', UUID_TO_BIN(957550bb-4982-46d5-804b-98fd804c7f0e),
-(UUID_TO_BIN(UUID()), 'Análise de Sistemas', UUID_TO_BIN(957550bb-4982-46d5-804b-98fd804c7f0e)
+(UUID_TO_BIN(UUID()), 'Computer Science', UUID_TO_BIN('df968aaf-285c-11eb-8ce0-4ccc6a690672')),
+(UUID_TO_BIN(UUID()), 'Nutrição', UUID_TO_BIN
+('df9677f3-285c-11eb-8ce0-4ccc6a690672'));
 
 SELECT BIN_TO_UUID(id_class) id, name_course
 FROM course;
 
-INSERT INTO class (id_class, id_course, period_class, num_student, date_start, date_finished)
-VALUES
-(UUID_TO_BIN(UUID()), UUID_TO_BIN(f80c4444-5e5e-4105-af1d-c6f60a911240), 'morning', 20, '2016-05-12', '2017-10-15'),
-(UUID_TO_BIN(UUID()), UUID_TO_BIN(5cf25b5c-9d09-43f8-bf5b-7671ec213d65), 'night', 10, '2014-05-12', '2020-03-05'),
-(UUID_TO_BIN(UUID()), UUID_TO_BIN(3d5fb22f-dc8e-4524-bc56-f2cfc2b3fc69), 'evening', 15, '2012-05-12', '2014-05-10');
+INSERT INTO class(id_class, period_class, num_student, date_start, date_finished, id_course)
+VALUES(UUID_TO_BIN(UUID()), 'morning', 40, '2014-01-01', '2017-12-31', UUID_TO_BIN('6373ee0a-31ca-11eb-9349-4ccc6a690672')),
+(UUID_TO_BIN(UUID()), 'morning', 40, '2017-01-01', '2020-12-01', UUID_TO_BIN('64c0cb68-31ca-11eb-9349-4ccc6a690672'));
 
 INSERT INTO discipline
 (id_discipline, 
@@ -3636,3 +3632,9 @@ INSERT INTO course_discipline(id_course, id_discipline) VALUES(
 ```
 
 Fazendo algumas alterações na criação do banco para depois fazer a inserção dos dados...a ideia é verificar o comportamento de opções de foreign key(on update/on delete restrict, cascade, set null, no action). Além do uso do UUID diretamente no banco.
+
+- Para deletar um registro especifico, devo fazer:
+```sql
+DELETE FROM departament
+WHERE id_departament = UUID_TO_BIN('6d92eac2-2861-11eb-8ce0-4ccc6a690672');
+```
