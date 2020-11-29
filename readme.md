@@ -3513,50 +3513,52 @@ hours_discipline,
 description_discipline,
 num_student,
 id_departament) VALUES
-(UUID_TO_BIN(UUDI()),'Math', 70, 'Learn about Math', 40, UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883)),
-(UUID_TO_BIN(UUDI()),'Software Engineer', 80, 'How to create', 40, UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883)),
-(UUID_TO_BIN(UUDI()),'Database', 60, 'How to create', 40, UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883));
+(UUID_TO_BIN(UUID()),'Math', 70, 'Learn about Math', 40, UUID_TO_BIN('2c185450-310c-11eb-9349-4ccc6a690672')),
+(UUID_TO_BIN(UUID()),'Software Engineer', 80, 'How to create', 40, UUID_TO_BIN('2c185450-310c-11eb-9349-4ccc6a690672')),
+(UUID_TO_BIN(UUID()),'Health', 60, 'How to create', 40, UUID_TO_BIN('51ad0eec-285d-11eb-8ce0-4ccc6a690672'));
 
 INSERT INTO student(
-  id_student,
-  first_name,
-  last_name,
-  cpf,
-  gender,
-  status_student,
-  name_mother,
-  name_father,
-  email,
-  whatsapp,
-  id_class,
-  id_course,
-) VALUES
+id_student, 
+first_name, 
+last_name, 
+cpf, 
+gender, 
+status, 
+name_mother, 
+name_father, 
+email,
+whatsapp, 
+id_class, 
+id_course) VALUES
 (
   UUID_TO_BIN(UUID()),
   'Danilo',
   'Bandeira',
-  '000.000.000-00',
+  '00000000000',
   'Male', 
   true, 
   'Maria', 
   'José',
   'danilobandeira29@gmail.com',
-  UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883),
-  UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883)
+  '86 995451048',
+  UUID_TO_BIN('b626c7b2-31cb-11eb-9349-4ccc6a690672'),
+  UUID_TO_BIN('6373ee0a-31ca-11eb-9349-4ccc6a690672')
 ),
 (
   UUID_TO_BIN(UUID()),
   'Ana',
   'Banana',
-  '000.000.000-00',
+  '00000000000',
   'Female', 
   true, 
   'Da guia', 
   'Carlos',
   'ana@banana.com',
-  UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883),
-  UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883)
-),
+  '86 995451048',
+  UUID_TO_BIN('b6270a91-31cb-11eb-9349-4ccc6a690672'),
+  UUID_TO_BIN('64c0cb68-31ca-11eb-9349-4ccc6a690672')
+);
+
 
 
 INSERT INTO type_phone(id_type_phone)
