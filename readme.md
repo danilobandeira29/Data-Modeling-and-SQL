@@ -3562,21 +3562,23 @@ id_course) VALUES
 
 
 INSERT INTO type_phone(id_type_phone)
-VALUES (UUID_TO_BIN(UUID()), (UUID_TO_BIN(UUID());
+VALUES (UUID_TO_BIN(UUID()));
 
 
-INSERT INTO phone_student(id_phone, number_phone, id_student, id_type_phone)
+INSERT INTO phone_student(id_phone_student, number_phone, id_student, id_type_phone)
 VALUES (
-  UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883),
+  UUID_TO_BIN(UUID()),
   '86 9 9999-9999',
-  UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883),
-  UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883)
+  UUID_TO_BIN('03d88e7c-329b-11eb-9349-4ccc6a690672'),
+  UUID_TO_BIN('fdf0bfb3-335d-11eb-9349-4ccc6a690672')
 );
 
+
 INSERT INTO type_region(
-  id_region,
+  id_type_region,
   type_region
-) VALUES (UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883), 'avenida');
+) VALUES (UUID_TO_BIN(UUID()), 'avenida');
+
 
 
 INSERT INTO address_student(
@@ -3585,15 +3587,15 @@ INSERT INTO address_student(
   number_house,
   zipcode,
   id_student,
-  id_region
+  id_type_region
 ) VALUES(
-  UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883),
+  UUID_TO_BIN(UUID()),
   'Francisco Marreiros',
   '24',
-  '64079-010',
-  UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883),
-  UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883)
-)
+  '64079010',
+  UUID_TO_BIN('03d88e7c-329b-11eb-9349-4ccc6a690672'),
+  UUID_TO_BIN('78176293-335e-11eb-9349-4ccc6a690672')
+);
 
 INSERT INTO history_student(id_history_student, date_begin, date_end, id_student )
 VALUES(
