@@ -3597,25 +3597,26 @@ INSERT INTO address_student(
   UUID_TO_BIN('78176293-335e-11eb-9349-4ccc6a690672')
 );
 
-INSERT INTO history_student(id_history_student, date_begin, date_end, id_student )
-VALUES(
-  UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883), 
-  '01-01-2014', 
-  '31-12-2017',
-  UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883)
-)
-
-
 ALTER TABLE history_discipline 
 ADD COLUMN value FLOAT,
 ADD COLUMN frequency INT;
 
-INSERT INTO history_discipline(id_history, id_discipline, value, frequency) VALUES
+INSERT INTO history_student(id_history_student, date_begin, date_end, id_student, value, frequency)
+VALUES(
+  UUID_TO_BIN(UUID()), 
+  '1995-10-29', 
+  '2013-10-31',
+  UUID_TO_BIN('03d88e7c-329b-11eb-9349-4ccc6a690672'),
+  9.3,
+  10
+);
+
+INSERT INTO history_discipline(id_history_student, id_discipline, value, frequency) VALUES
 (
-  UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883), 
-  UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883),
-  7.8,
-  40,  
+  UUID_TO_BIN('03d88e7c-329b-11eb-9349-4ccc6a690672'), 
+  UUID_TO_BIN('f64e09b3-3299-11eb-9349-4ccc6a690672'),
+  9.8,
+  40
 );
 
 INSERT INTO professor_discipline(id_professor, id_discipline) VALUES (
