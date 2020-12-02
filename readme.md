@@ -3620,13 +3620,13 @@ INSERT INTO history_discipline(id_history_student, id_discipline, value, frequen
 );
 
 INSERT INTO professor_discipline(id_professor, id_discipline) VALUES (
-  UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883),
-  UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883)
-)
+  UUID_TO_BIN('d4656643-31c8-11eb-9349-4ccc6a690672'),
+  UUID_TO_BIN('f64e09b3-3299-11eb-9349-4ccc6a690672')
+);
 
 INSERT INTO student_discipline(id_student, id_discipline) VALUES (
-  UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883),
-  UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883)
+  UUID_TO_BIN('03d90961-329b-11eb-9349-4ccc6a690672'),
+  UUID_TO_BIN('f64e0b85-3299-11eb-9349-4ccc6a690672')
 );
 
 INSERT INTO course_discipline(id_course, id_discipline) VALUES(
