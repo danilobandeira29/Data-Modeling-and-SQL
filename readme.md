@@ -3630,8 +3630,8 @@ INSERT INTO student_discipline(id_student, id_discipline) VALUES (
 );
 
 INSERT INTO course_discipline(id_course, id_discipline) VALUES(
-  UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883),
-  UUID_TO_BIN(39a184ff-237a-4eac-84ec-7c8231691883)
+  UUID_TO_BIN('6373ee0a-31ca-11eb-9349-4ccc6a690672'),
+  UUID_TO_BIN('f64d30c1-3299-11eb-9349-4ccc6a690672')
 );
 
 ```
@@ -3643,3 +3643,5 @@ Fazendo algumas alterações na criação do banco para depois fazer a inserçã
 DELETE FROM departament
 WHERE id_departament = UUID_TO_BIN('6d92eac2-2861-11eb-8ce0-4ccc6a690672');
 ```
+- Fiz alterações em algumas colunas e coloquei os ids de forma correta.
+- Realizei alguns testes como *INNER JOIN*, *LEFT/RIGHT JOIN*. Mas farei mais testes.
