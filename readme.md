@@ -3645,3 +3645,17 @@ WHERE id_departament = UUID_TO_BIN('6d92eac2-2861-11eb-8ce0-4ccc6a690672');
 ```
 - Fiz alterações em algumas colunas e coloquei os ids de forma correta.
 - Realizei alguns testes como *INNER JOIN*, *LEFT/RIGHT JOIN*. Mas farei mais testes.
+
+1. O banco precisou sofrer pequenas alterações, como na tabela *history_discipline*, onde a coluna da nota estava armazenando inteiro e ao invés de float(4, 2).
+2. Faltou inserir dados na tabela *history_discipline*
+
+## Testes
+1. Mostrar dados do aluno e seus dados, dados do curso e dados da turma.
+```sql
+SELECT BIN_TO_UUID(id_student) id, first_name name, email, name_mother mother FROM student S
+INNER JOIN class C
+ON C.id_course = S.id_Course
+INNER JOIN course
+ON course.id_course = S.id_course
+ORDER BY first_name;
+```
