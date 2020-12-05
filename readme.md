@@ -3634,6 +3634,24 @@ INSERT INTO course_discipline(id_course, id_discipline) VALUES(
   UUID_TO_BIN('f64d30c1-3299-11eb-9349-4ccc6a690672')
 );
 
+INSERT INTO course_discipline(id_course, id_discipline) VALUES (
+  UUID_TO_BIN('6373ee0a-31ca-11eb-9349-4ccc6a690672'),
+  UUID_TO_BIN('f64e09b3-3299-11eb-9349-4ccc6a690672')
+);
+
+ALTER TABLE history_discipline CHANGE value note FLOAT;
+
+INSERT INTO phone_student(id_phone_student, number_phone, id_student, id_type_phone) VALUES
+(
+	UUID_TO_BIN(UUID()),
+    '86 3236-3186',
+    UUID_TO_BIN('03d88e7c-329b-11eb-9349-4ccc6a690672'),
+    UUID_TO_BIN('edd51b95-365c-11eb-874a-4ccc6a690672')
+);
+
+INSERT INTO type_phone(id_type_phone, type_phone) VALUES (UUID_TO_BIN(UUID()), 'House');
+
+
 ```
 
 Fazendo algumas alterações na criação do banco para depois fazer a inserção dos dados...a ideia é verificar o comportamento de opções de foreign key(on update/on delete restrict, cascade, set null, no action). Além do uso do UUID diretamente no banco.
@@ -3647,9 +3665,12 @@ WHERE id_departament = UUID_TO_BIN('6d92eac2-2861-11eb-8ce0-4ccc6a690672');
 - Realizei alguns testes como *INNER JOIN*, *LEFT/RIGHT JOIN*. Mas farei mais testes.
 
 1. O banco precisou sofrer pequenas alterações, como na tabela *history_discipline*, onde a coluna da nota estava armazenando inteiro e ao invés de float(4, 2).
-2. Faltou inserir dados na tabela *history_discipline*
+2. Faltou inserir dados na tabela *history_discipline*.
+3. Inseri mais dados em algumas tabelas, para que seja possível observar algumas consultas.
 
 ## Testes
+O objetivo dos testes é pontuar se tudo está de acordo: relacionamentos, tipos de dados e afins.
+
 1. Mostrar dados do aluno e seus dados, dados do curso e dados da turma.
 ```sql
 SELECT BIN_TO_UUID(id_student) id, first_name name, email, name_mother mother FROM student S
@@ -3658,4 +3679,16 @@ ON C.id_course = S.id_Course
 INNER JOIN course
 ON course.id_course = S.id_course
 ORDER BY first_name;
+```
+2. Todas as disciplinas cursadas por um aluno, incluindo suas notas.
+```sql
+SELECT * FROM student S
+INNER JOIN student_discipline SD
+ON SD.id_student = S.id_student
+INNER JOIN discipline D
+ON D.id_discipline = SD.id_discipline
+INNER JOIN history_student HS
+ON HS.id_student = S.id_student
+INNER JOIN history_discipline HD
+ON HS.id_history_student = HD.id_history_student;
 ```
