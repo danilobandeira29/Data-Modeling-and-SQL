@@ -3692,3 +3692,13 @@ ON HS.id_student = S.id_student
 INNER JOIN history_discipline HD
 ON HS.id_history_student = HD.id_history_student;
 ```
+3. Nome dos professores, as disciplinas que eles ministram e a carga horária
+```sql
+SELECT CONCAT(P.first_name, ' ', P.last_name) name, D.hours_discipline hours, D.name_discipline discipline FROM professor P
+INNER JOIN professor_discipline PD
+ON P.id_professor = PD.id_professor
+INNER JOIN discipline D
+ON D.id_discipline = PD.id_discipline;
+```
+> Na interface da aplicação, deve ser tratado para que não apareça, por exemplo, o nome do professor mais de uma vez se ele ministrar mais de uma matéria.
+
