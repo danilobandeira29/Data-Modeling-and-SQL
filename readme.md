@@ -3702,3 +3702,38 @@ ON D.id_discipline = PD.id_discipline;
 ```
 > Na interface da aplicação, deve ser tratado para que não apareça, por exemplo, o nome do professor mais de uma vez se ele ministrar mais de uma matéria.
 
+4. Gerar um "relatório" com nomes, sobrenomes, CPF dos alunos, tipo e números do telefone e endereço completo.
+```sql
+SELECT CONCAT(S.first_name, ' ', S.last_name) student, cpf, CONCAT(A.street, ', ', A.number_house) adress, A.additional, TR.type_region, TP.type_phone, PS.number_phone FROM student S
+INNER JOIN address_student A
+ON A.id_student = S.id_student
+INNER JOIN type_region TR
+ON A.id_type_region= TR.id_type_region
+INNER JOIN phone_student PS
+ON S.id_student = PS.id_student
+INNER JOIN type_phone TP
+ON TP.id_type_phone = PS.id_type_phone
+ORDER BY PS.number_phone DESC;
+
+```
+
+5. Consultar todas as disciplinas, indicando seus departamentos, cursos e professores.
+```sql
+SELECT D.name_discipline discipline, C.name_course, CONCAT(P.first_name, ' ', P.last_name) professor, DD.name_departament departament
+FROM discipline D
+INNER JOIN departament DD
+ON D.id_departament = DD.id_departament
+INNER JOIN professor_discipline PD
+ON D.id_discipline = PD.id_discipline
+INNER JOIN professor P
+ON P.id_professor = PD.id_professor
+INNER JOIN course_discipline CD
+ON D.id_discipline =  CD.id_discipline
+INNER JOIN course C
+ON CD.id_course = C.id_course;
+
+```
+
+**O trabalho de modelar e implementar o Banco de dados não termina após realizar os testes... ele provavelmente não vai terminar NUNCA, pois sempre haverá algo para se trabalhar: alguma correção ou atualização. Em algum momento alguém irá descobrir. MAS sempre tentar me certificar de que o banco está redondo para que seja possível sua utilização**
+
+**Isso é totalmente normal!!**
