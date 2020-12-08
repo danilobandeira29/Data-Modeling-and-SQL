@@ -3737,3 +3737,66 @@ ON CD.id_course = C.id_course;
 **O trabalho de modelar e implementar o Banco de dados não termina após realizar os testes... ele provavelmente não vai terminar NUNCA, pois sempre haverá algo para se trabalhar: alguma correção ou atualização. Em algum momento alguém irá descobrir. MAS sempre tentar me certificar de que o banco está redondo para que seja possível sua utilização**
 
 **Isso é totalmente normal!!**
+
+# 12 dicas de boas práticas em Modelagem de dados
+1. **Nomes de objetos**
+- Use apenas nomes significativos para os objetos do banco, como tabelas, colunas e procedimentos armazenados.
+- Os nomes devem ser descritivos. **Evite abreviações e siglas** obscuras que possam atrapalhar a compreensão da finalidade do objeto.
+
+2. **Tipos corretos de dados**
+- Usar os menores valores possíveis.
+- A performance do banco é melhorada se usarmos os menores valores possíveis para os dados que os requisitos permitem.
+
+3. **Normalizar as tabelas**
+- A normalização de dados é um **princípio base** dos bancos de dados relacionais, no qual os dados são organizados para minimizar ou eliminar a redundância.
+- Normalizar até a 3FN.
+- Desnormalizar se necessário.
+
+4. **Usar e Nomear Constraints**
+- Ao nomear restrições, use prefixos que as descrevam, como por exemplo "PK" para chave primária ou "FK" para chave estrangeira, seguidos do nome da tabela(s) envolvida(s).
+Exemplo: pk_IdAutor, fk_IdEditora.
+
+5. **Identificação dos elementos do MER**
+- Identifique os elementos de um modelo entidade relacionamento na seguinte ordem:
+  1. Entidades
+  2. Relacionamentos
+  3. Atributos de entidades
+  4. Atributos de relacionamentos
+
+6. **Tabelas associativas**
+- Prestar sempre muita atenção em relacionamentos muitos-para-muitos(N:M)
+- Sempre que um relacionamento desse tipo ocorrer, simplificá-lo criando uma tabela associativa.
+
+7. **Relacionamentos n-ários**
+- Também prestar sempre muita atenção quando surgirem relcionamentos n-ários, como ternários ou quartenários.
+- Sempre que um relacionamento desse tipo ocorrer, simplificá-lo criando tabelas associativas.
+
+8. **Documentação**
+- Documentar o processo de modelagem é de crucial importância.
+- Criar o DER detalhado
+- Criar Dicionário de dados(tipo de dado, espaços e como tudo irá se relacionar)
+- Na codificação, usar comentários para descrever os scripts.
+
+9. **Prefixos de nomes de objetos**
+- Prefixar nomes de objetos para identificar sua categoria:
+- tb para table
+- vw para view
+- db para database
+- sp para stored procedure
+- tg para trigger
+
+10. **Nomes de tabelas e colunas**
+- Use termos no singular para nomes de tabelas. Por exemplo: tblCliente ao invés de tblClientes, pois uma tabela representa uma coleção de entidades.
+- Idem para colunas - NomeLivro ao invés de NomesLivros
+- Procure não usar acentuação, espaços ou caracteres especiais
+
+11. **Levantamento e Análise de Requisitos**
+- Extremamente importante. Saiba levantar todas as informações necessárias para iniciar o processo de modelagem.
+- Pergunte o máximo que puder, e anote toda informação fornecida pelo cliente/usuário. Interação sempre!!
+- Na dúvida, contate o cliente e pergunte novamente.
+
+12. **Campos de chave primária**
+- Tabelas sempre devem possuir uma chave primária.
+- Procure usar chaves naturais, sempre que possível.
+- Entre uma chave composta ou surrogada, prefira sempre a surrogada.
+- Procure usar tipos numéricos em vez de caracteres para economizar recursos e aumentar a performance de busca.
