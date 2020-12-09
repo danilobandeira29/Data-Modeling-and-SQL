@@ -628,7 +628,7 @@ A ->> B
 
 ## **Terceira Forma Normal(3FN)**
 - Baseada no conceito de **dependência funcional transitiva**.
-- **Não deve existir atributos não-chave que determinam funcionamento outro atributo não-chave(ou conjunto deles).**
+- **Não devem existir atributos não-chave que determinam funcionamento outro atributo não-chave(ou conjunto deles).**
 
 Está na 3FN se:
 - Está na 2FN.
@@ -3800,3 +3800,25 @@ Exemplo: pk_IdAutor, fk_IdEditora.
 - Procure usar chaves naturais, sempre que possível.
 - Entre uma chave composta ou surrogada, prefira sempre a surrogada.
 - Procure usar tipos numéricos em vez de caracteres para economizar recursos e aumentar a performance de busca.
+
+# 5 Dicas bônus relacionadas à programação do banco usando SQL
+1. **Usar Views**
+- Procure usar views para ocultar complexidade, fornecer dados agregados e restringir o acesso a linhas de colunas das tabelas.
+
+2. **SELECT ***
+- Evite realizar consultas retornando todas as colunas de uma tabela.
+- O ideial é sempre retornar apenas as colunas necessárias para obter melhores performance.
+
+3. **Campos de senha**
+- Senhas sempre devem ser guardadas criptografadas, de preferência usando algoritmos fortes e salt.
+- A descriptação deve ocorrer na aplicação, quando for necessário.
+
+4. **Sempre utilizar Procedures e Views**
+- Aumentam a performance em consultas.
+- Diminuem possibilidade de erros.
+- Simplificam codificação da aplicação.
+
+5. **Usar índices em colunas muito consultadas**
+- Índices podem aumentar significativamente a performance de acesso em consultas, caso colunas sejam muito frequentemente acessadas.
+- Crie índices sempre que detectar essa necessidade, mas cuidado com colunas que são modificadas com frequência.
+- **Utilizar somente quando houver mais leitura do que alteração nas colunas**
