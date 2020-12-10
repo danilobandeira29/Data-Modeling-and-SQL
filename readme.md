@@ -3822,3 +3822,58 @@ Exemplo: pk_IdAutor, fk_IdEditora.
 - Índices podem aumentar significativamente a performance de acesso em consultas, caso colunas sejam muito frequentemente acessadas.
 - Crie índices sempre que detectar essa necessidade, mas cuidado com colunas que são modificadas com frequência.
 - **Utilizar somente quando houver mais leitura do que alteração nas colunas**
+
+## Desafio:
+**Estudo de caso da academia de ginástica**
+
+Uma academia de ginástica deseja manter um controle do seu funcionamento. Os alunos são organizados em turmas associadas a um tipo específico de atividade. As informações sobre uma turma são número de alunos, horário da aula, duração da aula, data inicial, data final e tipo de atividade.
+
+Cada turma é orientada por um único instrutor para o qual são cadastrados RG, nome, data de nascimento, titulação e todos os telefones possíveis para sua localização. Um instrutor pode orientar várias turmas que podem ser de diferentes atividades. Para cada turma existe um aluno monitor que auxilia o instrutor da turma, sendo que um aluno pode ser monitor no máximo em uma turma.
+
+Os dados cadastrados dos alunos são: código de matricula , data de matrícula, nome, endereço, telefone, data de nascimento, altura e peso. Um aluno pode estar matriculado em várias turmas se deseja realizar atividades diferentes e para cada matrícula é mantido um registro das ausências do aluno.
+
+**Entidadades:**
+
+- Aluno
+- Turma
+- Instrutor
+
+**Relacionamentos:**
+
+- Aluno está matrículado em uma ou mais turmas
+- Aluno monitora apenas uma turma
+- Instrutor acompanha uma ou mais turmas
+- Turma é composta por alunos
+- Turma possuí atividade
+- Turma possuí uma chamada
+
+**Atributos:**
+
+**Aluno**
+
+- Código aluno
+- Data Matrícula
+- Nome
+- Endereço
+- Telefones
+- Data de nascimento
+- Altura
+- Peso
+
+**Instrutor**
+
+- Código instrutor
+- RG
+- Nome
+- Data de nascimento
+- Titulação
+- Telefones
+
+**Turma**
+
+- Código turma
+- Número de alunos
+- Horário da Aula
+- Duração da Aula
+- Data de inicio
+- Data de fim
