@@ -4023,3 +4023,46 @@ create table if not exists tbl_chamada(
 alter table tbl_chamada add column status_aluno boolean not null;
 
 ```
+**Inserção de Dados**
+```sql
+
+insert into tbl_endereco(rua, numero, bairro, complemento) values (
+'Francisco marreiros',
+'24',
+'Novo Horizonte',
+'rua dos onibus'
+),
+(
+'Coheb',
+'22',
+'Angelim 3',
+'segunda rua ao sair da henry wall'
+);
+
+insert into tbl_aluno(nome, sobrenome, data_nascimento, altura, peso, telefone, cod_endereco) values
+('Danilo', 'Bastos Bandeira de Souza', '1993-10-29', 1.70, 52.5, '86 9545-1018', 1),
+('Ana Carolina', 'Apolinário da Silva', '1996-10-02', 1.60, 55.0, '86 9999-9999', 2);
+
+insert into tbl_matricula(cod_aluno) values (1), (2);
+
+insert into tbl_instrutor(rg, nome, sobrenome, data_nascimento) values
+('111.222', 'Carlos', 'da Silva', '1950-07-15'),
+('222.111', 'José', 'Bandeira', '1960-06-13');
+
+insert into tbl_telefone(telefone, tipo_telefone, cod_instrutor) values 
+('86 1111-2222', 'Casa', 1), 
+('85 2222-2222', 'Trabalho', 2);
+
+insert into tbl_atividade(nome) values ('dança'), ('exercicios');
+
+insert into tbl_turma(horario, duracao, data_inicio, data_fim, numero_alunos, cod_atividade, cod_instrutor) values 
+('10:00', '01:00', '2020-12-09', '2020-12-16', 40, 1, 1),
+('13:00', '01:00', '2021-01-01', '2021-02-01', 30, 2, 2);
+
+insert into tbl_aluno_turma(cod_aluno, cod_turma, data_matricula) values
+(1, 1, curdate()),
+(2, 2, curdate());
+
+insert into tbl_chamada(cod_aluno, cod_turma, status_aluno) values (2, 1, true), (1, 2, false);
+
+```
