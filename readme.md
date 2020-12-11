@@ -3918,3 +3918,108 @@ Os dados cadastrados dos alunos são: código de matricula , data de matrícula,
     
   </p>
   <p align="center"><i>Dicionário de dados Atributos 2.</i></p>
+
+
+**Implementação**
+```sql
+CREATE DATABASE IF NOT EXISTS db_academia;
+USE db_academia;
+
+CREATE TABLE IF NOT EXISTS tbl_endereco(
+	cod INT AUTO_INCREMENT PRIMARY KEY,
+    rua VARCHAR(100) NOT NULL,
+    numero INT UNSIGNED,
+    bairro VARCHAR(50) NOT NULL,
+    complemento TEXT
+);
+
+CREATE TABLE IF NOT EXISTS tbl_aluno(
+	cod INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(50) NOT NULL,
+    sobrenome VARCHAR(70) NOT NULL,
+	data_nascimento date not null,
+    altura decimal(3, 2) not null,
+    peso decimal(4, 2) not null,
+    telefone varchar(15) not null,
+    cod_endereco int not null,
+	constraint fk_cod_endereco_tblAluno
+		foreign key (cod_endereco) references tbl_endereco(cod) on update cascade
+);
+
+create table if not exists tbl_matricula(
+	cod int auto_increment primary key,
+    cod_aluno int not null,
+    constraint fk_cod_aluno_tblMatricula
+		foreign key (cod_aluno) references tbl_aluno(cod) on update cascade
+);
+
+create table if not exists tbl_instrutor(
+	cod int auto_increment primary key,
+    rg varchar(10) not null,
+    nome varchar(50) not null,
+    sobrenome varchar(70) not null,
+    data_nascimento date not null
+);
+
+create table if not exists tbl_telefone(
+	cod int auto_increment primary key,
+    tipo_telefone varchar(20) not null,
+    cod_instrutor int not null,
+    constraint fk_cod_instrutor_tblTelefone
+		foreign key(cod_instrutor) references tbl_instrutor(cod) on update cascade on delete cascade
+);
+
+alter table tbl_telefone add column telefone varchar(20) not null;
+
+create table if not exists tbl_atividade(
+	cod int auto_increment primary key,
+    nome varchar(50) not null
+);
+
+create table if not exists tbl_turma(
+	cod int auto_increment primary key,
+    horario timestamp not null,
+    duracao time not null,
+    data_inicio date not null,
+    data_fim date not null,
+    numero_alunos int unsigned,
+    cod_atividade int not null,
+    constraint fk_cod_atividade_tblTurma
+		foreign key(cod_atividade) references tbl_atividade(cod) on update cascade
+);
+
+alter table tbl_turma modify column horario time not null;
+
+alter table tbl_turma modify column cod_instrutor int;
+
+alter table tbl_turma add column cod_instrutor int not null, add constraint fk_cod_instrutor_tblTurma foreign key (cod_instrutor) references tbl_instrutor(cod);
+
+create table if not exists tbl_aulo_turma(
+	cod_aluno int,
+    cod_turma int,
+    primary key(cod_aluno, cod_turma),
+    constraint fk_cod_aulo_tblTurma
+		foreign key (cod_aluno) references tbl_aluno(cod) on update cascade,
+	constraint fk_cod_turma_tblTurma
+		foreign key(cod_turma) references tbl_turma(cod) on update cascade
+);
+
+alter table tbl_aluno_turma add column data_matricula datetime not null;
+
+update tbl_aluno_turma set data_matricula = now() where cod_aluno = 1 and cod_turma = 1;
+
+rename table tbl_aulo_turma to tbl_aluno_turma;
+
+create table if not exists tbl_chamada(
+	cod int auto_increment primary key,
+    cod_aluno int not null,
+    cod_turma int not null,
+    constraint fk_cod_aulo_tblChamada
+		foreign key (cod_aluno) references tbl_aluno_turma(cod_aluno),
+	constraint fk_cod_turma_tblChamada
+		foreign key(cod_turma) references tbl_aluno_turma(cod_turma)
+);
+
+alter table tbl_chamada add column status_aluno boolean not null;
+
+```
