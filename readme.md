@@ -3877,3 +3877,12 @@ Os dados cadastrados dos alunos são: código de matricula , data de matrícula,
 - Duração da Aula
 - Data de inicio
 - Data de fim
+
+**Modelo Entidade Relacionament**
+<p align="center">
+    <img src="https://ik.imagekit.io/xfddek6eqk/MER_Academia_5P4Tv5E5K.jpg
+" alt="MER Academia."/>
+    
+  </p>
+  <p align="center"><i>MER Academia.</i></p>
+
