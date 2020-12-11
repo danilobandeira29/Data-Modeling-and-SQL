@@ -3886,3 +3886,35 @@ Os dados cadastrados dos alunos são: código de matricula , data de matrícula,
   </p>
   <p align="center"><i>MER Academia.</i></p>
 
+
+**Diagrama Entidade Relacionamento(Intermediário)**
+
+<p align="center">
+    <img src="https://ik.imagekit.io/xfddek6eqk/Academia_de_ginastica_GlGmuwFFj.png
+" alt="DER da acadêmia com novas entidades e alguns atributos."/>
+    
+  </p>
+  <p align="center"><i>DER da acadêmia com novas entidades e alguns atributos.</i></p>
+
+
+**Dicionário de dados**
+<p align="center">
+    <img src="https://ik.imagekit.io/xfddek6eqk/Dicion_rio_de_dados_Entidades_e_Relacionamentos_BQDDYOFgP.png
+" alt="Dicionário de dados das Entidades e Relacionamentos."/>
+    
+  </p>
+  <p align="center"><i>Dicionário de dados das Entidades e Relacionamentos.</i></p>
+
+<p align="center">
+    <img src="https://ik.imagekit.io/xfddek6eqk/Dicion_rio_de_dados_Atributos1_E-WHY5Nec.png
+" alt="Dicionário de dados Atributos."/>
+    
+  </p>
+  <p align="center"><i>Dicionário de dados Atributos.</i></p>
+
+<p align="center">
+    <img src="https://ik.imagekit.io/xfddek6eqk/Dicion_rio_de_dados_Atributos2_VqfBqC4TO.png
+" alt="Dicionário de dados Atributos 2."/>
+    
+  </p>
+  <p align="center"><i>Dicionário de dados Atributos 2.</i></p>
