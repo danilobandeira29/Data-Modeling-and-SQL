@@ -3805,7 +3805,7 @@ Exemplo: pk_IdAutor, fk_IdEditora.
 1. **Usar Views**
 - Procure usar views para ocultar complexidade, fornecer dados agregados e restringir o acesso a linhas de colunas das tabelas.
 
-2. **SELECT ***
+2. **SELECT**
 - Evite realizar consultas retornando todas as colunas de uma tabela.
 - O ideial é sempre retornar apenas as colunas necessárias para obter melhores performance.
 
@@ -3817,6 +3817,7 @@ Exemplo: pk_IdAutor, fk_IdEditora.
 - Aumentam a performance em consultas.
 - Diminuem possibilidade de erros.
 - Simplificam codificação da aplicação.
+- Em alguns casos posso indexar a view para gerar perfomance.
 
 5. **Usar índices em colunas muito consultadas**
 - Índices podem aumentar significativamente a performance de acesso em consultas, caso colunas sejam muito frequentemente acessadas.
