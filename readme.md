@@ -4066,3 +4066,80 @@ insert into tbl_aluno_turma(cod_aluno, cod_turma, data_matricula) values
 insert into tbl_chamada(cod_aluno, cod_turma, status_aluno) values (2, 1, true), (1, 2, false);
 
 ```
+
+**Testes**
+```sql
+select * from tbl_aluno;
+select * from tbl_endereco;
+select * from tbl_aluno_turma;
+select * from tbl_chamada;
+select * from tbl_instrutor;
+select * from tbl_telefone;
+select * from tbl_turma;
+select * from tbl_atividade; 
+
+select * from tbl_aluno A
+inner join tbl_endereco E
+on A.cod_endereco = E.cod;
+
+select * from tbl_aluno A
+inner join tbl_matricula M
+on A.cod = M.cod_aluno;
+
+-- todo os instrutores e seus telefones
+select concat(I.nome, ' ', I.sobrenome) 'nome completo', T.tipo_telefone 'local', T.telefone from tbl_telefone T
+inner join tbl_instrutor I
+on I.cod = T.cod_instrutor;
+
+-- turma e o nome da atividade daquela turma, juntamente com o instrutor daquela turma
+select concat(I.nome, ' ', I.sobrenome) instrutor, A.nome atividade, T.horario from tbl_turma T
+inner join tbl_instrutor I
+on T.cod_instrutor = I.cod
+inner join tbl_atividade A
+on T.cod_atividade = A.cod;
+
+-- aluno, suas turmas que estao matriculados, todas as chamadas realizadas para saber se os alunos estavam presente em todos os dias e o nome das atividades
+select A.nome, tbl_aluno_turma.data_matricula, C.status_aluno, C.cod_turma, C.cod cod_chamada, AA.nome, T.cod from tbl_aluno A
+inner join tbl_aluno_turma
+on A.cod = tbl_aluno_turma.cod_aluno
+inner join tbl_chamada C
+on C.cod_turma = tbl_aluno_turma.cod_turma
+inner join tbl_turma T
+on T.cod = tbl_aluno_turma.cod_turma
+inner join tbl_atividade AA
+on AA.cod = T.cod_atividade;
+
+-- todos os alunos que estao matriculados em turmas
+select * from tbl_aluno A
+inner join tbl_aluno_turma AA
+on A.cod = AA.cod_aluno;
+
+-- todos os alunos, inclusive os que não possuem matriculas
+select * from tbl_aluno A
+left join tbl_aluno_turma AA
+on A.cod = AA.cod_aluno;
+
+-- apenas os alunos que não possuem matriculas
+select * from tbl_aluno A
+left join tbl_aluno_turma AA
+on A.cod = AA.cod_aluno
+where AA.cod_aluno is null;
+
+select * from tbl_aluno;
+
+select * from tbl_turma;
+
+delete from tbl_aluno_turma where cod_aluno = 2 and cod_turma = 1;
+
+create index idx_aluno_turma_dataMatricula
+on tbl_aluno_turma(data_matricula);
+
+show index from tbl_aluno_turma;
+
+explain select * from tbl_aluno_turma where data_matricula = '0000-00-00 00:00:00';
+
+select * from tbl_chamada;
+
+select * from tbl_aluno_turma;
+
+```
