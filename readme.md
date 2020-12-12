@@ -4156,3 +4156,86 @@ O cinema só trabalha com horários fixos de filmes, os quais atualmente são: 1
 A cada um destes horários está vinculado um conjunto de funcionários responsáveis pelo bom andamento das atividades do cinema naquele horário, e que desempenham uma função (ex: caixa, balas, lanterninha, bilheteiro).
 
 Cada funcionário é caracterizado pelo número da carteira da trabalho (único), nome, data de admissão e salário. Para maior satisfação dos funcionários, existe um rodízio das funções conforme o horario (ex: um mesmo funcionário pode ser caixa no horario das 16:00, e baleiro no horário das 21:00). Todo horário tem pelo menos três funcionários alocados.
+
+**Entidades:**
+- Sala
+- Sala_horario_filme
+- Horario
+- Filme
+- Funcao
+- Func_horario_funcao
+- Funcionario
+- Filme_diretor
+- Diretor
+- Filme_indicacao
+- Indicacao
+- Filme_genero
+- Genero
+
+**Relacionamentos:**
+- Sala exibe filme por horario
+- Sala tem horario
+- Filme tem horario
+- Funcionario tem horario
+- Funcionario tem funcao por horario
+- Filme pode possuir indicacao/premiacao
+- Filme possui genero(s)
+- Filme possui diretor(es)
+
+**Atributos:**
+
+**Sala**
+- Cod
+- Número de lugares
+
+**Sala_horario_filme**
+- Cod_sala
+- Cod_filme
+- Cod_horario
+
+**Filme**
+- Cod
+- Nome português(unique)
+- Nome na língua origem(Caso não seja nacional)
+- Ano de lançamento
+
+**Horario**
+- Cod
+- Horario
+
+**Filme_indicacao**
+- Cod_filme
+- Cod_indicacao
+
+**Indicacao**
+- Cod
+- Descricao
+- Ano
+- Premiacao
+
+**Filme_genero**
+- Cod_filme
+- Cod_genero
+
+**Genero**
+- Cod
+- Nome
+
+**Filme_diretor**
+- Cod_filme
+- Cod_diretor
+
+**Funcionario**
+- Cod
+- Nome
+- Sobrenome
+- Data_admissao
+
+**Funcao**
+- Cod
+- Nome
+
+**Func_horario_funcao**
+- Cod_funcionario
+- Cod_horario
+- Cod_funcao
