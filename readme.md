@@ -4256,3 +4256,9 @@ Cada funcionário é caracterizado pelo número da carteira da trabalho (único)
   </p>
   <p align="center"><i>Diagrama Entidade Relacionamento Cinema</i></p>
 
+**Dicionário de dados**
+<p align="center">
+    <img src="https://ik.imagekit.io/xfddek6eqk/Dicion_rio_de_dados_Cinema_1_IWhAY_zpj.png" alt="Dicionário de dados parte 1"/>
+    
+  </p>
+  <p align="center"><i>Dicionário de dados parte 1</i></p>
