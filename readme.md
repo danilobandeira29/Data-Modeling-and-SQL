@@ -4262,3 +4262,9 @@ Cada funcionário é caracterizado pelo número da carteira da trabalho (único)
     
   </p>
   <p align="center"><i>Dicionário de dados parte 1</i></p>
+
+<p align="center">
+    <img src="https://ik.imagekit.io/xfddek6eqk/Dicion_rio_de_dados_Cinema_2_oukoupagB.png" alt="Dicionário de dados parte 2"/>
+    
+  </p>
+  <p align="center"><i>Dicionário de dados parte 2</i></p>
