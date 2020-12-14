@@ -4239,3 +4239,12 @@ Cada funcionário é caracterizado pelo número da carteira da trabalho (único)
 - Cod_funcionario
 - Cod_horario
 - Cod_funcao
+
+## Modelo-Entidade Relacionamento
+
+<p align="center">
+    <img src="https://ik.imagekit.io/xfddek6eqk/MER_Cinema_CFfN_Oa0e.jpg
+" alt="Modelo-Entidade Relacionamento Cinema."/>
+    
+  </p>
+  <p align="center"><i>Modelo-Entidade Relacionamento Cinema.</i></p>
