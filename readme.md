@@ -4280,3 +4280,123 @@ Cada funcionário é caracterizado pelo número da carteira da trabalho (único)
     
   </p>
   <p align="center"><i>Dicionário de dados parte 4</i></p>
+
+**Implementação**
+```sql
+create database db_cinema;
+
+use db_cinema;
+
+create table if not exists tbl_sala(
+	cod int auto_increment primary key,
+    capacidade int not null
+);
+
+create table if not exists tbl_filme(
+	cod int auto_increment primary key,
+    nome_brasileiro varchar(100) not null unique,
+    nome_original varchar(100),
+    ano date not null
+);
+
+create table if not exists tbl_indicacao(
+	cod int auto_increment primary key,
+    descricao text not null,
+    premiado boolean not null default false
+);
+
+create table if not exists tbl_genero(
+	cod int auto_increment primary key,
+    genero varchar(20) not null
+);
+
+create table if not exists tbl_diretor(
+	cod int auto_increment primary key,
+    nome varchar(100) not null
+);
+
+create table if not exists tbl_horario(
+	cod int auto_increment primary key,
+    horario datetime not null
+);
+
+create table if not exists tbl_funcao(
+	cod int auto_increment primary key,
+    nome varchar(30) not null
+);
+
+create table if not exists tbl_funcionario(
+	cod int auto_increment primary key,
+    nome varchar(50) not null,
+    sobrenome varchar(70) not null,
+    data_contratacao date not null
+);
+
+create table if not exists tbl_funcionario_horario_funcao(
+	cod_funcionario int,
+    cod_horario int,
+    cod_funcao int,
+    primary key(cod_funcionario, cod_horario, cod_funcao),
+    constraint fk_codFuncionario_tblFuncionarioHorarioFuncao
+		foreign key(cod_funcionario) references tbl_funcionario(cod) on update cascade,
+	constraint fk_codHorario_tblFuncionarioHorarioFuncao
+		foreign key(cod_horario) references tbl_horario(cod) on update cascade,
+	constraint fk_codFuncao_tblFuncionarioHorarioFuncao
+		foreign key(cod_funcao) references tbl_funcao(cod) on update cascade
+);
+
+create table if not exists tbl_sala_horario_filme(
+	cod_sala int,
+    cod_horario int,
+    cod_filme int,
+    primary key(cod_sala, cod_horario, cod_filme),
+    constraint fk_codSala_tblSalaHorarioFilme
+		foreign key(cod_sala) references tbl_sala(cod) on update cascade,
+    constraint fk_codFilme_tblSalaHorarioFilme
+		foreign key(cod_filme) references tbl_filme(cod) on update cascade,
+	constraint fk_codHorario_tblSalaHorarioFilme
+		foreign key(cod_horario) references tbl_horario(cod) on update cascade
+);
+
+create table if not exists tbl_filme_indicacao(
+	cod_filme int,
+    cod_indicacao int,
+    primary key(cod_filme, cod_indicacao),
+    constraint fk_codFilme_tblFilmeIndicacao
+		foreign key(cod_filme) references tbl_filme(cod) on update cascade,
+	constraint fk_codIndicacao_tblFilmeIndicacao
+		foreign key(cod_indicacao) references tbl_indicacao(cod) on update cascade
+);
+
+create table if not exists tbl_filme_genero(
+	cod_filme int,
+    cod_genero int,
+    primary key(cod_filme, cod_genero),
+    constraint fk_codFilme_tblFilmeGenero
+		foreign key(cod_filme) references tbl_filme(cod) on update cascade,
+    constraint fk_codGenero_tblFilmeGenero
+		foreign key(cod_genero) references tbl_genero(cod) on update cascade
+);
+
+create table if not exists tbl_filme_diretor(
+	cod_filme int,
+    cod_diretor int,
+    primary key(cod_filme, cod_diretor),
+    constraint fk_codFilme_tblFilmeDiretor
+		foreign key(cod_filme) references tbl_filme(cod) on update cascade,
+	constraint fk_codDiretor_tblFilmeDiretor
+		foreign key(cod_diretor) references tbl_diretor(cod) on update cascade
+);
+
+alter table tbl_indicacao drop column premiado;
+alter table tbl_indicacao drop column ano;
+
+alter table tbl_filme_indicacao add column premiado boolean not null default false;
+
+alter table tbl_filme_indicacao add column ano date not null;
+
+select * from tbl_indicacao;
+
+select * from tbl_filme_indicacao;
+
+```
