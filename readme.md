@@ -4400,3 +4400,42 @@ select * from tbl_indicacao;
 select * from tbl_filme_indicacao;
 
 ```
+
+**Inserção de dados**
+```sql
+insert into tbl_sala(capacidade) values (10), (20), (30);
+
+insert into tbl_filme(nome_brasileiro, nome_original, ano)
+values 
+('Vingadores Ultimato', 'Avengers: Endgame', '2019-03-29'),
+('Vingadores Guerra Infinita',  'Avengers: Infinity War', '2018-03-29'),
+('Sherlock Holmes: O Jogo das Sombras', 'Sherlock Holmes: A Game of Shadows', '2011-12-29');
+
+insert into tbl_filme(nome_brasileiro, nome_original, ano)
+values ('Bill e Ted', 'Bill & Ted', '1993-10-01');
+
+insert into tbl_diretor(nome) values ('Anthony Russo'), ('Joe Russo'), ('Guy Ritchie');
+
+insert into tbl_genero(genero) values ('Action'), ('Sci-fi'), ('Adventure'), ('Mistery');
+
+insert into tbl_indicacao(descricao) values ('Sucesso de bilheteria'), ('Melhor história'), ('Melhor interpretação');
+
+insert into tbl_horario(horario) values ('2019-03-29 16:00:00'), ('2019-03-29 22:00:00'), ('2019-03-30 00:00:00'), ('2019-03-30 14:00:00');
+
+insert into tbl_funcao(nome) values ('bala'), ('bilhete'), ('pipoca');
+
+insert into tbl_funcionario(nome, sobrenome, data_contratacao) values ('Danilo', 'Bandeira', '2019-01-01'), ('Ana Carolina', 'Banana', '2019-01-01'), ('José', 'Bandeira', '2019-01-01');
+
+insert into tbl_sala_horario_filme(cod_sala, cod_horario, cod_filme) values(1, 2, 1), (2, 2, 3), (3, 3, 3);
+
+insert into tbl_sala_horario_filme(cod_sala, cod_horario, cod_filme) values (1, 1, 2);
+
+insert into tbl_funcionario_horario_funcao(cod_funcionario, cod_horario, cod_funcao) values(1, 2, 1), (1, 3, 2), (2, 2, 2), (3, 3, 1);
+
+insert into tbl_filme_diretor(cod_filme, cod_diretor) values(1, 1), (1, 2), (2, 1), (2, 2), (3, 3);
+
+insert into tbl_filme_genero(cod_filme, cod_genero) values(1, 1), (1, 2), (1, 3), (2, 1), (2, 2), (2, 3), (3, 4), (3,3), (3, 1);
+
+insert into tbl_filme_indicacao(cod_filme, cod_indicacao, ano, premiado) values(1, 3, '2020-02-09', true), (2, 1, '2019-02-09', false), (3, 2, '2014-02-09', true);
+
+```
