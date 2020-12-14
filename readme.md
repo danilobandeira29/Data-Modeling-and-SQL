@@ -4275,3 +4275,8 @@ Cada funcionário é caracterizado pelo número da carteira da trabalho (único)
   <p align="center"><i>Dicionário de dados parte 3
 </i></p>
 
+<p align="center">
+    <img src="https://ik.imagekit.io/xfddek6eqk/Dicion_rio_de_dados_Cinema_4_Fdy_2YX6p.png" alt="Dicionário de dados parte 4"/>
+    
+  </p>
+  <p align="center"><i>Dicionário de dados parte 4</i></p>
