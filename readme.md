@@ -4439,3 +4439,64 @@ insert into tbl_filme_genero(cod_filme, cod_genero) values(1, 1), (1, 2), (1, 3)
 insert into tbl_filme_indicacao(cod_filme, cod_indicacao, ano, premiado) values(1, 3, '2020-02-09', true), (2, 1, '2019-02-09', false), (3, 2, '2014-02-09', true);
 
 ```
+
+**Testes**
+```sql
+select * from tbl_sala;
+select * from tbl_horario;
+select * from tbl_filme;
+select * from tbl_funcionario;
+select * from tbl_diretor;
+select * from tbl_genero;
+select * from tbl_filme_diretor;
+select * from tbl_filme_indicacao;
+
+-- todos os filmes(nome em brasileiro e original, caso exista), capacidade da sala, horarios de exibição e quais indicações e premiações o filme ganhou
+select F.nome_brasileiro 'nome brasileiro', F.nome_original 'nome original', F.ano 'ano do filme', S.capacidade 'capacidade da sala',
+H.horario 'exibição', I.descricao, FI.premiado 'Foi premiado?', FI.ano 'ano premiação'
+from tbl_filme F
+inner join tbl_sala_horario_filme SHF
+on SHF.cod_filme = F.cod
+inner join tbl_sala S
+on S.cod = SHF.cod_sala
+inner join tbl_horario H
+on H.cod = SHF.cod_horario
+inner join tbl_filme_indicacao FI
+on FI.cod_filme = F.cod
+inner join tbl_indicacao I
+on I.cod = FI.cod_indicacao;
+
+-- todos os filmes com seus diretores e premiações
+select F.nome_brasileiro, D.nome, I.descricao, FP.ano, FP.premiado from tbl_filme F
+inner join tbl_filme_diretor FD
+on FD.cod_filme = F.cod
+inner join tbl_diretor D
+on D.cod = FD.cod_diretor
+inner join tbl_filme_indicacao FP
+on FP.cod_filme = F.cod
+inner join tbl_indicacao I
+on I.cod = FP.cod_indicacao;
+
+-- todos os filmes, inclusive os que não estão sendo exibidos em nenhuma sala/horário
+select * from tbl_filme F
+left join tbl_sala_horario_filme SHF
+on F.cod = SHF.cod_filme
+left join tbl_sala S
+on S.cod = SHF.cod_sala
+left join tbl_horario H
+on H.cod = SHF.cod_horario;
+
+-- todos os funcionários e suas funções em determinadas datas que estão sendo exibidos filmes
+select F.nome, FF.nome, H.horario, tbl_filme.nome_brasileiro, SHF.cod_sala from tbl_funcionario F
+inner join tbl_funcionario_horario_funcao FHF
+on F.cod = FHF.cod_funcionario
+inner join tbl_funcao FF
+on FF.cod = FHF.cod_funcao
+inner join tbl_horario H
+on H.cod = FHF.cod_horario
+inner join tbl_sala_horario_filme SHF
+on SHF.cod_horario = H.cod
+inner join tbl_filme
+on tbl_filme.cod = SHF.cod_filme;
+
+```
