@@ -4243,8 +4243,16 @@ Cada funcionário é caracterizado pelo número da carteira da trabalho (único)
 ## Modelo-Entidade Relacionamento
 
 <p align="center">
-    <img src="https://ik.imagekit.io/xfddek6eqk/MER_Cinema_CFfN_Oa0e.jpg
-" alt="Modelo-Entidade Relacionamento Cinema."/>
+    <img src="https://ik.imagekit.io/xfddek6eqk/MER_Cinema_CFfN_Oa0e.jpg" alt="Modelo-Entidade Relacionamento Cinema."/>
     
   </p>
   <p align="center"><i>Modelo-Entidade Relacionamento Cinema.</i></p>
+
+
+## Diagrama-Entidade Relacionamento
+<p align="center">
+    <img src="https://ik.imagekit.io/xfddek6eqk/DER_Cinema_FF-nsuTTO.jpg" alt="Diagrama Entidade Relacionamento Cinema"/>
+    
+  </p>
+  <p align="center"><i>Diagrama Entidade Relacionamento Cinema</i></p>
+
