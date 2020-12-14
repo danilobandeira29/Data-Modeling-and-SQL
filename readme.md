@@ -4268,3 +4268,10 @@ Cada funcionário é caracterizado pelo número da carteira da trabalho (único)
     
   </p>
   <p align="center"><i>Dicionário de dados parte 2</i></p>
+<p align="center">
+    <img src="https://ik.imagekit.io/xfddek6eqk/Dicion_rio_de_dados_Cinema_3_5Oybm9j-6.png" alt="Dicionário de dados parte 3"/>
+    
+  </p>
+  <p align="center"><i>Dicionário de dados parte 3
+</i></p>
+
